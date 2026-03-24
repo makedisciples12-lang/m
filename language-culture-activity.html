@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>언어와 문화 — 프로젝트 2: 플랫폼 노동 담론 탐구</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f5f3ef;
+  --surface: #ffffff;
+  --surface2: #f0ede8;
+  --border: #ddd9d2;
+  --border-focus: #2a2724;
+  --accent: #1e6f4e;
+  --accent-light: #e6f2ec;
+  --accent2: #b85c2a;
+  --accent2-light: #fdf0e8;
+  --text: #1a1816;
+  --text-mid: #4a4744;
+  --text-muted: #9a9490;
+  --yt-color: #c0392b;
+  --yt-light: #fdf2f2;
+  --art-color: #2471a3;
+  --art-light: #eaf4fc;
+  --week1: #1e6f4e;
+  --week2: #b85c2a;
+  --week3: #2471a3;
+  --radius: 8px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.top-bar{
+  background:var(--text);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 32px;
+  height:48px;
+  position:sticky;top:0;z-index:200;
+}
+.top-bar .logo{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;opacity:.7;}
+.top-bar .logo span{opacity:1;color:#7ecfa5;}
+
+.progress-wrap{display:flex;align-items:center;gap:10px;}
+.prog-bar{width:140px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:#7ecfa5;border-radius:2px;transition:width .4s ease;width:0%;}
+.prog-label{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);white-space:nowrap;}
+
+.week-nav{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;padding:0 32px;
+  position:sticky;top:48px;z-index:190;
+}
+.w-tab{
+  padding:14px 24px;font-size:13px;font-weight:500;
+  color:var(--text-muted);cursor:pointer;
+  border:none;background:transparent;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:all .2s;white-space:nowrap;
+}
+.w-tab:hover{color:var(--text-mid);}
+.w-tab.active.w1{color:var(--week1);border-bottom-color:var(--week1);}
+.w-tab.active.w2{color:var(--week2);border-bottom-color:var(--week2);}
+.w-tab.active.w3{color:var(--week3);border-bottom-color:var(--week3);}
+
+.panel{display:none;max-width:820px;margin:0 auto;padding:40px 32px 80px;}
+.panel.active{display:block;animation:up .25s ease;}
+@keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.panel-hero{margin-bottom:32px;}
+.panel-hero .week-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.panel-hero h2{font-size:26px;font-weight:700;line-height:1.3;margin-bottom:8px;}
+.panel-hero .desc{font-size:13px;color:var(--text-muted);max-width:540px;line-height:1.8;}
+.time-tag{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:10px;}
+
+.stu-card{display:grid;grid-template-columns:1fr 1fr 1fr 120px;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;}
+.fg label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
+.fg input,.fg select{width:100%;border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;}
+.fg input:focus,.fg select:focus{border-color:var(--border-focus);}
+
+.rn{display:flex;gap:12px;background:var(--accent-light);border:1px solid rgba(30,111,78,.15);border-radius:var(--radius);padding:14px 16px;margin-bottom:28px;}
+.rn .rn-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.rn .rn-text{font-size:12px;color:var(--text-mid);line-height:1.7;}
+.rn .rn-text strong{color:var(--accent);font-weight:600;}
+
+/* SOURCE STEPPER */
+.src-stepper{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
+.src-step-btn{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:12px;color:var(--text-muted);transition:all .2s;font-family:'Noto Sans KR',sans-serif;}
+.src-step-btn .sn{width:20px;height:20px;border-radius:50%;background:var(--border);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:10px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.src-step-btn.active{border-color:var(--text);background:var(--text);color:#fff;}
+.src-step-btn.active .sn{background:#fff;color:var(--text);}
+.src-step-btn.done .sn{background:var(--accent);color:#fff;}
+.src-step-btn.done{border-color:var(--accent);color:var(--accent);}
+
+.src-panel{display:none;}
+.src-panel.active{display:block;animation:up .2s ease;}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
+.card-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.card-head .ch-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.card-head .ch-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;}
+.card-head .ch-tag{font-family:'DM Mono',monospace;font-size:9px;border-radius:3px;padding:2px 8px;border:1px solid;}
+
+.yt-card{border-left:3px solid var(--yt-color);}
+.yt-dot{background:var(--yt-color);}
+.yt-tag{color:var(--yt-color);border-color:var(--yt-color);background:var(--yt-light);}
+.art-card{border-left:3px solid var(--art-color);}
+.art-dot{background:var(--art-color);}
+.art-tag{color:var(--art-color);border-color:var(--art-color);background:var(--art-light);}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fl{display:flex;flex-direction:column;gap:5px;}
+.fl label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);}
+
+.inp{border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;resize:vertical;}
+.inp:focus{border-color:var(--border-focus);}
+textarea.inp{min-height:80px;line-height:1.7;}
+.w-full{width:100%;}
+
+.kw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
+.kw-inp{border:1px solid var(--border);border-radius:5px;padding:7px 8px;font-family:'Noto Sans KR',sans-serif;font-size:13px;text-align:center;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s;width:100%;}
+.kw-inp:focus{border-color:var(--border-focus);}
+
+.frame-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.fb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-size:12px;cursor:pointer;transition:all .15s;font-family:'Noto Sans KR',sans-serif;}
+.fb:hover{border-color:var(--text-mid);color:var(--text);}
+.fb.sel-neg{background:#c0392b;color:#fff;border-color:#c0392b;}
+.fb.sel-pos{background:var(--accent);color:#fff;border-color:var(--accent);}
+.fb.sel-mix{background:var(--accent2);color:#fff;border-color:var(--accent2);}
+.fb.sel-neu{background:#555;color:#fff;border-color:#555;}
+
+.rating-row{display:flex;gap:5px;align-items:center;}
+.rb{width:34px;height:34px;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.rb:hover{border-color:var(--text-mid);}
+.rb.on{background:var(--text);color:#fff;border-color:var(--text);}
+
+hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
+
+.step-label{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.step-label .snum{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:3px 9px;color:var(--text-muted);white-space:nowrap;}
+.step-label .stitle{font-size:15px;font-weight:600;}
+.step-label .stime{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-left:auto;}
+.step-desc{font-size:13px;color:var(--text-mid);margin-bottom:18px;padding:10px 14px;border-left:2px solid var(--border);line-height:1.8;}
+
+.compare-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
+
+.sum-table{width:100%;border-collapse:collapse;font-size:12px;}
+.sum-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
+.sum-table td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;color:var(--text-mid);}
+.sum-table tr:nth-child(even) td{background:var(--surface2);}
+
+.reuse-table,.team-table{width:100%;border-collapse:collapse;}
+.reuse-table th,.team-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
+.reuse-table td,.team-table td{border:1px solid var(--border);padding:6px 8px;}
+.reuse-table td input,.reuse-table td select,.team-table td input,.team-table td select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:'Noto Sans KR',sans-serif;font-size:12px;background:var(--bg);color:var(--text);outline:none;}
+.reuse-table td input:focus,.reuse-table td select:focus,.team-table td input:focus,.team-table td select:focus{border-color:var(--border-focus);}
+
+.nav-row{display:flex;gap:10px;margin-top:20px;}
+.btn-prev,.btn-next,.btn-submit{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:6px;padding:11px 22px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;}
+.btn-prev{background:var(--surface2);border:1px solid var(--border);color:var(--text-mid);}
+.btn-prev:hover{background:var(--border);}
+.btn-next{background:var(--text);color:#fff;}
+.btn-next:hover{background:#333;}
+.btn-submit{background:var(--accent);color:#fff;}
+.btn-submit:hover{background:#186040;}
+.btn-submit.w2{background:var(--week2);}
+.btn-submit.w2:hover{background:#9e4e22;}
+.btn-submit.w3{background:var(--week3);}
+.btn-submit.w3:hover{background:#1c5f8e;}
+
+.submit-area{margin-top:40px;padding-top:28px;border-top:1px solid var(--border);}
+.checklist{margin-bottom:22px;}
+.ci{display:flex;align-items:flex-start;gap:9px;padding:6px 0;font-size:13px;color:var(--text-mid);cursor:pointer;user-select:none;}
+.ci .cbox{width:17px;height:17px;flex-shrink:0;border:1px solid var(--border);border-radius:4px;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.ci.done .cbox{background:var(--accent);border-color:var(--accent);}
+.ci.done .cbox::after{content:'✓';font-size:10px;color:#fff;}
+.ci.done{color:var(--text);}
+
+.sec-div{display:flex;align-items:center;gap:10px;margin:24px 0 16px;}
+.sec-div span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
+.sec-div::before,.sec-div::after{content:'';flex:1;height:1px;background:var(--border);}
+
+#toast{position:fixed;bottom:30px;right:30px;background:var(--text);color:#fff;border-radius:7px;padding:12px 18px;font-size:13px;z-index:999;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;max-width:320px;line-height:1.5;}
+#toast.show{opacity:1;transform:translateY(0);}
+
+#saved-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.4);transition:opacity .3s;opacity:0;}
+#saved-pill.show{opacity:1;}
+
+@media(max-width:640px){
+  .panel{padding:24px 16px 60px;}
+  .week-nav{padding:0 16px;overflow-x:auto;}
+  .stu-card{grid-template-columns:1fr 1fr;}
+  .row2{grid-template-columns:1fr;}
+  .kw-grid{grid-template-columns:repeat(3,1fr);}
+  .top-bar{padding:0 16px;}
+  .prog-bar{width:80px;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo">언어와 문화 <span>/ Project 2</span></div>
+  <div class="progress-wrap">
+    <span id="saved-pill">저장됨</span>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    <span class="prog-label" id="prog-label">—</span>
+  </div>
+</div>
+
+<nav class="week-nav">
+  <button class="w-tab active w1" data-w="1" onclick="switchWeek(1)">주 1 — 자료 분석</button>
+  <button class="w-tab w2" data-w="2" onclick="switchWeek(2)">주 2 — 의견문</button>
+  <button class="w-tab w3" data-w="3" onclick="switchWeek(3)">주 3 — 토의</button>
+</nav>
+
+<!-- ══════════════ WEEK 1 ══════════════ -->
+<div class="panel active" id="panel-1">
+  <div class="panel-hero">
+    <div class="week-label">Week 1 · 주 1</div>
+    <h2>플랫폼 노동 자료 찾기 &amp; 언어 분석</h2>
+    <p class="desc">YouTube 2개, 뉴스·블로그 2개를 직접 찾고, <strong>자료 하나씩 차례대로</strong> 분석합니다. 각 자료를 보기 전후의 생각 변화를 그때그때 기록하세요.</p>
+    <div class="time-tag">⏱ 총 40분 · 자료 탐색 10분 + 분석 15분 + 비교 15분</div>
+  </div>
+
+  <div class="stu-card">
+    <div class="fg"><label>이름</label><input type="text" id="si-name" placeholder="홍길동"></div>
+    <div class="fg"><label>학번</label><input type="text" id="si-id" placeholder="2024XXXXX"></div>
+    <div class="fg"><label>전공</label>
+      <select id="si-major">
+        <option value="">선택</option>
+        <option>간호학과</option><option>물리치료학과</option>
+        <option>경찰행정학과</option><option>기타</option>
+      </select>
+    </div>
+    <div class="fg"><label>팀</label><input type="text" id="si-team" placeholder="A팀"></div>
+  </div>
+
+  <div class="rn">
+    <div class="rn-icon">🔬</div>
+    <div class="rn-text"><strong>연구 목적 (RQ1)</strong> — YouTube와 텍스트가 플랫폼 노동을 어떻게 다르게 묘사하는지 비교합니다. 여러분이 고른 키워드·프레임·생각 변화가 CDA 핵심 데이터입니다.</div>
+  </div>
+
+  <!-- STEPPER -->
+  <div class="src-stepper" id="stepper1">
+    <button class="src-step-btn active" data-src="1" onclick="switchSrc(1)"><span class="sn">1</span>YouTube 1</button>
+    <button class="src-step-btn" data-src="2" onclick="switchSrc(2)"><span class="sn">2</span>YouTube 2</button>
+    <button class="src-step-btn" data-src="3" onclick="switchSrc(3)"><span class="sn">3</span>뉴스/기사 1</button>
+    <button class="src-step-btn" data-src="4" onclick="switchSrc(4)"><span class="sn">4</span>뉴스/기사 2</button>
+    <button class="src-step-btn" data-src="compare" onclick="switchSrc('compare')"><span class="sn">✦</span>전체 비교</button>
+  </div>
+
+  <!-- ── SOURCE 1 ── -->
+  <div class="src-panel active" id="sp-1">
+    <div class="card yt-card">
+      <div class="card-head"><div class="ch-dot yt-dot"></div><span class="ch-label">자료 1 — YouTube 영상 정보 입력</span><span class="ch-tag yt-tag">YouTube</span></div>
+      <div class="row2">
+        <div class="fl"><label>정확한 제목 (그대로 복사)</label><input class="inp w-full" type="text" id="s1-title" placeholder="예: 쿠팡플렉스 하루 10만원 벌기 Vlog"></div>
+        <div class="fl"><label>URL 전체</label><input class="inp w-full" type="url" id="s1-url" placeholder="https://youtu.be/..."></div>
+      </div>
+      <div class="row2" style="margin-top:10px;">
+        <div class="fl"><label>영상 길이 (분)</label><input class="inp w-full" type="number" id="s1-len" placeholder="8"></div>
+        <div class="fl"><label>왜 골랐나? (신뢰도 1~5점 + 이유 한 문장)</label><input class="inp w-full" type="text" id="s1-why" placeholder="실제 라이더 경험 담아 신뢰 4점"></div>
+      </div>
+    </div>
+    <div class="sec-div"><span>자료 1 분석 — 보고 나서 바로 작성</span></div>
+    <div class="card yt-card">
+      <div class="card-head"><div class="ch-dot yt-dot"></div><span class="ch-label">자료 1 키워드 · 프레임 · 생각 변화</span></div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 영상에서 강한 느낌을 주는 핵심 단어 5개</label>
+        <div class="kw-grid">
+          <input class="kw-inp" id="kw1-1" placeholder="단어 1"><input class="kw-inp" id="kw1-2" placeholder="단어 2">
+          <input class="kw-inp" id="kw1-3" placeholder="단어 3"><input class="kw-inp" id="kw1-4" placeholder="단어 4">
+          <input class="kw-inp" id="kw1-5" placeholder="단어 5">
+        </div>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 영상의 전체 프레임 — 플랫폼 노동을 어떻게 묘사하나?</label>
+        <div class="frame-wrap">
+          <button class="fb" onclick="selFrame(this,'frame1','부정-피해자')">😰 부정 — 피해자·착취</button>
+          <button class="fb" onclick="selFrame(this,'frame1','긍정-기회')">💰 긍정 — 기회·자유</button>
+          <button class="fb" onclick="selFrame(this,'frame1','복합')">⚖️ 복합 — 양면성</button>
+          <button class="fb" onclick="selFrame(this,'frame1','중립')">📰 중립 — 사실 나열</button>
+        </div>
+        <input type="hidden" id="frame1" value="">
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 영상의 전체 메시지를 한 문장으로</label>
+        <textarea class="inp w-full" id="feel1" placeholder="예: 플랫폼이 라이더를 착취한다는 감정적 피해자 서사를 강조한다."></textarea>
+      </div>
+      <hr class="div" style="margin:14px 0;">
+      <div class="fl" style="margin-bottom:10px;">
+        <label>📌 이 영상 보기 전 — 플랫폼 노동에 대해 어떻게 생각하고 있었나?</label>
+        <textarea class="inp w-full" id="pre1" placeholder="예: 배달 알바는 자유롭고 돈도 잘 버는 줄 알았다."></textarea>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>📌 이 영상 본 후 — 생각이 바뀌었나? 어떻게?</label>
+        <textarea class="inp w-full" id="post1" placeholder="예: 슬픈 음악과 힘든 장면이 많아서 착취라는 인상이 강해졌다."></textarea>
+      </div>
+      <div class="fl">
+        <label>이 영상이 얼마나 공평했나? (1 = 매우 편향, 5 = 매우 공평)</label>
+        <div class="rating-row" id="rating-fair1">
+          <button class="rb" onclick="setRating('fair1',1,this)">1</button><button class="rb" onclick="setRating('fair1',2,this)">2</button>
+          <button class="rb" onclick="setRating('fair1',3,this)">3</button><button class="rb" onclick="setRating('fair1',4,this)">4</button>
+          <button class="rb" onclick="setRating('fair1',5,this)">5</button>
+        </div>
+        <input type="hidden" id="fair1" value="">
+        <input class="inp w-full" type="text" id="fair1-reason" placeholder="공평성 점수 이유 (예: 유튜버 개인 입장만 강조, 반론 없음)" style="margin-top:7px;">
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-next" onclick="switchSrc(2)">자료 2로 이동 →</button></div>
+  </div>
+
+  <!-- ── SOURCE 2 ── -->
+  <div class="src-panel" id="sp-2">
+    <div class="card yt-card">
+      <div class="card-head"><div class="ch-dot yt-dot"></div><span class="ch-label">자료 2 — YouTube 영상 정보 입력</span><span class="ch-tag yt-tag">YouTube</span></div>
+      <div class="row2">
+        <div class="fl"><label>정확한 제목</label><input class="inp w-full" type="text" id="s2-title" placeholder="예: 배달 기사 하루 수입 공개 Vlog"></div>
+        <div class="fl"><label>URL 전체</label><input class="inp w-full" type="url" id="s2-url" placeholder="https://youtu.be/..."></div>
+      </div>
+      <div class="row2" style="margin-top:10px;">
+        <div class="fl"><label>영상 길이 (분)</label><input class="inp w-full" type="number" id="s2-len" placeholder="12"></div>
+        <div class="fl"><label>왜 골랐나? (신뢰도 1~5점 + 이유)</label><input class="inp w-full" type="text" id="s2-why" placeholder="구독자 많고 내용 상세 — 신뢰 3점"></div>
+      </div>
+    </div>
+    <div class="sec-div"><span>자료 2 분석</span></div>
+    <div class="card yt-card">
+      <div class="card-head"><div class="ch-dot yt-dot"></div><span class="ch-label">자료 2 키워드 · 프레임 · 생각 변화</span></div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>핵심 단어 5개</label>
+        <div class="kw-grid">
+          <input class="kw-inp" id="kw2-1" placeholder="단어 1"><input class="kw-inp" id="kw2-2" placeholder="단어 2">
+          <input class="kw-inp" id="kw2-3" placeholder="단어 3"><input class="kw-inp" id="kw2-4" placeholder="단어 4">
+          <input class="kw-inp" id="kw2-5" placeholder="단어 5">
+        </div>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 영상의 전체 프레임</label>
+        <div class="frame-wrap">
+          <button class="fb" onclick="selFrame(this,'frame2','부정-피해자')">😰 부정 — 피해자·착취</button>
+          <button class="fb" onclick="selFrame(this,'frame2','긍정-기회')">💰 긍정 — 기회·자유</button>
+          <button class="fb" onclick="selFrame(this,'frame2','복합')">⚖️ 복합 — 양면성</button>
+          <button class="fb" onclick="selFrame(this,'frame2','중립')">📰 중립 — 사실 나열</button>
+        </div>
+        <input type="hidden" id="frame2" value="">
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>전체 메시지 한 문장</label>
+        <textarea class="inp w-full" id="feel2" placeholder="이 영상이 전달하는 핵심 메시지는?"></textarea>
+      </div>
+      <hr class="div" style="margin:14px 0;">
+      <div class="fl" style="margin-bottom:10px;">
+        <label>📌 자료 1을 본 후 → 자료 2 보기 전 내 생각 (자료 1이 시각에 영향을 줬나?)</label>
+        <textarea class="inp w-full" id="pre2" placeholder="예: 자료 1 보고 착취라는 생각이 생겼는데, 자료 2도 비슷할 것 같다."></textarea>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>📌 자료 2 본 후 생각 변화</label>
+        <textarea class="inp w-full" id="post2" placeholder="예: 자료 2는 더 긍정적이어서 자료 1의 부정적 인상이 조금 줄었다."></textarea>
+      </div>
+      <div class="fl">
+        <label>이 영상의 공평성 점수 (1~5)</label>
+        <div class="rating-row" id="rating-fair2">
+          <button class="rb" onclick="setRating('fair2',1,this)">1</button><button class="rb" onclick="setRating('fair2',2,this)">2</button>
+          <button class="rb" onclick="setRating('fair2',3,this)">3</button><button class="rb" onclick="setRating('fair2',4,this)">4</button>
+          <button class="rb" onclick="setRating('fair2',5,this)">5</button>
+        </div>
+        <input type="hidden" id="fair2" value="">
+        <input class="inp w-full" type="text" id="fair2-reason" placeholder="공평성 이유" style="margin-top:7px;">
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-prev" onclick="switchSrc(1)">← 자료 1</button><button class="btn-next" onclick="switchSrc(3)">자료 3으로 →</button></div>
+  </div>
+
+  <!-- ── SOURCE 3 ── -->
+  <div class="src-panel" id="sp-3">
+    <div class="card art-card">
+      <div class="card-head"><div class="ch-dot art-dot"></div><span class="ch-label">자료 3 — 뉴스 / 기사 / 블로그</span><span class="ch-tag art-tag">텍스트</span></div>
+      <div class="row2">
+        <div class="fl"><label>정확한 제목</label><input class="inp w-full" type="text" id="s3-title" placeholder="예: 배민 라이더 과로사 논란"></div>
+        <div class="fl"><label>URL 전체</label><input class="inp w-full" type="url" id="s3-url" placeholder="https://n.news.naver.com/..."></div>
+      </div>
+      <div class="row2" style="margin-top:10px;">
+        <div class="fl"><label>글자 수 (약)</label><input class="inp w-full" type="number" id="s3-len" placeholder="1200"></div>
+        <div class="fl"><label>왜 골랐나? (신뢰도 1~5점 + 이유)</label><input class="inp w-full" type="text" id="s3-why" placeholder="공식 언론이라 신뢰 5점"></div>
+      </div>
+    </div>
+    <div class="sec-div"><span>자료 3 분석</span></div>
+    <div class="card art-card">
+      <div class="card-head"><div class="ch-dot art-dot"></div><span class="ch-label">자료 3 키워드 · 프레임 · 생각 변화</span></div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>핵심 단어 5개</label>
+        <div class="kw-grid">
+          <input class="kw-inp" id="kw3-1" placeholder="단어 1"><input class="kw-inp" id="kw3-2" placeholder="단어 2">
+          <input class="kw-inp" id="kw3-3" placeholder="단어 3"><input class="kw-inp" id="kw3-4" placeholder="단어 4">
+          <input class="kw-inp" id="kw3-5" placeholder="단어 5">
+        </div>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 글의 전체 프레임</label>
+        <div class="frame-wrap">
+          <button class="fb" onclick="selFrame(this,'frame3','부정-피해자')">😰 부정 — 피해자·착취</button>
+          <button class="fb" onclick="selFrame(this,'frame3','긍정-기회')">💰 긍정 — 기회·자유</button>
+          <button class="fb" onclick="selFrame(this,'frame3','복합')">⚖️ 복합 — 양면성</button>
+          <button class="fb" onclick="selFrame(this,'frame3','중립')">📰 중립 — 사실 나열</button>
+        </div>
+        <input type="hidden" id="frame3" value="">
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>전체 메시지 한 문장</label>
+        <textarea class="inp w-full" id="feel3" placeholder="이 기사가 전달하는 핵심 메시지는?"></textarea>
+      </div>
+      <hr class="div" style="margin:14px 0;">
+      <div class="fl" style="margin-bottom:10px;">
+        <label>📌 YouTube 2개를 본 후 → 이 텍스트 읽기 전 내 생각 (영상이 내 시각에 영향을 줬나?)</label>
+        <textarea class="inp w-full" id="pre3" placeholder="예: YouTube 두 개 보고 플랫폼 노동이 힘들다는 인상을 받았다."></textarea>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>📌 자료 3 읽은 후 생각 변화</label>
+        <textarea class="inp w-full" id="post3" placeholder="예: 기사에 통계가 있어서 YouTube보다 균형 잡혔고 더 신뢰할 수 있었다."></textarea>
+      </div>
+      <div class="fl">
+        <label>이 자료의 공평성 점수 (1~5)</label>
+        <div class="rating-row" id="rating-fair3">
+          <button class="rb" onclick="setRating('fair3',1,this)">1</button><button class="rb" onclick="setRating('fair3',2,this)">2</button>
+          <button class="rb" onclick="setRating('fair3',3,this)">3</button><button class="rb" onclick="setRating('fair3',4,this)">4</button>
+          <button class="rb" onclick="setRating('fair3',5,this)">5</button>
+        </div>
+        <input type="hidden" id="fair3" value="">
+        <input class="inp w-full" type="text" id="fair3-reason" placeholder="공평성 이유" style="margin-top:7px;">
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-prev" onclick="switchSrc(2)">← 자료 2</button><button class="btn-next" onclick="switchSrc(4)">자료 4로 →</button></div>
+  </div>
+
+  <!-- ── SOURCE 4 ── -->
+  <div class="src-panel" id="sp-4">
+    <div class="card art-card">
+      <div class="card-head"><div class="ch-dot art-dot"></div><span class="ch-label">자료 4 — 뉴스 / 기사 / 블로그</span><span class="ch-tag art-tag">텍스트</span></div>
+      <div class="row2">
+        <div class="fl"><label>정확한 제목</label><input class="inp w-full" type="text" id="s4-title" placeholder="예: 플랫폼 경제 속 라이더의 선택"></div>
+        <div class="fl"><label>URL 전체</label><input class="inp w-full" type="url" id="s4-url" placeholder="https://..."></div>
+      </div>
+      <div class="row2" style="margin-top:10px;">
+        <div class="fl"><label>글자 수 (약)</label><input class="inp w-full" type="number" id="s4-len" placeholder="800"></div>
+        <div class="fl"><label>왜 골랐나? (신뢰도 1~5점 + 이유)</label><input class="inp w-full" type="text" id="s4-why" placeholder="개인 경험 생생 — 신뢰 3점"></div>
+      </div>
+    </div>
+    <div class="sec-div"><span>자료 4 분석</span></div>
+    <div class="card art-card">
+      <div class="card-head"><div class="ch-dot art-dot"></div><span class="ch-label">자료 4 키워드 · 프레임 · 생각 변화</span></div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>핵심 단어 5개</label>
+        <div class="kw-grid">
+          <input class="kw-inp" id="kw4-1" placeholder="단어 1"><input class="kw-inp" id="kw4-2" placeholder="단어 2">
+          <input class="kw-inp" id="kw4-3" placeholder="단어 3"><input class="kw-inp" id="kw4-4" placeholder="단어 4">
+          <input class="kw-inp" id="kw4-5" placeholder="단어 5">
+        </div>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>이 글의 전체 프레임</label>
+        <div class="frame-wrap">
+          <button class="fb" onclick="selFrame(this,'frame4','부정-피해자')">😰 부정 — 피해자·착취</button>
+          <button class="fb" onclick="selFrame(this,'frame4','긍정-기회')">💰 긍정 — 기회·자유</button>
+          <button class="fb" onclick="selFrame(this,'frame4','복합')">⚖️ 복합 — 양면성</button>
+          <button class="fb" onclick="selFrame(this,'frame4','중립')">📰 중립 — 사실 나열</button>
+        </div>
+        <input type="hidden" id="frame4" value="">
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>전체 메시지 한 문장</label>
+        <textarea class="inp w-full" id="feel4" placeholder="이 글이 전달하는 핵심 메시지는?"></textarea>
+      </div>
+      <hr class="div" style="margin:14px 0;">
+      <div class="fl" style="margin-bottom:10px;">
+        <label>📌 자료 3을 읽은 후 → 자료 4 읽기 전 내 생각</label>
+        <textarea class="inp w-full" id="pre4" placeholder="예: 자료 3 기사에서 구조적 문제를 알게 됐다."></textarea>
+      </div>
+      <div class="fl" style="margin-bottom:12px;">
+        <label>📌 자료 4 읽은 후 생각 변화</label>
+        <textarea class="inp w-full" id="post4" placeholder="예: 개인 경험이 담겨 있어 기사와 달리 감정이입이 됐다."></textarea>
+      </div>
+      <div class="fl">
+        <label>이 자료의 공평성 점수 (1~5)</label>
+        <div class="rating-row" id="rating-fair4">
+          <button class="rb" onclick="setRating('fair4',1,this)">1</button><button class="rb" onclick="setRating('fair4',2,this)">2</button>
+          <button class="rb" onclick="setRating('fair4',3,this)">3</button><button class="rb" onclick="setRating('fair4',4,this)">4</button>
+          <button class="rb" onclick="setRating('fair4',5,this)">5</button>
+        </div>
+        <input type="hidden" id="fair4" value="">
+        <input class="inp w-full" type="text" id="fair4-reason" placeholder="공평성 이유" style="margin-top:7px;">
+      </div>
+    </div>
+    <div class="nav-row"><button class="btn-prev" onclick="switchSrc(3)">← 자료 3</button><button class="btn-next" onclick="switchSrc('compare')">4개 전체 비교 →</button></div>
+  </div>
+
+  <!-- ── COMPARE ── -->
+  <div class="src-panel" id="sp-compare">
+    <div class="sec-div"><span>Step 3 — 4개 자료 전체 비교 분석</span></div>
+
+    <div class="card" style="background:var(--surface2);margin-bottom:14px;">
+      <div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">내가 입력한 자료 요약 (자동 생성)</span></div>
+      <table class="sum-table" id="sum-table"></table>
+    </div>
+
+    <div class="compare-card">
+      <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q1 — 4개 중 가장 신뢰할 수 있는 자료는?</span></div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+        <span style="font-size:12px;color:var(--text-muted);">자료 번호:</span>
+        <select class="inp" id="q1-num" style="width:80px;"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      </div>
+      <textarea class="inp w-full" id="q1-ans" placeholder="왜 이 자료가 가장 믿음직한가요? 증거·출처·공평성 관점에서 2~3문장으로."></textarea>
+    </div>
+
+    <div class="compare-card">
+      <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q2 — YouTube vs 텍스트 자료의 공통점과 차이점</span></div>
+      <div class="row2">
+        <div class="fl"><label>공통점 (4개 자료가 모두 강조하는 것)</label><textarea class="inp w-full" id="q2-common" placeholder="예: 4개 모두 플랫폼 노동이 고된 일이라는 점은 공통"></textarea></div>
+        <div class="fl"><label>차이점 (YouTube와 텍스트가 다른 점)</label><textarea class="inp w-full" id="q2-diff" placeholder="예: YouTube는 감정·음악 사용, 기사는 통계·전문가 인용"></textarea></div>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 4개 자료를 모두 읽은 뒤 종합적 생각 변화</span></div>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">각 자료별 변화는 위에서 이미 기록했습니다. 여기서는 4개 전체를 다 읽은 뒤 종합해서 내 생각이 어떻게 달라졌는지 써주세요.</p>
+      <div style="display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center;margin-bottom:10px;">
+        <div class="fl"><label>4개 읽기 시작 전 입장</label>
+          <select class="inp" id="overall-before"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>중립 / 잘 몰랐음</option></select>
+        </div>
+        <div style="text-align:center;font-size:16px;color:var(--text-muted);margin-top:16px;">→</div>
+        <div class="fl"><label>4개 다 읽은 후 최종 입장</label>
+          <select class="inp" id="overall-after"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>복합 (양면 인식)</option><option>비판적 중립</option></select>
+        </div>
+      </div>
+      <textarea class="inp w-full" id="q3-overall" placeholder="4개 중 내 생각을 가장 많이 바꾼 자료는 몇 번이었나요? 그 자료의 어떤 점이 영향을 가장 크게 미쳤나요?"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top:10px;"><label>다음 수업 준비 — 플랫폼 노동에 대한 내 결론 한 문장</label>
+    <input class="inp w-full" type="text" id="w1-conclusion" placeholder="예: 플랫폼 노동은 겉보기에는 자유로워 보이지만 실제로는 구조적 착취를 내포하고 있다."></div>
+
+    <div class="submit-area">
+      <div class="checklist">
+        <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자료 4개 URL을 모두 입력했나?</label>
+        <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 자료별 키워드 5개씩 총 20개 입력했나?</label>
+        <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 자료마다 프레임 버튼을 선택했나?</label>
+        <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 자료마다 읽기 전·후 생각 변화를 작성했나?</label>
+        <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Q1~Q3 전체 비교 분석을 완성했나?</label>
+      </div>
+      <button class="btn-submit" onclick="submitWeek(1)">주 1 제출 (JSON 다운로드) →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ WEEK 2 ══════════════ -->
+<div class="panel" id="panel-2">
+  <div class="panel-hero">
+    <div class="week-label" style="color:var(--week2);">Week 2 · 주 2</div>
+    <h2>플랫폼 노동 의견문 쓰기</h2>
+    <p class="desc">주 1 분석 결과를 바탕으로 800자 의견문을 작성하고, 주 1 언어가 내 글에 어떻게 반영됐는지 기록합니다.</p>
+    <div class="time-tag">⏱ 총 40분 · 준비 10분 + 작성 15분 + 반성 15분</div>
+  </div>
+  <div class="rn" style="background:var(--accent2-light);border-color:rgba(184,92,42,.15);">
+    <div class="rn-icon">🔬</div>
+    <div class="rn-text"><strong style="color:var(--week2);">연구 목적 (RQ2)</strong> — 주 1 자료 언어가 쓰기에 재현(재생산)되는지, 비판적으로 변형(저항)되는지 추적합니다.</div>
+  </div>
+
+  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">주 1 연계 — 자료별 키워드 재사용 계획</span><span class="stime">⏱ 10분</span></div>
+  <p class="step-desc">주 1에서 각 자료(1~4)의 대표 키워드를 이 의견문에 어떻게 사용할지 결정하세요.</p>
+
+  <div class="card">
+    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">자료별 대표 키워드 재사용 여부</span></div>
+    <table class="reuse-table">
+      <thead><tr><th>자료</th><th>주 1 대표 키워드</th><th>내 글에서 사용?</th><th>프레임을 따를 것인가?</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 1 (YT)</td><td><input type="text" id="rk1" placeholder="예: 착취"></td><td><select id="rd1"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf1"><option value="">선택</option><option value="follow">따름 (재생산)</option><option value="resist">비판 (저항)</option><option value="partial">부분만 수용</option></select></td></tr>
+        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 2 (YT)</td><td><input type="text" id="rk2" placeholder="예: 자유"></td><td><select id="rd2"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf2"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 3 (텍스트)</td><td><input type="text" id="rk3" placeholder="예: 보호"></td><td><select id="rd3"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf3"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 4 (텍스트)</td><td><input type="text" id="rk4" placeholder="예: 선택"></td><td><select id="rd4"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf4"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="margin-top:10px;">
+    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">이 글의 전체 방향</span></div>
+    <div class="row2">
+      <div class="fl"><label>주 1에서 형성된 플랫폼 노동 이미지</label><input class="inp w-full" type="text" id="w1-frame-carry" placeholder='예: "플랫폼 = 착취 구조이지만 선택의 여지 있음"'></div>
+      <div class="fl"><label>이 글에서 그 이미지를 어떻게 다룰 것인가?</label>
+        <select class="inp" id="w2-stance">
+          <option value="">선택</option>
+          <option value="follow">그대로 따름 — 재생산</option>
+          <option value="partial">부분 동의 — 일부 수정</option>
+          <option value="resist">비판적 저항 — 새 관점 제시</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">800자 의견문 작성</span><span class="stime">⏱ 15분</span></div>
+  <p class="step-desc">Google Docs에서 작성 후 링크를 붙여넣으세요. 주 1 URL 2개 이상 인용 필수.</p>
+  <div class="card">
+    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">Google Docs 링크 (변경 이력 포함 공유)</span></div>
+    <input class="inp w-full" type="url" id="docs-link" placeholder="https://docs.google.com/document/d/..." style="margin-bottom:14px;">
+    <div class="fl" style="margin-bottom:10px;"><label>서론 — 나의 입장 선언</label><textarea class="inp w-full" id="essay-intro" placeholder="예: 플랫폼 노동은 자유로워 보이지만 실제로는 구조적 착취를 내포하고 있다."></textarea></div>
+    <div class="fl" style="margin-bottom:10px;"><label>본론 — 핵심 근거 (주 1 자료 인용 포함)</label><textarea class="inp w-full" id="essay-body" style="min-height:100px;" placeholder="예: 자료 1(YouTube)에서 '착취'라는 표현이 5회 등장하며... / 자료 3(기사)의 통계에 따르면..."></textarea></div>
+    <div class="fl" style="margin-bottom:14px;"><label>결론 — 제안 또는 비판적 재구성</label><textarea class="inp w-full" id="essay-conc" placeholder="예: 단순히 착취 피해자로 볼 것이 아니라 제도적 보호 장치 마련이 필요하다."></textarea></div>
+    <div style="display:flex;gap:20px;">
+      <div class="fl"><label>총 자수</label><input class="inp" type="number" id="essay-len" placeholder="800" style="width:90px;"></div>
+      <div class="fl"><label>주 1 키워드 인용 개수</label><input class="inp" type="number" id="kw-count" placeholder="3" style="width:70px;"></div>
+    </div>
+  </div>
+
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">연구 반성 질문 (RQ2 핵심 데이터)</span><span class="stime">⏱ 15분</span></div>
+  <p class="step-desc">솔직하게 답할수록 연구 가치가 높아집니다.</p>
+  <div style="display:grid;gap:12px;">
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#c0392b"></div><span class="ch-label">Q1 — 재생산: 주 1 키워드를 그대로 썼나? 어느 자료에서 온 단어인가?</span></div><textarea class="inp w-full" id="rq1" placeholder="예: '착취'(자료 1 YouTube), '불안정'(자료 3 기사) — 총 3개 그대로 재사용."></textarea></div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q2 — 저항: 주 1의 편향 프레임을 내 글에서 비판하거나 수정했나? 어떻게?</span></div><textarea class="inp w-full" id="rq2" placeholder="예: 자료 1 YouTube의 감정적 '착취' 서사를 그대로 따르지 않고, 자료 3 통계를 추가해 '구조적 문제'로 재구성했다."></textarea></div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 매체 영향: YouTube vs 텍스트 중 어느 쪽이 내 글쓰기에 더 큰 영향을 줬나? 왜?</span></div><textarea class="inp w-full" id="rq3" placeholder="예: YouTube가 더 큰 영향을 줬다. 시각·청각 자극이 강해서 감정적으로 더 납득됐다."></textarea></div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#555"></div><span class="ch-label">Q4 — 자기평가: 내 글의 근거는 공평했나? (1~5점)</span></div>
+      <div class="rating-row" id="rating-w2q4" style="margin-bottom:10px;">
+        <button class="rb" onclick="setRating('w2q4',1,this)">1</button><button class="rb" onclick="setRating('w2q4',2,this)">2</button>
+        <button class="rb" onclick="setRating('w2q4',3,this)">3</button><button class="rb" onclick="setRating('w2q4',4,this)">4</button>
+        <button class="rb" onclick="setRating('w2q4',5,this)">5</button>
+      </div>
+      <input type="hidden" id="w2q4" value="">
+      <textarea class="inp w-full" id="rq4" placeholder="예: 3점. YouTube만 인용해 편향 위험. 다음엔 텍스트 통계도 포함하겠다."></textarea>
+    </div>
+  </div>
+
+  <div class="submit-area">
+    <div class="checklist">
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자료별 키워드 재사용 표 작성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Google Docs 링크 입력했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>의견문 요약(서론·본론·결론) 입력했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Q1~Q4 반성 질문 모두 답했나?</label>
+    </div>
+    <button class="btn-submit w2" onclick="submitWeek(2)">주 2 제출 (JSON 다운로드) →</button>
+  </div>
+</div>
+
+<!-- ══════════════ WEEK 3 ══════════════ -->
+<div class="panel" id="panel-3">
+  <div class="panel-hero">
+    <div class="week-label" style="color:var(--week3);">Week 3 · 주 3</div>
+    <h2>팀 토의 &amp; 개인 리플렉션</h2>
+    <p class="desc">주 1·2 결과를 바탕으로 팀 토의(15분 녹음)를 진행하고, 매체 언어가 집단 담화에 어떤 영향을 줬는지 기록합니다.</p>
+    <div class="time-tag">⏱ 총 40분 · 토의 15분 + 메모 10분 + 리플렉션 15분</div>
+  </div>
+  <div class="rn" style="background:#eaf4fc;border-color:rgba(36,113,163,.15);">
+    <div class="rn-icon">🔬</div>
+    <div class="rn-text"><strong style="color:var(--week3);">연구 목적 (RQ2 마무리)</strong> — 3주간 매체 담론이 집단 토의에 재현·저항되는 과정과 개인 인지 변화 경로를 추적합니다.</div>
+  </div>
+
+  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">팀 토의 녹음</span><span class="stime">⏱ 15분 — 녹음 필수</span></div>
+  <p class="step-desc">팀원 모두 주 1 대표 키워드·결론 한 문장씩 공유 → 토의: <strong>"주 1 자료의 언어가 내 생각에 얼마나 영향을 줬나? 착취 프레임을 따라갔나, 비판했나?"</strong><br>파일명: [팀번호]_주3토의.mp3</p>
+  <div class="card">
+    <div class="card-head"><div class="ch-dot" style="background:var(--week3)"></div><span class="ch-label">토의 파일 업로드 URL</span></div>
+    <input class="inp w-full" type="url" id="disc-file" placeholder="Google Drive / Classroom 공유 링크" style="margin-bottom:10px;">
+    <div style="display:flex;gap:16px;">
+      <div class="fl"><label>녹음 시간 (분)</label><input class="inp" type="number" id="disc-len" placeholder="15" style="width:80px;"></div>
+      <div class="fl"><label>팀원 수</label><input class="inp" type="number" id="disc-members" placeholder="4" style="width:70px;"></div>
+    </div>
+  </div>
+
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">토의 메모 표 (팀원별 발언 기록)</span><span class="stime">⏱ 10분</span></div>
+  <p class="step-desc">토의 중 실시간으로 기록하거나, 직후 기억을 바탕으로 작성하세요.</p>
+  <div class="card" style="overflow-x:auto;">
+    <table class="team-table">
+      <thead><tr><th>팀원</th><th>주요 발언 키워드 (주 1 단어 재현?)</th><th>프레임</th><th>협상 방식</th></tr></thead>
+      <tbody>
+        <tr><td><input type="text" id="tm-n0" value="나 (본인)" style="color:var(--text-muted);background:transparent;border-color:transparent;" readonly></td><td><input type="text" id="tm-k0" placeholder="예: 착취, 불안정 (자료 1에서)"></td><td><select id="tm-f0"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g0"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
+        <tr><td><input type="text" id="tm-n1" placeholder="팀원 1 이름"></td><td><input type="text" id="tm-k1" placeholder="키워드"></td><td><select id="tm-f1"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g1"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
+        <tr><td><input type="text" id="tm-n2" placeholder="팀원 2 이름"></td><td><input type="text" id="tm-k2" placeholder="키워드"></td><td><select id="tm-f2"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g2"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
+        <tr><td><input type="text" id="tm-n3" placeholder="팀원 3 이름"></td><td><input type="text" id="tm-k3" placeholder="키워드"></td><td><select id="tm-f3"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g3"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:5px;border:1px solid var(--border);">
+      <div class="fl"><label>팀 전체 — 주 1 키워드 재현 횟수 합산</label>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><input class="inp" type="number" id="kw-repro-total" placeholder="0" style="width:70px;" min="0"><span style="font-size:12px;color:var(--text-muted);">회 (예: "착취" 3회 + "기회" 1회 = 4회)</span></div></div>
+    </div>
+  </div>
+
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">개인 리플렉션 (RQ2 마무리 데이터)</span><span class="stime">⏱ 15분</span></div>
+  <div style="display:grid;gap:12px;">
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#c0392b"></div><span class="ch-label">Q1 — 재생산 정량: 팀원 몇 %가 주 1 키워드를 재사용했나? 구체적 예시 3개</span></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;"><input class="inp" type="number" id="repro-pct" placeholder="75" style="width:80px;" min="0" max="100"><span style="font-size:12px;color:var(--text-muted);">% 팀원이 재사용</span></div>
+      <textarea class="inp w-full" id="w3q1" placeholder="예: '착취' — 팀원 3명 모두(자료 1 YouTube) / '불안정' — 2명(자료 3) / '기회' — 1명(자료 2 긍정 프레임)"></textarea>
+    </div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q2 — 저항 패턴: 팀에서 주 1 편향을 비판하는 발언이 나왔나? 담론이 어떻게 재구성됐나?</span></div>
+      <textarea class="inp w-full" id="w3q2" placeholder="예: 팀원 2가 'YouTube가 과장됐다, 통계를 봐야 한다'고 제기 → 팀 논의가 복합 프레임으로 이동."></textarea>
+    </div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 3주 인지 변화: 주 1 시작 전 → 주 3 토의 후 최종 입장</span></div>
+      <div style="display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center;margin-bottom:10px;">
+        <div class="fl"><label>주 1 시작 전 입장</label><select class="inp" id="ch-before"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>중립/몰랐음</option></select></div>
+        <div style="text-align:center;font-size:16px;color:var(--text-muted);margin-top:16px;">→</div>
+        <div class="fl"><label>주 3 토의 후 최종 입장</label><select class="inp" id="ch-after"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>복합 (양면 인식)</option><option>비판적 중립</option></select></div>
+      </div>
+      <textarea class="inp w-full" id="w3q3" placeholder="3주 중 내 생각을 가장 많이 바꾼 계기는? (특정 자료? 팀원 발언? 주 2 의견문 쓰기?)"></textarea>
+    </div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#555"></div><span class="ch-label">Q4 — 협상 메커니즘: 의견 충돌 시 어떻게 해결했나? 증거 제시가 효과적이었나?</span></div>
+      <textarea class="inp w-full" id="w3q4" placeholder="예: 주 1 URL을 다시 공유해 충돌 해결. 통계 자료 제시가 감정 호소보다 설득력 높았다."></textarea>
+    </div>
+    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--week3)"></div><span class="ch-label">최종 평가 — 3주 프로젝트가 언어·담론 인식에 도움이 됐나? (1~5점)</span></div>
+      <div class="rating-row" id="rating-final" style="margin-bottom:10px;">
+        <button class="rb" onclick="setRating('final',1,this)">1</button><button class="rb" onclick="setRating('final',2,this)">2</button>
+        <button class="rb" onclick="setRating('final',3,this)">3</button><button class="rb" onclick="setRating('final',4,this)">4</button>
+        <button class="rb" onclick="setRating('final',5,this)">5</button>
+      </div>
+      <input type="hidden" id="final-rating" value="">
+      <textarea class="inp w-full" id="final-reason" placeholder="이유 (예: YouTube 언어가 무의식적으로 내 생각을 바꾼다는 걸 처음 인식했다.)"></textarea>
+    </div>
+  </div>
+
+  <div class="submit-area">
+    <div class="checklist">
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>토의 파일 URL 입력했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>팀원별 발언 메모 표 작성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Q1~Q4 리플렉션 모두 완성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>최종 평가 점수와 이유 작성했나?</label>
+    </div>
+    <button class="btn-submit w3" onclick="submitWeek(3)">주 3 제출 — 연구 완료 (JSON 다운로드) →</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── WEEK SWITCH ──
+function switchWeek(n){
+  document.querySelectorAll('.w-tab').forEach(t=>t.classList.remove('active','w1','w2','w3'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.w-tab[data-w="'+n+'"]').classList.add('active','w'+n);
+  document.getElementById('panel-'+n).classList.add('active');
+}
+
+// ── SOURCE SWITCH ──
+function switchSrc(src){
+  document.querySelectorAll('#stepper1 .src-step-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.src == src);
+  });
+  document.querySelectorAll('#panel-1 .src-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('sp-'+(src==='compare'?'compare':src)).classList.add('active');
+  if(src==='compare') buildSummary();
+  window.scrollTo({top:document.querySelector('.week-nav').offsetTop-10, behavior:'smooth'});
+}
+
+function buildSummary(){
+  const rows=[1,2,3,4].map(i=>{
+    const title=g('s'+i+'-title')||'(미입력)';
+    const kws=[1,2,3,4,5].map(j=>g('kw'+i+'-'+j)).filter(Boolean).join(', ')||'—';
+    const frame=g('frame'+i)||'—';
+    const fair=g('fair'+i);
+    return `<tr><td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);">자료 ${i}</td>
+    <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${title}</td>
+    <td>${kws}</td><td>${frame}</td><td>${fair?fair+'점':'—'}</td></tr>`;
+  }).join('');
+  document.getElementById('sum-table').innerHTML=
+    `<thead><tr><th>번호</th><th>제목</th><th>키워드</th><th>프레임</th><th>공평성</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+// ── FRAME ──
+function selFrame(btn,fid,val){
+  btn.closest('.frame-wrap').querySelectorAll('.fb').forEach(b=>b.classList.remove('sel-neg','sel-pos','sel-mix','sel-neu'));
+  if(val.includes('부정')) btn.classList.add('sel-neg');
+  else if(val.includes('긍정')) btn.classList.add('sel-pos');
+  else if(val==='복합') btn.classList.add('sel-mix');
+  else btn.classList.add('sel-neu');
+  document.getElementById(fid).value=val;
+  autoSave();
+}
+
+// ── RATING ──
+function setRating(key,val,btn){
+  document.getElementById('rating-'+key).querySelectorAll('.rb').forEach((b,i)=>b.classList.toggle('on',i<val));
+  const h=document.getElementById(key)||document.getElementById(key+'-rating');
+  if(h) h.value=val;
+  autoSave();
+}
+
+function toggleCI(l){l.classList.toggle('done');}
+
+// ── AUTO SAVE ──
+let saveT;
+function autoSave(){
+  clearTimeout(saveT);
+  saveT=setTimeout(()=>{
+    const d=collect();
+    try{localStorage.setItem('lc_p2',JSON.stringify(d));}catch(e){}
+    const pill=document.getElementById('saved-pill');
+    pill.classList.add('show');
+    setTimeout(()=>pill.classList.remove('show'),2000);
+    updateProgress(d);
+  },600);
+}
+document.querySelectorAll('input,textarea,select').forEach(el=>{
+  el.addEventListener('input',autoSave);
+  el.addEventListener('change',autoSave);
+});
+
+function updateProgress(d){
+  if(!d) d=collect();
+  const vals=flatten(d);
+  const total=vals.length;
+  const filled=vals.filter(v=>v&&String(v).trim()!=='').length;
+  const pct=total>0?Math.round(filled/total*100):0;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=filled+' / '+total;
+}
+function flatten(obj){
+  let v=[];
+  for(const k in obj){
+    if(k==='timestamp') continue;
+    if(obj[k]&&typeof obj[k]==='object'&&!Array.isArray(obj[k])) v=v.concat(flatten(obj[k]));
+    else if(Array.isArray(obj[k])) obj[k].forEach(i=>typeof i==='object'?v=v.concat(flatten(i)):v.push(i));
+    else v.push(obj[k]);
+  }
+  return v;
+}
+
+// ── COLLECT ──
+function collect(){
+  return{
+    _meta:{timestamp:new Date().toISOString(),student:{name:g('si-name'),id:g('si-id'),major:g('si-major'),team:g('si-team')}},
+    week1:{
+      sources:[1,2,3,4].map(i=>({
+        num:i,type:i<=2?'YouTube':'텍스트',
+        title:g('s'+i+'-title'),url:g('s'+i+'-url'),length:g('s'+i+'-len'),why:g('s'+i+'-why'),
+        keywords:[1,2,3,4,5].map(j=>g('kw'+i+'-'+j)).filter(Boolean),
+        frame:g('frame'+i),message:g('feel'+i),
+        pre_thought:g('pre'+i),post_thought:g('post'+i),
+        fairness_score:g('fair'+i),fairness_reason:g('fair'+i+'-reason')
+      })),
+      comparison:{
+        trusted_src:g('q1-num'),trust_reason:g('q1-ans'),
+        common:g('q2-common'),yt_vs_text_diff:g('q2-diff'),
+        stance_before:g('overall-before'),stance_after:g('overall-after'),
+        overall_change:g('q3-overall'),conclusion:g('w1-conclusion')
+      }
+    },
+    week2:{
+      kw_reuse:[1,2,3,4].map(i=>({src:i,kw:g('rk'+i),decision:g('rd'+i),frame_stance:g('rf'+i)})),
+      plan:{frame_from_w1:g('w1-frame-carry'),stance:g('w2-stance')},
+      essay:{link:g('docs-link'),intro:g('essay-intro'),body:g('essay-body'),conclusion:g('essay-conc'),chars:g('essay-len'),kw_citations:g('kw-count')},
+      reflection:{q1_repro:g('rq1'),q2_resist:g('rq2'),q3_media:g('rq3'),q4_score:g('w2q4'),q4_improve:g('rq4')}
+    },
+    week3:{
+      disc:{url:g('disc-file'),min:g('disc-len'),members:g('disc-members'),kw_total:g('kw-repro-total')},
+      team:[0,1,2,3].map(i=>({name:g('tm-n'+i),kw:g('tm-k'+i),frame:g('tm-f'+i),neg:g('tm-g'+i)})),
+      reflection:{q1_pct:g('repro-pct'),q1_ex:g('w3q1'),q2_resist:g('w3q2'),q3_before:g('ch-before'),q3_after:g('ch-after'),q3_narrative:g('w3q3'),q4_neg:g('w3q4'),final_score:g('final-rating'),final_reason:g('final-reason')}
+    }
+  };
+}
+function g(id){const e=document.getElementById(id);return e?e.value:'';}
+
+// ── SUBMIT ──
+function submitWeek(w){
+  const d=collect();
+  const json=JSON.stringify(d,null,2);
+  const blob=new Blob([json],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=(d._meta.student.id||'student')+'_week'+w+'_platform.json';
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(url);
+  toast('✓ 주 '+w+' JSON 저장됨 — Google Classroom에 파일 업로드하세요');
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+// ── RESTORE ──
+window.addEventListener('load',()=>{
+  try{
+    const s=localStorage.getItem('lc_p2');
+    if(!s) return;
+    const d=JSON.parse(s);
+    if(d._meta?.student){sv('si-name',d._meta.student.name);sv('si-id',d._meta.student.id);sv('si-major',d._meta.student.major);sv('si-team',d._meta.student.team);}
+    if(d.week1?.sources) d.week1.sources.forEach((s,i)=>{
+      const n=i+1;
+      sv('s'+n+'-title',s.title);sv('s'+n+'-url',s.url);sv('s'+n+'-len',s.length);sv('s'+n+'-why',s.why);
+      if(s.keywords) s.keywords.forEach((k,j)=>sv('kw'+n+'-'+(j+1),k));
+      sv('feel'+n,s.message);sv('pre'+n,s.pre_thought);sv('post'+n,s.post_thought);
+      sv('fair'+n+'-reason',s.fairness_reason);
+    });
+    if(d.week1?.comparison){const c=d.week1.comparison;sv('q1-num',c.trusted_src);sv('q1-ans',c.trust_reason);sv('q2-common',c.common);sv('q2-diff',c.yt_vs_text_diff);sv('q3-overall',c.overall_change);sv('w1-conclusion',c.conclusion);}
+    updateProgress(d);
+    toast('이전 작성 내용을 불러왔습니다');
+  }catch(e){}
+  updateProgress();
+});
+function sv(id,val){const e=document.getElementById(id);if(e&&val) e.value=val;}
+</script>
+</body>
+</html>
