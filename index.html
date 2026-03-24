@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>언어와 문화 — 프로젝트 2: 플랫폼 노동 담론 탐구</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
 
 :root {
   --bg: #f5f3ef;
@@ -35,7 +35,7 @@
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Noto Sans KR',sans-serif;
+  font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   font-size:14px;
   line-height:1.7;
 }
@@ -50,13 +50,13 @@ body{
   height:48px;
   position:sticky;top:0;z-index:200;
 }
-.top-bar .logo{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;opacity:.7;}
+.top-bar .logo{font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.15em;opacity:.7;}
 .top-bar .logo span{opacity:1;color:#7ecfa5;}
 
 .progress-wrap{display:flex;align-items:center;gap:10px;}
 .prog-bar{width:140px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;}
 .prog-fill{height:100%;background:#7ecfa5;border-radius:2px;transition:width .4s ease;width:0%;}
-.prog-label{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);white-space:nowrap;}
+.prog-label{font-family:'Courier New',Courier,monospace;font-size:10px;color:rgba(255,255,255,.5);white-space:nowrap;}
 
 .week-nav{
   background:var(--surface);
@@ -81,14 +81,14 @@ body{
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 .panel-hero{margin-bottom:32px;}
-.panel-hero .week-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.panel-hero .week-label{font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
 .panel-hero h2{font-size:26px;font-weight:700;line-height:1.3;margin-bottom:8px;}
 .panel-hero .desc{font-size:13px;color:var(--text-muted);max-width:540px;line-height:1.8;}
-.time-tag{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:10px;}
+.time-tag{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);margin-top:10px;}
 
 .stu-card{display:grid;grid-template-columns:1fr 1fr 1fr 120px;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;}
-.fg label{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
-.fg input,.fg select{width:100%;border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;}
+.fg label{display:block;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
+.fg input,.fg select{width:100%;border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;}
 .fg input:focus,.fg select:focus{border-color:var(--border-focus);}
 
 .rn{display:flex;gap:12px;background:var(--accent-light);border:1px solid rgba(30,111,78,.15);border-radius:var(--radius);padding:14px 16px;margin-bottom:28px;}
@@ -98,8 +98,8 @@ body{
 
 /* SOURCE STEPPER */
 .src-stepper{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
-.src-step-btn{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:12px;color:var(--text-muted);transition:all .2s;font-family:'Noto Sans KR',sans-serif;}
-.src-step-btn .sn{width:20px;height:20px;border-radius:50%;background:var(--border);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:10px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.src-step-btn{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:12px;color:var(--text-muted);transition:all .2s;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;}
+.src-step-btn .sn{width:20px;height:20px;border-radius:50%;background:var(--border);color:var(--text-muted);font-family:'Courier New',Courier,monospace;font-size:10px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .src-step-btn.active{border-color:var(--text);background:var(--text);color:#fff;}
 .src-step-btn.active .sn{background:#fff;color:var(--text);}
 .src-step-btn.done .sn{background:var(--accent);color:#fff;}
@@ -111,8 +111,8 @@ body{
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
 .card-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
 .card-head .ch-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.card-head .ch-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;}
-.card-head .ch-tag{font-family:'DM Mono',monospace;font-size:9px;border-radius:3px;padding:2px 8px;border:1px solid;}
+.card-head .ch-label{font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;}
+.card-head .ch-tag{font-family:'Courier New',Courier,monospace;font-size:9px;border-radius:3px;padding:2px 8px;border:1px solid;}
 
 .yt-card{border-left:3px solid var(--yt-color);}
 .yt-dot{background:var(--yt-color);}
@@ -123,19 +123,19 @@ body{
 
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .fl{display:flex;flex-direction:column;gap:5px;}
-.fl label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);}
+.fl label{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);}
 
-.inp{border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;resize:vertical;}
+.inp{border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;resize:vertical;}
 .inp:focus{border-color:var(--border-focus);}
 textarea.inp{min-height:80px;line-height:1.7;}
 .w-full{width:100%;}
 
 .kw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
-.kw-inp{border:1px solid var(--border);border-radius:5px;padding:7px 8px;font-family:'Noto Sans KR',sans-serif;font-size:13px;text-align:center;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s;width:100%;}
+.kw-inp{border:1px solid var(--border);border-radius:5px;padding:7px 8px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;text-align:center;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s;width:100%;}
 .kw-inp:focus{border-color:var(--border-focus);}
 
 .frame-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.fb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-size:12px;cursor:pointer;transition:all .15s;font-family:'Noto Sans KR',sans-serif;}
+.fb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-size:12px;cursor:pointer;transition:all .15s;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;}
 .fb:hover{border-color:var(--text-mid);color:var(--text);}
 .fb.sel-neg{background:#c0392b;color:#fff;border-color:#c0392b;}
 .fb.sel-pos{background:var(--accent);color:#fff;border-color:var(--accent);}
@@ -143,33 +143,33 @@ textarea.inp{min-height:80px;line-height:1.7;}
 .fb.sel-neu{background:#555;color:#fff;border-color:#555;}
 
 .rating-row{display:flex;gap:5px;align-items:center;}
-.rb{width:34px;height:34px;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.rb{width:34px;height:34px;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--text-muted);font-family:'Courier New',Courier,monospace;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
 .rb:hover{border-color:var(--text-mid);}
 .rb.on{background:var(--text);color:#fff;border-color:var(--text);}
 
 hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
 
 .step-label{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.step-label .snum{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:3px 9px;color:var(--text-muted);white-space:nowrap;}
+.step-label .snum{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.12em;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:3px 9px;color:var(--text-muted);white-space:nowrap;}
 .step-label .stitle{font-size:15px;font-weight:600;}
-.step-label .stime{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);margin-left:auto;}
+.step-label .stime{font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);margin-left:auto;}
 .step-desc{font-size:13px;color:var(--text-mid);margin-bottom:18px;padding:10px 14px;border-left:2px solid var(--border);line-height:1.8;}
 
 .compare-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
 
 .sum-table{width:100%;border-collapse:collapse;font-size:12px;}
-.sum-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
+.sum-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
 .sum-table td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;color:var(--text-mid);}
 .sum-table tr:nth-child(even) td{background:var(--surface2);}
 
 .reuse-table,.team-table{width:100%;border-collapse:collapse;}
-.reuse-table th,.team-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
+.reuse-table th,.team-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
 .reuse-table td,.team-table td{border:1px solid var(--border);padding:6px 8px;}
-.reuse-table td input,.reuse-table td select,.team-table td input,.team-table td select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:'Noto Sans KR',sans-serif;font-size:12px;background:var(--bg);color:var(--text);outline:none;}
+.reuse-table td input,.reuse-table td select,.team-table td input,.team-table td select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:12px;background:var(--bg);color:var(--text);outline:none;}
 .reuse-table td input:focus,.reuse-table td select:focus,.team-table td input:focus,.team-table td select:focus{border-color:var(--border-focus);}
 
 .nav-row{display:flex;gap:10px;margin-top:20px;}
-.btn-prev,.btn-next,.btn-submit{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:6px;padding:11px 22px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;}
+.btn-prev,.btn-next,.btn-submit{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:6px;padding:11px 22px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;}
 .btn-prev{background:var(--surface2);border:1px solid var(--border);color:var(--text-mid);}
 .btn-prev:hover{background:var(--border);}
 .btn-next{background:var(--text);color:#fff;}
@@ -190,13 +190,13 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
 .ci.done{color:var(--text);}
 
 .sec-div{display:flex;align-items:center;gap:10px;margin:24px 0 16px;}
-.sec-div span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
+.sec-div span{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
 .sec-div::before,.sec-div::after{content:'';flex:1;height:1px;background:var(--border);}
 
 #toast{position:fixed;bottom:30px;right:30px;background:var(--text);color:#fff;border-radius:7px;padding:12px 18px;font-size:13px;z-index:999;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;max-width:320px;line-height:1.5;}
 #toast.show{opacity:1;transform:translateY(0);}
 
-#saved-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.4);transition:opacity .3s;opacity:0;}
+#saved-pill{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.4);transition:opacity .3s;opacity:0;}
 #saved-pill.show{opacity:1;}
 
 @media(max-width:640px){
@@ -585,10 +585,10 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <table class="reuse-table">
       <thead><tr><th>자료</th><th>주 1 대표 키워드</th><th>내 글에서 사용?</th><th>프레임을 따를 것인가?</th></tr></thead>
       <tbody>
-        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 1 (YT)</td><td><input type="text" id="rk1" placeholder="예: 착취"></td><td><select id="rd1"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf1"><option value="">선택</option><option value="follow">따름 (재생산)</option><option value="resist">비판 (저항)</option><option value="partial">부분만 수용</option></select></td></tr>
-        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 2 (YT)</td><td><input type="text" id="rk2" placeholder="예: 자유"></td><td><select id="rd2"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf2"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
-        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 3 (텍스트)</td><td><input type="text" id="rk3" placeholder="예: 보호"></td><td><select id="rd3"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf3"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
-        <tr><td style="font-family:'DM Mono',monospace;font-size:11px;">자료 4 (텍스트)</td><td><input type="text" id="rk4" placeholder="예: 선택"></td><td><select id="rd4"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf4"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 1 (YT)</td><td><input type="text" id="rk1" placeholder="예: 착취"></td><td><select id="rd1"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf1"><option value="">선택</option><option value="follow">따름 (재생산)</option><option value="resist">비판 (저항)</option><option value="partial">부분만 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 2 (YT)</td><td><input type="text" id="rk2" placeholder="예: 자유"></td><td><select id="rd2"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf2"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 3 (텍스트)</td><td><input type="text" id="rk3" placeholder="예: 보호"></td><td><select id="rd3"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf3"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 4 (텍스트)</td><td><input type="text" id="rk4" placeholder="예: 선택"></td><td><select id="rd4"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf4"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
       </tbody>
     </table>
   </div>
@@ -765,7 +765,7 @@ function buildSummary(){
     const kws=[1,2,3,4,5].map(j=>g('kw'+i+'-'+j)).filter(Boolean).join(', ')||'—';
     const frame=g('frame'+i)||'—';
     const fair=g('fair'+i);
-    return `<tr><td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);">자료 ${i}</td>
+    return `<tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;color:var(--text-muted);">자료 ${i}</td>
     <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${title}</td>
     <td>${kws}</td><td>${frame}</td><td>${fair?fair+'점':'—'}</td></tr>`;
   }).join('');
