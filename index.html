@@ -208,6 +208,8 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
   .top-bar{padding:0 16px;}
   .prog-bar{width:80px;}
 }
+
+@keyframes recBlink{0%,100%{opacity:1}50%{opacity:.15}}
 </style>
 </head>
 <body>
@@ -261,6 +263,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <button class="src-step-btn" data-src="3" onclick="switchSrc(3)"><span class="sn">3</span>뉴스/기사 1</button>
     <button class="src-step-btn" data-src="4" onclick="switchSrc(4)"><span class="sn">4</span>뉴스/기사 2</button>
     <button class="src-step-btn" data-src="compare" onclick="switchSrc('compare')"><span class="sn">✦</span>전체 비교</button>
+    <button class="src-step-btn" data-src="discuss" onclick="switchSrc('discuss')"><span class="sn">💬</span>팀 토의</button>
   </div>
 
   <!-- ── SOURCE 1 ── -->
@@ -382,6 +385,37 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
         <input class="inp w-full" type="text" id="fair2-reason" placeholder="공평성 이유" style="margin-top:7px;">
       </div>
     </div>
+    <!-- AI 프레임 탐정 -->
+    <div class="card" style="border:2px solid #7c3aed;background:#faf5ff;margin-bottom:14px;">
+      <div class="card-head" style="margin-bottom:10px;">
+        <div class="ch-dot" style="background:#7c3aed"></div>
+        <span class="ch-label" style="color:#7c3aed;">🤖 AI 프레임 탐정 — 잠깐! 자료 3으로 넘어가기 전</span>
+      </div>
+      <p style="font-size:12px;color:#5a5652;margin-bottom:12px;line-height:1.7;">
+        ChatGPT에게 아래 두 질문을 <strong>순서대로</strong> 입력해보세요.<br>
+        AI가 만든 프레임과 내가 본 실제 자료의 프레임을 비교합니다.
+      </p>
+      <div style="background:#f0e6ff;border-radius:6px;padding:12px 14px;margin-bottom:12px;font-size:12px;line-height:1.8;">
+        <strong style="color:#7c3aed;">ChatGPT에 그대로 복사해서 입력하세요:</strong><br>
+        1️⃣ <code style="background:#e9d5ff;padding:2px 6px;border-radius:3px;">"플랫폼 노동(배달·쿠팡)을 <u>긍정적</u>으로 묘사하는 뉴스 제목 3개 써줘"</code><br>
+        2️⃣ <code style="background:#e9d5ff;padding:2px 6px;border-radius:3px;">"플랫폼 노동(배달·쿠팡)을 <u>부정적</u>으로 묘사하는 뉴스 제목 3개 써줘"</code>
+      </div>
+      <div class="row2" style="margin-bottom:10px;">
+        <div class="fl">
+          <label style="color:#7c3aed;">AI가 만든 긍정 제목 3개</label>
+          <textarea class="inp w-full" id="ai-pos" placeholder="ChatGPT 응답을 그대로 붙여넣으세요&#10;예: ① 쿠팡플렉스로 월 300 버는 법...&#10;② ...&#10;③ ..." style="min-height:90px;border-color:#c4b5fd;"></textarea>
+        </div>
+        <div class="fl">
+          <label style="color:#7c3aed;">AI가 만든 부정 제목 3개</label>
+          <textarea class="inp w-full" id="ai-neg" placeholder="ChatGPT 응답을 그대로 붙여넣으세요&#10;예: ① 과로에 쓰러진 배달 라이더...&#10;② ...&#10;③ ..." style="min-height:90px;border-color:#c4b5fd;"></textarea>
+        </div>
+      </div>
+      <div class="fl">
+        <label style="color:#7c3aed;">내가 본 자료 1·2(YouTube)의 프레임과 AI 프레임을 비교하면?</label>
+        <textarea class="inp w-full" id="ai-compare" placeholder="예: YouTube 자료 1은 AI 부정 제목처럼 착취를 강조했다. 반면 AI 긍정 제목처럼 돈을 강조한 내용은 자료 2와 비슷했다." style="border-color:#c4b5fd;"></textarea>
+      </div>
+    </div>
+
     <div class="nav-row"><button class="btn-prev" onclick="switchSrc(1)">← 자료 1</button><button class="btn-next" onclick="switchSrc(3)">자료 3으로 →</button></div>
   </div>
 
@@ -563,6 +597,159 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
   </div>
 </div>
+
+  <!-- ── DISCUSS ── -->
+  <div class="src-panel" id="sp-discuss">
+
+    <div class="sec-div"><span>팀 토의 — 녹음 · 전사 · CDA 코딩</span></div>
+
+    <div class="rn" style="background:#faf5ff;border-color:rgba(124,58,237,.15);">
+      <div class="rn-icon">💬</div>
+      <div class="rn-text"><strong style="color:#7c3aed;">팀 토의 목적</strong> — 자료 1~4에서 발견한 플랫폼 노동 프레임을 팀원과 나눕니다. 녹음 후 전사된 내용을 발화자별로 저장하면, CDA 틀로 자동 코딩됩니다.</div>
+    </div>
+
+    <!-- ① 팀원 등록 -->
+    <div class="card" style="margin-bottom:12px;">
+      <div class="clabel"><div class="dot" style="background:#7c3aed"></div>① 팀원 등록 (4명)</div>
+      <p style="font-size:12px;color:#7a7672;margin-bottom:12px;line-height:1.7;">토의 전에 팀원 이름을 먼저 입력하세요. 나중에 발화자 선택 버튼으로 사용됩니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+        <div class="fl"><label>팀원 1</label><input class="inp w-full" type="text" id="m1" placeholder="이름 입력"></div>
+        <div class="fl"><label>팀원 2</label><input class="inp w-full" type="text" id="m2" placeholder="이름 입력"></div>
+        <div class="fl"><label>팀원 3</label><input class="inp w-full" type="text" id="m3" placeholder="이름 입력"></div>
+        <div class="fl"><label>팀원 4</label><input class="inp w-full" type="text" id="m4" placeholder="이름 입력"></div>
+      </div>
+      <button onclick="initMembers()"
+        style="padding:8px 18px;background:#1a1816;color:#fff;border:none;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;">
+        팀원 등록 완료
+      </button>
+      <span id="member-status" style="font-size:12px;color:#9a9490;margin-left:10px;"></span>
+    </div>
+
+    <!-- ② 녹음 -->
+    <div class="card" style="margin-bottom:12px;">
+      <div class="clabel"><div class="dot" style="background:#7c3aed"></div>② 녹음 & 실시간 전사</div>
+      <p style="font-size:12px;color:#7a7672;margin-bottom:12px;line-height:1.7;">
+        녹음 시작 버튼을 누르고 자유롭게 토의하세요. 말하는 내용이 실시간으로 아래에 전사됩니다.<br>
+        <strong>한 사람이 말을 마치면 → 녹음 중지 → 발화자 선택 → 발화 저장</strong> 순서로 진행하세요.
+      </p>
+
+      <!-- 녹음 버튼 -->
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+        <button id="rec-btn" onclick="toggleRec()"
+          style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:none;border-radius:30px;background:#1a1816;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;">
+          <span id="rec-dot" style="width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;"></span>
+          <span id="rec-label">녹음 시작</span>
+        </button>
+        <div id="rec-info" style="font-size:12px;color:#9a9490;line-height:1.6;">
+          버튼을 누르면 마이크가 켜집니다<br>
+          <span style="font-size:11px;">Chrome 브라우저 권장 · 마이크 권한 허용 필요</span>
+        </div>
+      </div>
+
+      <!-- 실시간 전사 박스 -->
+      <div id="live-box"
+        style="background:#f5f3ef;border:1.5px solid #ddd9d2;border-radius:6px;padding:12px 14px;font-size:13px;color:#9a9490;min-height:60px;line-height:1.7;word-break:break-all;transition:border-color .2s;">
+        여기에 실시간 전사 내용이 표시됩니다…
+      </div>
+      <div style="font-size:11px;color:#9a9490;margin-top:6px;">💡 말을 마치면 아래에서 발화자를 선택하고 저장하세요</div>
+    </div>
+
+    <!-- ③ 발화자 선택 & 저장 -->
+    <div class="card" style="margin-bottom:12px;">
+      <div class="clabel"><div class="dot" style="background:#7c3aed"></div>③ 발화자 선택 후 저장</div>
+      <div id="speaker-btns" style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;">
+        <span style="font-size:12px;color:#9a9490;">위에서 팀원 등록을 먼저 완료하세요</span>
+      </div>
+
+      <!-- 직접 수정 입력 -->
+      <div class="fl" style="margin-bottom:10px;">
+        <label>전사 내용 확인 · 수정 (오류가 있으면 고쳐주세요)</label>
+        <textarea class="inp w-full" id="utt-input" rows="3"
+          placeholder="녹음 후 전사된 내용이 여기에 자동으로 복사됩니다. 직접 입력도 가능합니다."
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();saveUtt();}"></textarea>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button onclick="saveUtt()"
+          style="padding:9px 20px;background:#7c3aed;color:#fff;border:none;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">
+          💾 발화 저장 (Enter)
+        </button>
+        <span style="font-size:11px;color:#9a9490;">발화자를 선택한 후 저장하세요</span>
+      </div>
+    </div>
+
+    <!-- ④ 발화 목록 -->
+    <div class="card" style="margin-bottom:12px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div class="clabel" style="margin-bottom:0;"><div class="dot" style="background:#7c3aed"></div>④ 기록된 발화 <span id="utt-count" style="color:#7c3aed;">(0개)</span></div>
+        <button onclick="clearUtts()" style="font-size:11px;color:#9a9490;background:none;border:none;cursor:pointer;">전체 삭제</button>
+      </div>
+      <div id="utt-list" style="display:flex;flex-direction:column;gap:6px;max-height:400px;overflow-y:auto;">
+        <div style="font-size:12px;color:#9a9490;text-align:center;padding:24px;">발화를 저장하면 여기에 쌓입니다</div>
+      </div>
+    </div>
+
+    <!-- ⑤ AI CDA 코딩 -->
+    <div class="card" style="border:2px solid #7c3aed;background:#faf5ff;margin-bottom:12px;">
+      <div class="clabel"><div class="dot" style="background:#7c3aed"></div>⑤ AI CDA 자동 코딩</div>
+      <p style="font-size:12px;color:#5a5652;margin-bottom:12px;line-height:1.7;">
+        발화 저장이 끝나면 아래 버튼을 눌러 4가지 차원으로 자동 코딩합니다.
+      </p>
+
+      <!-- 코딩 체계 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;font-size:11px;">
+        <div style="background:#fff;border:1px solid #ddd9d2;border-radius:6px;padding:10px;">
+          <div style="font-weight:700;color:#7c3aed;margin-bottom:5px;">📺 매체 소스</div>
+          <div style="color:#5a5652;line-height:1.9;">
+            <span style="background:#fee2e2;color:#c0392b;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">YT</span> YouTube 참조 (YT1, YT2 언급)<br>
+            <span style="background:#dbeafe;color:#1d4ed8;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Text</span> 뉴스/기사/블로그 참조<br>
+            <span style="background:#f0ede8;color:#9a9490;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">None</span> 소스 미언급
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #ddd9d2;border-radius:6px;padding:10px;">
+          <div style="font-weight:700;color:#b85c2a;margin-bottom:5px;">🖼 프레임</div>
+          <div style="color:#5a5652;line-height:1.9;">
+            <span style="background:#fee2e2;color:#c0392b;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Neg</span> 부정 — 피해자·착취<br>
+            <span style="background:#dcfce7;color:#16a34a;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Pos</span> 긍정 — 기회·자유<br>
+            <span style="background:#fef9c3;color:#b45309;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Mix</span> 복합/양면<br>
+            <span style="background:#f0ede8;color:#9a9490;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Neu</span> 사실 나열
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #ddd9d2;border-radius:6px;padding:10px;">
+          <div style="font-weight:700;color:#1e6f4e;margin-bottom:5px;">📚 리터러시 영향</div>
+          <div style="color:#5a5652;line-height:1.9;">
+            <span style="background:#fce7f3;color:#9d174d;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Emo</span> 감정 재현<br>
+            <span style="background:#e0e7ff;color:#3730a3;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Crit</span> 비판 평가<br>
+            <span style="background:#f0fdfa;color:#0f766e;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Chg</span> 생각 변화<br>
+            <span style="background:#fff7ed;color:#c2410c;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Rep</span> 재생산<br>
+            <span style="background:#f5f3ff;color:#6d28d9;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Res</span> 저항/변형
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #ddd9d2;border-radius:6px;padding:10px;">
+          <div style="font-weight:700;color:#2471a3;margin-bottom:5px;">💬 담론 품질</div>
+          <div style="color:#5a5652;line-height:1.9;">
+            <span style="background:#ecfdf5;color:#065f46;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Expl</span> 공동 탐구<br>
+            <span style="background:#fef3c7;color:#92400e;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Cum</span> 반복 동의<br>
+            <span style="background:#fee2e2;color:#991b1b;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700;">Disp</span> 논쟁
+          </div>
+        </div>
+      </div>
+
+      <button id="analyze-btn" onclick="runCodingAnalysis()"
+        style="width:100%;padding:11px;background:#7c3aed;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">
+        🔬 AI 코딩 실행
+      </button>
+
+      <div id="coding-result" style="display:none;margin-top:14px;">
+        <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:8px;">📊 코딩 결과</div>
+        <div id="coding-chart"></div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-prev" onclick="switchSrc('compare')">← 전체 비교</button>
+    </div>
+  </div>
 
 <!-- ══════════════ WEEK 2 ══════════════ -->
 <div class="panel" id="panel-2">
@@ -834,6 +1021,12 @@ function flatten(obj){
 
 // ── COLLECT ──
 function collect(){
+  // 토의 코드 분포 집계
+  function codeSummary(key){
+    const counts={};
+    (D&&D.utts||[]).forEach(u=>{if(u[key])counts[u[key]]=(counts[u[key]]||0)+1;});
+    return counts;
+  }
   return{
     _meta:{timestamp:new Date().toISOString(),student:{name:g('si-name'),id:g('si-id'),major:g('si-major'),team:g('si-team')}},
     week1:{
@@ -845,6 +1038,27 @@ function collect(){
         pre_thought:g('pre'+i),post_thought:g('post'+i),
         fairness_score:g('fair'+i),fairness_reason:g('fair'+i+'-reason')
       })),
+      ai_detective:{
+        ai_positive:g('ai-pos'),
+        ai_negative:g('ai-neg'),
+        ai_vs_real:g('ai-compare')
+      },
+      discussion:{
+        members:(D&&D.members)||[],
+        utt_count:(D&&D.utts)?D.utts.length:0,
+        utterances:(D&&D.utts)?D.utts.map(u=>({
+          speaker:u.speaker,text:u.text,time:u.time,
+          source_code:u.source_code,frame_code:u.frame_code,
+          literacy_code:u.literacy_code,discourse_code:u.discourse_code,
+          reason:u.reason
+        })):[],
+        code_summary:{
+          source:codeSummary('source_code'),
+          frame:codeSummary('frame_code'),
+          literacy:codeSummary('literacy_code'),
+          discourse:codeSummary('discourse_code')
+        }
+      },
       comparison:{
         trusted_src:g('q1-num'),trust_reason:g('q1-ans'),
         common:g('q2-common'),yt_vs_text_diff:g('q2-diff'),
@@ -903,26 +1117,673 @@ function toast(msg){
 }
 
 // ── RESTORE ──
-window.addEventListener('load',()=>{
+// ══════════════════════════════════════
+// 팀 토의 — 녹음 · 전사 · CDA 코딩
+// ══════════════════════════════════════
+let D = { members: [], speaker: '', utts: [], recOn: false, recog: null, liveBuf: '' };
+
+const CDA_CODES = {
+  source:   { YT:   {l:'YouTube 참조', c:'#c0392b', bg:'#fee2e2'},
+               Text: {l:'텍스트 참조',  c:'#1d4ed8', bg:'#dbeafe'},
+               None: {l:'소스 미언급',  c:'#9a9490', bg:'#f0ede8'} },
+  frame:    { Negative: {l:'부정(착취)',  c:'#c0392b', bg:'#fee2e2'},
+               Positive: {l:'긍정(기회)', c:'#16a34a', bg:'#dcfce7'},
+               Mixed:    {l:'복합/양면',  c:'#b45309', bg:'#fef9c3'},
+               Neutral:  {l:'사실 나열', c:'#9a9490', bg:'#f0ede8'} },
+  literacy: { Emotion:   {l:'감정 재현',  c:'#9d174d', bg:'#fce7f3'},
+               Critique:  {l:'비판 평가', c:'#3730a3', bg:'#e0e7ff'},
+               Change:    {l:'생각 변화', c:'#0f766e', bg:'#f0fdfa'},
+               Reproduce: {l:'재생산',    c:'#c2410c', bg:'#fff7ed'},
+               Resist:    {l:'저항/변형', c:'#6d28d9', bg:'#f5f3ff'} },
+  discourse:{ Exploratory:   {l:'공동 탐구', c:'#065f46', bg:'#ecfdf5'},
+               Cumulative:    {l:'반복 동의', c:'#92400e', bg:'#fef3c7'},
+               Disputational: {l:'논쟁',     c:'#991b1b', bg:'#fee2e2'} }
+};
+
+// ── 팀원 등록 ──
+function initMembers(){
+  const names = [1,2,3,4].map(i => (document.getElementById('m'+i)?.value||'').trim()).filter(Boolean);
+  if(!names.length){ toast('팀원 이름을 입력해주세요'); return; }
+  D.members = names;
+  renderSpeakerBtns();
+  const st = document.getElementById('member-status');
+  if(st) st.textContent = '✅ ' + names.join(', ') + ' 등록됨';
+  toast('✅ 팀원 등록 완료: ' + names.join(', '));
+}
+
+// ── 발화자 버튼 렌더 ──
+function renderSpeakerBtns(){
+  const el = document.getElementById('speaker-btns');
+  if(!el) return;
+  if(!D.members.length){
+    el.innerHTML = '<span style="font-size:12px;color:#9a9490;">위에서 팀원 등록을 먼저 완료하세요</span>';
+    return;
+  }
+  el.innerHTML = D.members.map(m =>
+    `<button onclick="pickSpeaker('${m}')"
+      style="padding:7px 16px;border:1.5px solid ${D.speaker===m?'#7c3aed':'#ddd9d2'};
+      border-radius:20px;background:${D.speaker===m?'#7c3aed':'#fff'};
+      color:${D.speaker===m?'#fff':'#5a5652'};
+      font-size:12px;font-weight:${D.speaker===m?700:500};cursor:pointer;
+      font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      transition:all .15s;">${m}</button>`
+  ).join('');
+}
+
+function pickSpeaker(name){
+  D.speaker = name;
+  renderSpeakerBtns();
+}
+
+// ── 녹음 토글 ──
+function toggleRec(){ D.recOn ? stopRec() : startRec(); }
+
+function startRec(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){ toast('음성 인식은 Chrome 브라우저에서만 작동합니다'); return; }
+
+  const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+  D.recog = new SR();
+  D.recog.lang = 'ko-KR';
+  D.recog.continuous = !isMobile;
+  D.recog.interimResults = true;
+
+  let lastFinal = '';
+
+  D.recog.onresult = e => {
+    let fin = '', interim = '';
+    for(let i = e.resultIndex; i < e.results.length; i++){
+      if(e.results[i].isFinal) fin += e.results[i][0].transcript;
+      else interim += e.results[i][0].transcript;
+    }
+    if(fin && fin.trim() !== lastFinal){
+      D.liveBuf += fin.trim() + ' ';
+      lastFinal = fin.trim();
+    }
+    const lb = document.getElementById('live-box');
+    if(lb){
+      lb.style.color = '#1a1816';
+      lb.style.borderColor = '#c0392b';
+      lb.textContent = (D.liveBuf + (interim ? interim + '…' : '')).trim();
+    }
+  };
+
+  D.recog.onerror = e => {
+    if(e.error === 'not-allowed'){ toast('마이크 권한을 허용해주세요'); stopRec(); }
+  };
+
+  D.recog.onend = () => {
+    if(D.recOn){ setTimeout(()=>{ if(D.recOn) D.recog.start(); }, 300); }
+  };
+
+  D.recog.start();
+  D.recOn = true;
+
+  const btn = document.getElementById('rec-btn');
+  const dot = document.getElementById('rec-dot');
+  const lbl = document.getElementById('rec-label');
+  const info = document.getElementById('rec-info');
+  if(btn) btn.style.background = '#c0392b';
+  if(dot) dot.style.animation = 'recBlink .7s infinite';
+  if(lbl) lbl.textContent = '녹음 중지';
+  if(info) info.innerHTML = '🔴 <strong>녹음 중</strong> — 자유롭게 이야기하세요<br><span style="font-size:11px;">말이 끝나면 발화자 선택 후 저장하세요</span>';
+
+  toast('🎙 녹음 시작');
+}
+
+function stopRec(){
+  if(D.recog){ try{ D.recog.stop(); }catch(e){} }
+  D.recOn = false;
+
+  // 전사 내용을 수정 칸에 복사
+  const ta = document.getElementById('utt-input');
+  if(ta && D.liveBuf.trim()) ta.value = D.liveBuf.trim();
+
+  const btn = document.getElementById('rec-btn');
+  const dot = document.getElementById('rec-dot');
+  const lbl = document.getElementById('rec-label');
+  const info = document.getElementById('rec-info');
+  if(btn) btn.style.background = '#1a1816';
+  if(dot) dot.style.animation = '';
+  if(lbl) lbl.textContent = '녹음 시작';
+  if(info) info.innerHTML = '녹음이 종료됐습니다. 발화자를 선택하고 저장하세요.<br><span style="font-size:11px;">필요하면 다시 녹음할 수 있습니다</span>';
+
+  toast('⏹ 녹음 종료 — 발화자 선택 후 저장하세요');
+}
+
+// ── 발화 저장 ──
+function saveUtt(){
+  const text = (document.getElementById('utt-input')?.value || '').trim();
+  if(!text){ toast('저장할 내용이 없습니다'); return; }
+  if(!D.speaker){ toast('발화자를 선택해주세요'); return; }
+
+  D.utts.push({
+    id: Date.now(),
+    speaker: D.speaker,
+    text: text,
+    time: new Date().toLocaleTimeString('ko-KR'),
+    source_code: null, frame_code: null,
+    literacy_code: null, discourse_code: null,
+    reason: ''
+  });
+
+  // 초기화
+  D.liveBuf = '';
+  const ta = document.getElementById('utt-input');
+  if(ta) ta.value = '';
+  const lb = document.getElementById('live-box');
+  if(lb){ lb.textContent = '여기에 실시간 전사 내용이 표시됩니다…'; lb.style.color='#9a9490'; lb.style.borderColor='#ddd9d2'; }
+
+  renderUtts();
+  autoSave();
+  toast('✅ 발화 저장됨 — ' + D.speaker);
+}
+
+function delUtt(id){
+  D.utts = D.utts.filter(u => u.id !== id);
+  renderUtts();
+  autoSave();
+}
+
+function clearUtts(){
+  if(!confirm('발화 목록을 전체 삭제할까요?')) return;
+  D.utts = []; renderUtts();
+}
+
+function renderUtts(){
+  const el = document.getElementById('utt-list');
+  const cnt = document.getElementById('utt-count');
+  if(!el) return;
+  if(cnt) cnt.textContent = '(' + D.utts.length + '개)';
+  if(!D.utts.length){
+    el.innerHTML = '<div style="font-size:12px;color:#9a9490;text-align:center;padding:24px;">발화를 저장하면 여기에 쌓입니다</div>';
+    return;
+  }
+  el.innerHTML = D.utts.map(u => {
+    const badges = ['source','frame','literacy','discourse'].map(dim => {
+      const code = u[dim+'_code'];
+      const ci = code && CDA_CODES[dim]?.[code];
+      return ci ? `<span style="font-size:10px;font-weight:700;background:${ci.bg};color:${ci.c};padding:2px 6px;border-radius:4px;">${code}</span>` : '';
+    }).filter(Boolean).join('');
+    return `<div style="background:#f5f3ef;border-radius:6px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;">
+      <div style="flex-shrink:0;text-align:center;min-width:52px;">
+        <div style="font-size:11px;font-weight:700;background:#fff;border:1px solid #ddd9d2;border-radius:4px;padding:2px 7px;display:inline-block;">${u.speaker}</div>
+        <div style="font-size:10px;color:#9a9490;margin-top:2px;">${u.time}</div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13px;color:#1a1816;line-height:1.6;word-break:break-all;">${u.text}</div>
+        ${badges ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;">${badges}</div>` : ''}
+        ${u.reason ? `<div style="font-size:11px;color:#9a9490;font-style:italic;margin-top:3px;">→ ${u.reason}</div>` : ''}
+      </div>
+      <button onclick="delUtt(${u.id})" style="background:none;border:none;color:#9a9490;cursor:pointer;font-size:15px;padding:0;flex-shrink:0;line-height:1;">×</button>
+    </div>`;
+  }).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+// ── AI CDA 코딩 ──
+async function runCodingAnalysis(){
+  if(!D.utts.length){ toast('발화를 먼저 저장해주세요'); return; }
+  const btn = document.getElementById('analyze-btn');
+  btn.textContent = '⏳ 분석 중...'; btn.disabled = true;
+
+  const uttList = D.utts.map((u,i) => `[${i}] ${u.speaker}: ${u.text}`).join('\n');
+
+  const prompt = `당신은 CDA(비판적 담론 분석) 연구자입니다. 아래 팀 토의 발화를 4가지 차원으로 코딩하세요.
+
+【코딩 체계】
+1. source_code: YT(YouTube 자료 참조) | Text(뉴스/기사 참조) | None(소스 미언급)
+2. frame_code: Negative(부정·피해자·착취) | Positive(긍정·기회·자유) | Mixed(복합·양면) | Neutral(사실 나열)
+3. literacy_code: Emotion(감정 재현) | Critique(비판 평가) | Change(생각 변화) | Reproduce(재생산) | Resist(저항/변형)
+4. discourse_code: Exploratory(공동 탐구·질문) | Cumulative(반복 동의) | Disputational(논쟁·반박)
+
+【발화 목록】
+${uttList}
+
+JSON 배열만 응답:
+[{"idx":0,"source_code":"YT","frame_code":"Negative","literacy_code":"Emotion","discourse_code":"Exploratory","reason":"코딩 근거 20자 이내"},...]`;
+
   try{
-    const s=localStorage.getItem('lc_p2');
-    if(!s) return;
-    const d=JSON.parse(s);
-    if(d._meta?.student){sv('si-name',d._meta.student.name);sv('si-id',d._meta.student.id);sv('si-major',d._meta.student.major);sv('si-team',d._meta.student.team);}
-    if(d.week1?.sources) d.week1.sources.forEach((s,i)=>{
-      const n=i+1;
-      sv('s'+n+'-title',s.title);sv('s'+n+'-url',s.url);sv('s'+n+'-len',s.length);sv('s'+n+'-why',s.why);
-      if(s.keywords) s.keywords.forEach((k,j)=>sv('kw'+n+'-'+(j+1),k));
-      sv('feel'+n,s.message);sv('pre'+n,s.pre_thought);sv('post'+n,s.post_thought);
-      sv('fair'+n+'-reason',s.fairness_reason);
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': window.ANTHROPIC_KEY || '',
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:2000,
+        messages:[{role:'user',content:prompt}] })
     });
-    if(d.week1?.comparison){const c=d.week1.comparison;sv('q1-num',c.trusted_src);sv('q1-ans',c.trust_reason);sv('q2-common',c.common);sv('q2-diff',c.yt_vs_text_diff);sv('q3-overall',c.overall_change);sv('w1-conclusion',c.conclusion);}
-    updateProgress(d);
-    toast('이전 작성 내용을 불러왔습니다');
-  }catch(e){}
-  updateProgress();
-});
-function sv(id,val){const e=document.getElementById(id);if(e&&val) e.value=val;}
+
+    if(!res.ok){ const err=await res.json().catch(()=>({})); throw new Error('API '+res.status+(err.error?': '+err.error.message:'')); }
+    const data = await res.json();
+    const raw = data.content.map(c=>c.text||'').join('');
+    const parsed = JSON.parse(raw.replace(/```json|```/g,'').trim());
+
+    parsed.forEach(item => {
+      const u = D.utts[item.idx];
+      if(!u) return;
+      u.source_code    = item.source_code;
+      u.frame_code     = item.frame_code;
+      u.literacy_code  = item.literacy_code;
+      u.discourse_code = item.discourse_code;
+      u.reason         = item.reason || '';
+    });
+
+    renderUtts();
+    renderCodingChart();
+    document.getElementById('coding-result').style.display = 'block';
+    autoSave();
+    toast('✅ 코딩 완료!');
+  }catch(e){
+    if(e.message.includes('401')) toast('⚠ API 키가 필요합니다. 교수자에게 문의하세요.');
+    else toast('⚠ 오류: ' + e.message);
+  }
+  btn.textContent = '🔬 AI 코딩 실행'; btn.disabled = false;
+}
+
+function renderCodingChart(){
+  const el = document.getElementById('coding-chart');
+  if(!el) return;
+  const dims = [
+    {key:'source_code',   label:'매체 소스',    codes:CDA_CODES.source},
+    {key:'frame_code',    label:'프레임',        codes:CDA_CODES.frame},
+    {key:'literacy_code', label:'리터러시 영향', codes:CDA_CODES.literacy},
+    {key:'discourse_code',label:'담론 품질',     codes:CDA_CODES.discourse}
+  ];
+  el.innerHTML = dims.map(dim => {
+    const counts = {};
+    D.utts.forEach(u => { const v=u[dim.key]; if(v) counts[v]=(counts[v]||0)+1; });
+    const total = Object.values(counts).reduce((a,b)=>a+b,0);
+    if(!total) return '';
+    const bars = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([code,cnt])=>{
+      const ci = dim.codes[code]; if(!ci) return '';
+      const pct = Math.round(cnt/total*100);
+      return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;font-size:11px;">
+        <span style="min-width:88px;font-weight:600;color:${ci.c};">${code}</span>
+        <div style="flex:1;height:6px;background:#f0ede8;border-radius:3px;">
+          <div style="width:${pct}%;height:100%;background:${ci.c};border-radius:3px;"></div>
+        </div>
+        <span style="min-width:55px;text-align:right;color:#5a5652;">${cnt}회 (${pct}%)</span>
+      </div>`;
+    }).join('');
+    return `<div style="margin-bottom:12px;"><div style="font-size:11px;font-weight:700;color:#1a1816;margin-bottom:5px;">${dim.label}</div>${bars}</div>`;
+  }).join('');
+}
+
+function codeSummary(key){
+  const counts={};
+  (D&&D.utts||[]).forEach(u=>{ if(u[key]) counts[u[key]]=(counts[u[key]]||0)+1; });
+  return counts;
+}
+
+// ══════════════════════════════════════
+// 교수자 패널
+// ══════════════════════════════════════
+let researcherData = [];
+
+function openResearcher(){
+  const pw = prompt('교수자 비밀번호를 입력하세요:');
+  if(pw !== 'research2025'){ alert('비밀번호가 올바르지 않습니다.'); return; }
+  document.getElementById('researcher-panel').style.cssText = 'display:block;position:fixed;inset:0;background:#f5f3ef;z-index:300;overflow-y:auto;';
+  document.getElementById('researcher-fab').style.display = 'none';
+  loadResearcherData();
+  renderResearcherTable();
+  renderResearcherStats();
+}
+
+function closeResearcher(){
+  document.getElementById('researcher-panel').style.display = 'none';
+  document.getElementById('researcher-fab').style.display = 'flex';
+}
+
+function loadResearcherData(){
+  // localStorage에서 제출된 모든 데이터 로드
+  try{
+    const saved = localStorage.getItem('lc_p2_submissions');
+    researcherData = saved ? JSON.parse(saved) : [];
+  }catch(e){ researcherData = []; }
+}
+
+function refreshResearcher(){
+  loadResearcherData();
+  renderResearcherTable();
+  renderResearcherStats();
+  toast('🔄 새로고침 완료');
+}
+
+function clearResearcherData(){
+  if(!confirm('모든 수집 데이터를 삭제할까요?')) return;
+  localStorage.removeItem('lc_p2_submissions');
+  researcherData = [];
+  renderResearcherTable();
+  renderResearcherStats();
+  toast('데이터가 초기화됐습니다');
+}
+
+function frameBadgeR(f){
+  if(!f) return '<span style="color:#ccc;">—</span>';
+  const map = {
+    '부정-피해자':'background:#fee2e2;color:#c0392b;',
+    '긍정-기회':'background:#dcfce7;color:#16a34a;',
+    '복합':'background:#fef9c3;color:#b45309;',
+    '중립':'background:#f0ede8;color:#9a9490;',
+    'Negative':'background:#fee2e2;color:#c0392b;',
+    'Positive':'background:#dcfce7;color:#16a34a;',
+    'Mixed':'background:#fef9c3;color:#b45309;',
+    'Neutral':'background:#f0ede8;color:#9a9490;'
+  };
+  const style = map[f] || 'background:#f0ede8;color:#9a9490;';
+  return `<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;${style}">${f}</span>`;
+}
+
+function codeBadgeR(code, type){
+  const palettes = {
+    source:   {YT:'background:#fee2e2;color:#c0392b;',Text:'background:#dbeafe;color:#1d4ed8;',None:'background:#f0ede8;color:#9a9490;'},
+    frame:    {Negative:'background:#fee2e2;color:#c0392b;',Positive:'background:#dcfce7;color:#16a34a;',Mixed:'background:#fef9c3;color:#b45309;',Neutral:'background:#f0ede8;color:#9a9490;'},
+    literacy: {Emotion:'background:#fce7f3;color:#9d174d;',Critique:'background:#e0e7ff;color:#3730a3;',Change:'background:#f0fdfa;color:#0f766e;',Reproduce:'background:#fff7ed;color:#c2410c;',Resist:'background:#f5f3ff;color:#6d28d9;'},
+    discourse:{Exploratory:'background:#ecfdf5;color:#065f46;',Cumulative:'background:#fef3c7;color:#92400e;',Disputational:'background:#fee2e2;color:#991b1b;'}
+  };
+  if(!code) return '<span style="color:#ccc;">—</span>';
+  const style = (palettes[type]||{})[code] || 'background:#f0ede8;color:#9a9490;';
+  return `<span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;${style}">${code}</span>`;
+}
+
+function renderResearcherStats(){
+  const el = document.getElementById('res-stats');
+  if(!el) return;
+  const total = researcherData.length;
+  const complete = researcherData.filter(d => {
+    const s = d.week1?.sources || [];
+    return s.filter(x => x.title && x.title.trim()).length >= 4;
+  }).length;
+  const ytNegTotal = [], txtNegTotal = [];
+  researcherData.forEach(d => {
+    (d.week1?.sources||[]).forEach(s => {
+      if(!s.frame) return;
+      if(s.type==='YouTube') ytNegTotal.push(s.frame.includes('부정')||s.frame==='Negative');
+      else txtNegTotal.push(s.frame.includes('부정')||s.frame==='Negative');
+    });
+  });
+  const pct = arr => arr.length ? Math.round(arr.filter(Boolean).length/arr.length*100)+'%' : '—';
+  const uttTotal = researcherData.reduce((a,d)=>{
+    return a + (d.week1?.discussion?.utt_count || 0);
+  }, 0);
+
+  const stats = [
+    ['총 제출', total],
+    ['4자료 완성', complete],
+    ['YT 부정 %', pct(ytNegTotal)],
+    ['텍스트 부정 %', pct(txtNegTotal)],
+    ['총 발화수', uttTotal]
+  ];
+  el.innerHTML = stats.map(([l,v]) =>
+    `<div style="background:#fff;border:1px solid #ddd9d2;border-radius:8px;padding:14px 16px;">
+      <div style="font-size:24px;font-weight:700;color:#1a1816;">${v}</div>
+      <div style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:.08em;color:#9a9490;margin-top:3px;">${l}</div>
+    </div>`
+  ).join('');
+}
+
+function renderResearcherTable(){
+  const search = (document.getElementById('res-search')?.value||'').toLowerCase();
+  const majorF = document.getElementById('res-major')?.value || '';
+  const frameF = document.getElementById('res-frame')?.value || '';
+
+  const filtered = researcherData.filter(d => {
+    const m = d._meta?.student || {};
+    if(search && !((m.name||'').toLowerCase().includes(search)||(m.id||'').includes(search))) return false;
+    if(majorF && m.major !== majorF) return false;
+    if(frameF){
+      const frames = (d.week1?.sources||[]).map(s=>s.frame||'');
+      if(!frames.some(f=>f.includes(frameF))) return false;
+    }
+    return true;
+  });
+
+  // W1 table
+  const tbody1 = document.getElementById('res-tbody-w1');
+  if(tbody1){
+    if(!filtered.length){
+      tbody1.innerHTML = '<tr><td colspan="13" style="text-align:center;color:#9a9490;padding:24px;">제출된 데이터가 없습니다</td></tr>';
+    } else {
+      tbody1.innerHTML = filtered.map(d => {
+        const m = d._meta?.student || {};
+        const s = d.week1?.sources || [{},{},{},{}];
+        const cmp = d.week1?.comparison || {};
+        const disc = d.week1?.discussion || {};
+        const arrow = (cmp.stance_before && cmp.stance_after) ? cmp.stance_before + ' → ' + cmp.stance_after : '—';
+        const topFrame = Object.entries(disc.code_summary?.frame||{}).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
+        return `<tr style="border-bottom:1px solid #f0ede8;">
+          <td style="padding:7px 10px;font-weight:600;">${m.name||'—'}</td>
+          <td style="padding:7px 10px;font-family:'Courier New',monospace;font-size:11px;">${m.id||'—'}</td>
+          <td style="padding:7px 10px;">${m.major||'—'}</td>
+          <td style="padding:7px 10px;font-family:'Courier New',monospace;font-size:11px;">${m.team||'—'}</td>
+          <td style="padding:7px 10px;font-size:11px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${(s[0]?.title||'—').slice(0,30)}</td>
+          <td style="padding:7px 10px;text-align:center;">${frameBadgeR(s[0]?.frame)}</td>
+          <td style="padding:7px 10px;text-align:center;">${frameBadgeR(s[1]?.frame)}</td>
+          <td style="padding:7px 10px;text-align:center;">${frameBadgeR(s[2]?.frame)}</td>
+          <td style="padding:7px 10px;text-align:center;">${frameBadgeR(s[3]?.frame)}</td>
+          <td style="padding:7px 10px;font-size:11px;">${arrow}</td>
+          <td style="padding:7px 10px;text-align:center;font-weight:700;">${disc.utt_count||0}</td>
+          <td style="padding:7px 10px;text-align:center;">${codeBadgeR(topFrame,'frame')}</td>
+          <td style="padding:7px 10px;font-size:10px;color:#9a9490;white-space:nowrap;">${d._meta?.timestamp ? new Date(d._meta.timestamp).toLocaleString('ko-KR') : '—'}</td>
+        </tr>`;
+      }).join('');
+    }
+  }
+
+  // Utterance table
+  const tbodyU = document.getElementById('res-tbody-utt');
+  if(tbodyU){
+    const uttRows = [];
+    filtered.forEach(d => {
+      const m = d._meta?.student || {};
+      const utts = d.week1?.discussion?.utterances || [];
+      if(!utts.length){
+        uttRows.push(`<tr style="border-bottom:1px solid #f0ede8;">
+          <td style="padding:7px 10px;font-weight:600;">${m.name||'—'}</td>
+          <td style="padding:7px 10px;">${(m.team||'—')}</td>
+          <td colspan="7" style="padding:7px 10px;color:#9a9490;font-size:11px;">(발화 없음)</td>
+        </tr>`);
+        return;
+      }
+      utts.forEach(u => {
+        uttRows.push(`<tr style="border-bottom:1px solid #f0ede8;">
+          <td style="padding:7px 10px;font-weight:600;">${m.name||'—'}</td>
+          <td style="padding:7px 10px;">${m.team||'—'}</td>
+          <td style="padding:7px 10px;font-size:12px;">${u.speaker||'—'}</td>
+          <td style="padding:7px 10px;font-size:12px;max-width:220px;">${u.text||'—'}</td>
+          <td style="padding:7px 10px;text-align:center;">${codeBadgeR(u.source_code,'source')}</td>
+          <td style="padding:7px 10px;text-align:center;">${codeBadgeR(u.frame_code,'frame')}</td>
+          <td style="padding:7px 10px;text-align:center;">${codeBadgeR(u.literacy_code,'literacy')}</td>
+          <td style="padding:7px 10px;text-align:center;">${codeBadgeR(u.discourse_code,'discourse')}</td>
+          <td style="padding:7px 10px;font-size:11px;color:#9a9490;">${u.reason||'—'}</td>
+        </tr>`);
+      });
+    });
+    if(!uttRows.length){
+      tbodyU.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#9a9490;padding:24px;">발화 데이터가 없습니다</td></tr>';
+    } else {
+      tbodyU.innerHTML = uttRows.join('');
+    }
+  }
+}
+
+function researcherCSV(){
+  if(!researcherData.length){ toast('데이터가 없습니다'); return; }
+
+  // ── CSV 1: 학생 요약 ──
+  const h1 = ['이름','학번','전공','팀','제출시각',
+    '자료1_제목','자료1_프레임','자료1_공평성','자료1_읽기전','자료1_읽기후',
+    '자료2_제목','자료2_프레임','자료2_공평성','자료2_읽기전','자료2_읽기후',
+    '자료3_제목','자료3_프레임','자료3_공평성','자료3_읽기전','자료3_읽기후',
+    '자료4_제목','자료4_프레임','자료4_공평성','자료4_읽기전','자료4_읽기후',
+    'AI긍정제목','AI부정제목','AI_vs_실제',
+    '신뢰자료','공통점','차이점','입장변화전','입장변화후','종합변화','결론문장',
+    '발화수','발화_프레임분포','발화_리터러시분포','발화_담론품질분포'];
+
+  const rows1 = [h1, ...researcherData.map(d => {
+    const m = d._meta?.student || {};
+    const s = d.week1?.sources || [];
+    const cmp = d.week1?.comparison || {};
+    const ai = d.week1?.ai_detective || {};
+    const disc = d.week1?.discussion || {};
+    return [
+      m.name, m.id, m.major, m.team, d._meta?.timestamp,
+      ...[0,1,2,3].flatMap(i => [
+        s[i]?.title, s[i]?.frame, s[i]?.fairness_score, s[i]?.pre_thought, s[i]?.post_thought
+      ]),
+      ai.ai_positive, ai.ai_negative, ai.ai_vs_real,
+      cmp.trusted_src, cmp.common, cmp.yt_vs_text_diff,
+      cmp.stance_before, cmp.stance_after, cmp.overall_change, cmp.conclusion,
+      disc.utt_count||0,
+      JSON.stringify(disc.code_summary?.frame||{}),
+      JSON.stringify(disc.code_summary?.literacy||{}),
+      JSON.stringify(disc.code_summary?.discourse||{})
+    ];
+  })];
+
+  // ── CSV 2: 발화 상세 ──
+  const h2 = ['이름','학번','팀','발화번호','발화자','발화내용','매체소스','프레임','리터러시영향','담론품질','코딩근거','시각'];
+  const rows2 = [h2];
+  researcherData.forEach(d => {
+    const m = d._meta?.student || {};
+    const utts = d.week1?.discussion?.utterances || [];
+    if(!utts.length){
+      rows2.push([m.name, m.id, m.team, '', '', '(발화 없음)', '', '', '', '', '', '']);
+    } else {
+      utts.forEach((u,i) => {
+        rows2.push([m.name, m.id, m.team, i+1, u.speaker, u.text,
+          u.source_code, u.frame_code, u.literacy_code, u.discourse_code, u.reason, u.time]);
+      });
+    }
+  });
+
+  const toCSV = (rows, fname) => {
+    const csv = '\uFEFF' + rows.map(r =>
+      r.map(v => '"' + String(v==null?'':v).replace(/"/g,'""') + '"').join(',')
+    ).join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    a.download = fname + '_' + new Date().toLocaleDateString('ko-KR').replace(/[\s.]/g,'') + '.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  };
+
+  toCSV(rows1, '언어와문화_P2_학생요약');
+  setTimeout(() => toCSV(rows2, '언어와문화_P2_발화상세'), 600);
+  toast('📥 CSV 2개 다운로드 — 학생요약 + 발화상세');
+}
+
+// ── 제출 시 localStorage에 누적 저장 ──
+const _origSubmitWeek = submitWeek;
+function submitWeek(w){
+  if(w === 1){
+    // 현재 데이터를 submissions에 저장
+    try{
+      const d = collect();
+      d._meta.week = w;
+      const subs = JSON.parse(localStorage.getItem('lc_p2_submissions')||'[]');
+      const sid = d._meta.student.id;
+      const idx = subs.findIndex(x => x._meta?.student?.id === sid);
+      if(idx >= 0) subs[idx] = d; else subs.push(d);
+      localStorage.setItem('lc_p2_submissions', JSON.stringify(subs));
+    }catch(e){}
+  }
+  _origSubmitWeek(w);
+}
+
 </script>
+
+<!-- ══════════════ 교수자 패널 ══════════════ -->
+<div id="researcher-panel" style="display:none;">
+  <div style="background:#1a1816;color:#fff;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:200;">
+    <div style="font-family:'Courier New',monospace;font-size:12px;letter-spacing:.1em;">언어와 문화 P2 <span style="color:#f0c060;">/ 교수자 패널</span></div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="researcherCSV()" style="padding:5px 14px;background:#1e6f4e;color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;">📥 CSV 다운로드</button>
+      <button onclick="refreshResearcher()" style="padding:5px 14px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;">🔄 새로고침</button>
+      <button onclick="closeResearcher()" style="padding:5px 14px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;">✕ 닫기</button>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:16px;">
+
+    <!-- 통계 -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;" id="res-stats"></div>
+
+    <!-- 필터 -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input id="res-search" type="text" placeholder="🔍 이름 또는 학번"
+        style="border:1px solid #ddd9d2;border-radius:5px;padding:7px 10px;font-size:12px;outline:none;width:180px;"
+        oninput="renderResearcherTable()">
+      <select id="res-major" onchange="renderResearcherTable()"
+        style="border:1px solid #ddd9d2;border-radius:5px;padding:7px 10px;font-size:12px;outline:none;">
+        <option value="">전체 전공</option>
+        <option>간호학과</option><option>물리치료학과</option><option>경찰행정학과</option><option>기타</option>
+      </select>
+      <select id="res-frame" onchange="renderResearcherTable()"
+        style="border:1px solid #ddd9d2;border-radius:5px;padding:7px 10px;font-size:12px;outline:none;">
+        <option value="">전체 프레임</option>
+        <option>부정-피해자</option><option>긍정-기회</option><option>복합</option><option>중립</option>
+      </select>
+      <button onclick="clearResearcherData()" style="padding:7px 14px;background:#f0ede8;border:1px solid #ddd9d2;border-radius:5px;font-size:12px;cursor:pointer;">🗑 전체 삭제</button>
+    </div>
+
+    <!-- 주 1 테이블 -->
+    <div style="background:#fff;border:1px solid #ddd9d2;border-radius:8px;overflow-x:auto;">
+      <div style="padding:12px 16px;border-bottom:1px solid #ddd9d2;font-size:12px;font-weight:700;color:#1a1816;">📋 주 1 — 자료 분석 데이터</div>
+      <table id="res-table-w1" style="width:100%;border-collapse:collapse;font-size:12px;min-width:1000px;">
+        <thead style="background:#1a1816;color:#fff;">
+          <tr>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;white-space:nowrap;">이름</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;white-space:nowrap;">학번</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;white-space:nowrap;">전공</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;white-space:nowrap;">팀</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;white-space:nowrap;">자료1 제목</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">자료1 프레임</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">자료2 프레임</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">자료3 프레임</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">자료4 프레임</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">입장변화</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">발화수</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">주요프레임</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">제출시각</th>
+          </tr>
+        </thead>
+        <tbody id="res-tbody-w1"></tbody>
+      </table>
+    </div>
+
+    <!-- 발화 상세 테이블 -->
+    <div style="background:#fff;border:1px solid #ddd9d2;border-radius:8px;overflow-x:auto;">
+      <div style="padding:12px 16px;border-bottom:1px solid #ddd9d2;font-size:12px;font-weight:700;color:#1a1816;">💬 팀 토의 발화 상세</div>
+      <table id="res-table-utt" style="width:100%;border-collapse:collapse;font-size:12px;min-width:900px;">
+        <thead style="background:#1a1816;color:#fff;">
+          <tr>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">이름</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">팀</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">발화자</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">발화 내용</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">매체소스</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">프레임</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">리터러시</th>
+            <th style="padding:8px 10px;text-align:center;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">담론품질</th>
+            <th style="padding:8px 10px;text-align:left;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;">코딩근거</th>
+          </tr>
+        </thead>
+        <tbody id="res-tbody-utt"></tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- 교수자 패널 열기 버튼 (화면 우하단 고정) -->
+<button id="researcher-fab"
+  onclick="openResearcher()"
+  style="position:fixed;bottom:28px;right:28px;z-index:150;background:#1a1816;color:#fff;border:none;border-radius:50px;padding:10px 18px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;display:flex;align-items:center;gap:6px;">
+  🔬 교수자 패널
+</button>
+
 </body>
 </html>
