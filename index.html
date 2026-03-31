@@ -471,100 +471,29 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
   .rec-controls{gap:8px;}
 }
 
-/* ── 마이크 권한 안내 배너 ── */
-.mic-guide {
-  display:none;
-  background:#fff3e0;
-  border:1px solid #fb8c00;
-  border-radius:var(--radius);
-  padding:14px 16px;
-  margin-bottom:14px;
-  gap:12px;
-  align-items:flex-start;
-  font-size:12px;
-  color:#5d4037;
-  line-height:1.8;
-}
-.mic-guide.show { display:flex; }
-.mic-guide .mic-steps { margin-top:4px; }
-.mic-guide .mic-steps li { margin-left:16px; list-style:decimal; }
 
 /* ── 자동 코딩 패널 ── */
-.coding-panel {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-left:3px solid var(--week3);
-  border-radius:var(--radius);
-  padding:20px 22px;
-  margin-top:20px;
-}
-.coding-panel .coding-header {
-  display:flex;align-items:center;gap:10px;margin-bottom:14px;
-}
-.coding-table {
-  width:100%;border-collapse:collapse;font-size:12px;
-}
-.coding-table th {
-  background:var(--surface2);border:1px solid var(--border);
-  padding:6px 10px;font-family:'Courier New',Courier,monospace;
-  font-size:9px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--text-muted);text-align:left;
-}
-.coding-table td {
-  border:1px solid var(--border);padding:7px 10px;
-  vertical-align:top;
-}
-.coding-table tr:nth-child(even) td { background:var(--surface2); }
-.code-badge {
-  display:inline-block;padding:2px 8px;border-radius:10px;
-  font-size:10px;font-weight:600;margin:2px 2px 2px 0;
-  font-family:'Courier New',Courier,monospace;
-}
-.badge-YT     { background:#fde8e8;color:#c0392b; }
-.badge-Text   { background:#eaf4fc;color:#2471a3; }
-.badge-None   { background:#f0ede8;color:#9a9490; }
-.badge-Negative  { background:#fde8e8;color:#c0392b; }
-.badge-Positive  { background:#e6f2ec;color:#1e6f4e; }
-.badge-Mixed     { background:#fdf0e8;color:#b85c2a; }
-.badge-Neutral   { background:#f0ede8;color:#6b6460; }
-.badge-Emotion   { background:#fef9e7;color:#b7950b; }
-.badge-Critique  { background:#eaf4fc;color:#2471a3; }
-.badge-Change    { background:#f4ecf7;color:#7d3c98; }
-.badge-Reproduce { background:#fde8e8;color:#a93226; }
-.badge-Resist    { background:#e6f2ec;color:#1a5631; }
-.badge-Exploratory { background:#eaf4fc;color:#1a5276; }
-.badge-Cumulative  { background:#fdfefe;color:#616a6b; }
-.badge-Disputational { background:#fef5e7;color:#a04000; }
-.btn-code-run {
-  background:var(--week3);color:#fff;border:none;border-radius:6px;
-  padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;
-  font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  transition:background .2s;display:inline-flex;align-items:center;gap:7px;
-}
-.btn-code-run:hover { background:#1c5f8e; }
-.btn-code-run:disabled { background:#ccc;cursor:not-allowed; }
-.btn-dl-csv {
-  background:var(--accent);color:#fff;border:none;border-radius:6px;
-  padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;
-  font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  transition:background .2s;
-}
-.btn-dl-csv:hover { background:#186040; }
-.coding-chart-wrap {
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;
-}
-.chart-box {
-  background:var(--surface2);border:1px solid var(--border);
-  border-radius:6px;padding:14px;
-}
-.chart-box .chart-title {
-  font-family:'Courier New',Courier,monospace;font-size:9px;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;
-}
-canvas.mini-chart { width:100%!important;max-height:180px; }
-@media(max-width:640px){
-  .coding-chart-wrap { grid-template-columns:1fr; }
-}
+.coding-panel{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--week3);border-radius:var(--radius);padding:20px 22px;margin-top:20px;}
+.coding-table{width:100%;border-collapse:collapse;font-size:12px;}
+.coding-table th{background:var(--surface2);border:1px solid var(--border);padding:6px 10px;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
+.coding-table td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;}
+.coding-table tr:nth-child(even) td{background:var(--surface2);}
+.code-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;margin:2px 2px 2px 0;font-family:'Courier New',Courier,monospace;}
+.badge-YT{background:#fde8e8;color:#c0392b;}.badge-Text{background:#eaf4fc;color:#2471a3;}.badge-None{background:#f0ede8;color:#9a9490;}
+.badge-Negative{background:#fde8e8;color:#c0392b;}.badge-Positive{background:#e6f2ec;color:#1e6f4e;}.badge-Mixed{background:#fdf0e8;color:#b85c2a;}.badge-Neutral{background:#f0ede8;color:#6b6460;}
+.badge-Emotion{background:#fef9e7;color:#b7950b;}.badge-Critique{background:#eaf4fc;color:#2471a3;}.badge-Change{background:#f4ecf7;color:#7d3c98;}.badge-Reproduce{background:#fde8e8;color:#a93226;}.badge-Resist{background:#e6f2ec;color:#1a5631;}
+.badge-Exploratory{background:#eaf4fc;color:#1a5276;}.badge-Cumulative{background:#fdfefe;color:#616a6b;}.badge-Disputational{background:#fef5e7;color:#a04000;}
+.btn-code-run{background:var(--week3);color:#fff;border:none;border-radius:6px;padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;transition:background .2s;display:inline-flex;align-items:center;gap:7px;}
+.btn-code-run:hover{background:#1c5f8e;}.btn-code-run:disabled{background:#ccc;cursor:not-allowed;}
+.btn-dl-csv{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;transition:background .2s;}
+.btn-dl-csv:hover{background:#186040;}
+.coding-chart-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.chart-box{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:14px;}
+.chart-box .chart-title{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+canvas.mini-chart{width:100%!important;max-height:180px;}
+.btn-copy-transcript{background:var(--week3);color:#fff;border:none;border-radius:6px;padding:9px 16px;font-size:12px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0;}
+.btn-copy-transcript:hover{background:#1c5f8e;}
+@media(max-width:640px){.coding-chart-wrap{grid-template-columns:1fr;}.member-inputs{grid-template-columns:1fr 1fr;}}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
@@ -916,128 +845,105 @@ canvas.mini-chart { width:100%!important;max-height:180px; }
   </div>
   <div class="rn" style="background:var(--accent2-light);border-color:rgba(184,92,42,.15);">
     <div class="rn-icon">🔬</div>
-    <div class="rn-text"><strong style="color:var(--week2);">연구 목적 (RQ2)</strong> — 주 1 자료 언어가 쓰기에 재현(재생산)되는지, 비판적으로 변형(저항)되는지 추적합니다.</div>
+    <div class="rn-text"><strong style="color:var(--week2);">연구 목적 (RQ2)</strong> — 주 1 자료의 언어가 내 쓰기에 재현(재생산)되는지, 비판적으로 변형(저항)되는지 추적합니다.</div>
   </div>
-  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">주 1 연계 — 자료별 키워드 재사용 계획</span><span class="stime">⏱ 10분</span></div>
-  <p class="step-desc">주 1에서 각 자료(1~4)의 대표 키워드를 이 의견문에 어떻게 사용할지 결정하세요.</p>
+
+  <!-- STEP 01: 키워드 재사용 계획 -->
+  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">주 1 키워드 → 의견문 연계</span><span class="stime">⏱ 10분</span></div>
+  <p class="step-desc">주 1 각 자료에서 뽑은 대표 키워드를 의견문에 어떻게 쓸지 계획하세요.</p>
   <div class="card">
-    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">자료별 대표 키워드 재사용 여부</span></div>
+    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">자료별 키워드 재사용 계획</span></div>
     <table class="reuse-table">
-      <thead><tr><th>자료</th><th>주 1 대표 키워드</th><th>내 글에서 사용?</th><th>프레임을 따를 것인가?</th></tr></thead>
+      <thead><tr><th>자료</th><th>주 1 대표 키워드</th><th>의견문에서 사용?</th><th>프레임 수용 방식</th></tr></thead>
       <tbody>
-        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 1 (YT)</td><td><input type="text" id="rk1" placeholder="예: 착취"></td><td><select id="rd1"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf1"><option value="">선택</option><option value="follow">따름 (재생산)</option><option value="resist">비판 (저항)</option><option value="partial">부분만 수용</option></select></td></tr>
-        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 2 (YT)</td><td><input type="text" id="rk2" placeholder="예: 자유"></td><td><select id="rd2"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf2"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
-        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 3 (텍스트)</td><td><input type="text" id="rk3" placeholder="예: 보호"></td><td><select id="rd3"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf3"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
-        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 4 (텍스트)</td><td><input type="text" id="rk4" placeholder="예: 선택"></td><td><select id="rd4"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td><td><select id="rf4"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 1 (YT)</td>
+          <td><input type="text" id="rk1" placeholder="예: 착취"></td>
+          <td><select id="rd1"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td>
+          <td><select id="rf1"><option value="">선택</option><option value="follow">따름 (재생산)</option><option value="resist">비판 (저항)</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 2 (YT)</td>
+          <td><input type="text" id="rk2" placeholder="예: 자유"></td>
+          <td><select id="rd2"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td>
+          <td><select id="rf2"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 3 (텍스트)</td>
+          <td><input type="text" id="rk3" placeholder="예: 보호"></td>
+          <td><select id="rd3"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td>
+          <td><select id="rf3"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
+        <tr><td style="font-family:'Courier New',Courier,monospace;font-size:11px;">자료 4 (텍스트)</td>
+          <td><input type="text" id="rk4" placeholder="예: 선택"></td>
+          <td><select id="rd4"><option value="">선택</option><option value="same">그대로 사용</option><option value="mod">변형해서 사용</option><option value="no">사용 안 함</option></select></td>
+          <td><select id="rf4"><option value="">선택</option><option value="follow">따름</option><option value="resist">비판</option><option value="partial">부분 수용</option></select></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="card" style="margin-top:10px;">
-    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">이 글의 전체 방향</span></div>
+
+  <!-- STEP 02: 의견문 -->
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">800자 의견문 작성</span><span class="stime">⏱ 15분</span></div>
+  <p class="step-desc">주 1 자료 URL 2개 이상 인용 필수. 아래에 서론·본론·결론 요약을 직접 작성하세요.</p>
+  <div class="card">
+    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">의견문 내용</span></div>
+    <div class="fl" style="margin-bottom:10px;">
+      <label>나의 최종 입장 (한 문장)</label>
+      <input class="inp w-full" type="text" id="essay-stance" placeholder="예: 플랫폼 노동은 자유로워 보이지만 구조적 착취를 내포한다.">
+    </div>
+    <div class="fl" style="margin-bottom:10px;">
+      <label>본론 — 주 1 자료를 인용한 핵심 근거 (자료 번호 명시)</label>
+      <textarea class="inp w-full" id="essay-body" style="min-height:100px;" placeholder="예: 자료 1(YT)에서 '착취'라는 단어가 반복됐고, 자료 3(기사) 통계에 따르면…"></textarea>
+    </div>
+    <div class="fl" style="margin-bottom:12px;">
+      <label>주 1 키워드를 그대로 재사용한 단어 목록</label>
+      <input class="inp w-full" type="text" id="rq1" placeholder="예: 착취(자료1), 불안정(자료3) — 총 2개">
+    </div>
     <div class="row2">
-      <div class="fl"><label>주 1에서 형성된 플랫폼 노동 이미지</label><input class="inp w-full" type="text" id="w1-frame-carry" placeholder='예: "플랫폼 = 착취 구조이지만 선택의 여지 있음"'></div>
-      <div class="fl"><label>이 글에서 그 이미지를 어떻게 다룰 것인가?</label>
+      <div class="fl">
+        <label>주 1 프레임에 대한 나의 태도</label>
         <select class="inp" id="w2-stance">
           <option value="">선택</option>
-          <option value="follow">그대로 따름 — 재생산</option>
-          <option value="partial">부분 동의 — 일부 수정</option>
-          <option value="resist">비판적 저항 — 새 관점 제시</option>
+          <option value="follow">그대로 따름 (재생산)</option>
+          <option value="partial">부분 동의 (일부 수정)</option>
+          <option value="resist">비판적 저항 (새 관점)</option>
+        </select>
+      </div>
+      <div class="fl">
+        <label>내 글쓰기에 더 큰 영향을 준 매체</label>
+        <select class="inp" id="rq3">
+          <option value="">선택</option>
+          <option value="yt">YouTube (감정·시각 자극)</option>
+          <option value="text">텍스트 (통계·논리)</option>
+          <option value="equal">비슷하게 영향</option>
         </select>
       </div>
     </div>
   </div>
+
+  <!-- STEP 03: 반성 질문 -->
   <hr class="div">
-  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">800자 의견문 작성</span><span class="stime">⏱ 15분</span></div>
-  <p class="step-desc">Google Docs에서 작성 후 링크를 붙여넣으세요. 주 1 URL 2개 이상 인용 필수.</p>
-  <div class="card">
-    <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">Google Docs 링크 (변경 이력 포함 공유)</span></div>
-    <input class="inp w-full" type="url" id="docs-link" placeholder="https://docs.google.com/document/d/..." style="margin-bottom:14px;">
-    <div class="fl" style="margin-bottom:10px;"><label>서론 — 나의 입장 선언</label><textarea class="inp w-full" id="essay-intro" placeholder="예: 플랫폼 노동은 자유로워 보이지만 실제로는 구조적 착취를 내포하고 있다."></textarea></div>
-    <div class="fl" style="margin-bottom:10px;"><label>본론 — 핵심 근거 (주 1 자료 인용 포함)</label><textarea class="inp w-full" id="essay-body" style="min-height:100px;" placeholder="예: 자료 1(YouTube)에서 '착취'라는 표현이 5회 등장하며... / 자료 3(기사)의 통계에 따르면..."></textarea></div>
-    <div class="fl" style="margin-bottom:14px;"><label>결론 — 제안 또는 비판적 재구성</label><textarea class="inp w-full" id="essay-conc" placeholder="예: 단순히 착취 피해자로 볼 것이 아니라 제도적 보호 장치 마련이 필요하다."></textarea></div>
-    <div style="display:flex;gap:20px;">
-      <div class="fl"><label>총 자수</label><input class="inp" type="number" id="essay-len" placeholder="800" style="width:90px;"></div>
-      <div class="fl"><label>주 1 키워드 인용 개수</label><input class="inp" type="number" id="kw-count" placeholder="3" style="width:70px;"></div>
-    </div>
-  </div>
-  <hr class="div">
-  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">연구 반성 질문 (RQ2 핵심 데이터)</span><span class="stime">⏱ 15분</span></div>
-  <p class="step-desc">솔직하게 답할수록 연구 가치가 높아집니다.</p>
+  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">반성 질문 (RQ2 핵심 데이터)</span><span class="stime">⏱ 15분</span></div>
   <div style="display:grid;gap:12px;">
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#c0392b"></div><span class="ch-label">Q1 — 재생산: 주 1 키워드를 그대로 썼나? 어느 자료에서 온 단어인가?</span></div><textarea class="inp w-full" id="rq1" placeholder="예: '착취'(자료 1 YouTube), '불안정'(자료 3 기사) — 총 3개 그대로 재사용."></textarea></div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q2 — 저항: 주 1의 편향 프레임을 내 글에서 비판하거나 수정했나? 어떻게?</span></div><textarea class="inp w-full" id="rq2" placeholder="예: 자료 1 YouTube의 감정적 '착취' 서사를 그대로 따르지 않고, 자료 3 통계를 추가해 '구조적 문제'로 재구성했다."></textarea></div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 매체 영향: YouTube vs 텍스트 중 어느 쪽이 내 글쓰기에 더 큰 영향을 줬나? 왜?</span></div><textarea class="inp w-full" id="rq3" placeholder="예: YouTube가 더 큰 영향을 줬다. 시각·청각 자극이 강해서 감정적으로 더 납득됐다."></textarea></div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#555"></div><span class="ch-label">Q4 — 자기평가: 내 글의 근거는 공평했나? (1~5점)</span></div>
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q1 — 저항: 주 1의 편향 프레임을 어떻게 비판·수정했나?</span></div>
+      <textarea class="inp w-full" id="rq2" placeholder="예: YouTube의 감정적 '착취' 서사를 그대로 따르지 않고 자료 3 통계로 '구조적 문제'로 재구성했다."></textarea>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:#555"></div><span class="ch-label">Q2 — 자기평가: 내 글의 근거는 공평했나? (1~5점)</span></div>
       <div class="rating-row" id="rating-w2q4" style="margin-bottom:10px;">
-        <button class="rb" onclick="setRating('w2q4',1,this)">1</button><button class="rb" onclick="setRating('w2q4',2,this)">2</button>
-        <button class="rb" onclick="setRating('w2q4',3,this)">3</button><button class="rb" onclick="setRating('w2q4',4,this)">4</button>
+        <button class="rb" onclick="setRating('w2q4',1,this)">1</button>
+        <button class="rb" onclick="setRating('w2q4',2,this)">2</button>
+        <button class="rb" onclick="setRating('w2q4',3,this)">3</button>
+        <button class="rb" onclick="setRating('w2q4',4,this)">4</button>
         <button class="rb" onclick="setRating('w2q4',5,this)">5</button>
       </div>
       <input type="hidden" id="w2q4" value="">
       <textarea class="inp w-full" id="rq4" placeholder="예: 3점. YouTube만 인용해 편향 위험. 다음엔 텍스트 통계도 포함하겠다."></textarea>
     </div>
   </div>
-  <!-- 자동 코딩 패널 -->
-  <div class="coding-panel" id="coding-panel">
-    <div class="coding-header">
-      <div class="ch-dot" style="background:var(--week3)"></div>
-      <span style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;">CCSS·CDA 자동 코딩 — 전사 세그먼트 분석</span>
-      <button class="btn-code-run" id="btn-code" onclick="runAutoCoding()">🔍 자동 코딩 실행</button>
-    </div>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;line-height:1.7;">
-      전사된 발화를 <strong>키워드 매칭(semi-auto)</strong>으로 자동 코딩합니다.
-      코딩 카테고리: 매체 소스(YT/Text/None) · 프레임(Negative/Positive/Mixed/Neutral) ·
-      리터러시 영향(Emotion/Critique/Change/Reproduce/Resist) · 담론 품질(Exploratory/Cumulative/Disputational).
-      Claude AI가 코드를 검토·보정합니다.
-    </p>
-    <div id="coding-result-wrap" style="display:none;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
-        <span id="coding-summary" style="font-size:12px;color:var(--text-mid);"></span>
-        <button class="btn-dl-csv" onclick="downloadCodedCSV()">⬇ CSV 다운로드</button>
-        <button class="btn-dl-csv" onclick="downloadDashboard()" style="background:var(--week3);">📊 대시보드 HTML</button>
-      </div>
-      <div style="overflow-x:auto;">
-        <table class="coding-table" id="coding-table">
-          <thead><tr>
-            <th style="width:60px;">시간</th>
-            <th style="width:80px;">발화자</th>
-            <th>발화</th>
-            <th style="width:80px;">소스</th>
-            <th style="width:90px;">프레임</th>
-            <th style="width:110px;">리터러시</th>
-            <th style="width:110px;">담론 품질</th>
-          </tr></thead>
-          <tbody id="coding-tbody"></tbody>
-        </table>
-      </div>
-      <div class="coding-chart-wrap">
-        <div class="chart-box">
-          <div class="chart-title">프레임 분포</div>
-          <canvas id="chart-frame" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">매체 소스 분포</div>
-          <canvas id="chart-source" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">리터러시 영향 분포</div>
-          <canvas id="chart-lit" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">담론 품질 분포</div>
-          <canvas id="chart-disc" class="mini-chart"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
   <div class="submit-area">
     <div class="checklist">
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자료별 키워드 재사용 표 작성했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Google Docs 링크 입력했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>의견문 요약(서론·본론·결론) 입력했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Q1~Q4 반성 질문 모두 답했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자료별 키워드 재사용 계획을 작성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>나의 입장 한 문장을 작성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>본론에 자료 번호를 명시해 인용했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>반성 질문 Q1~Q2를 작성했나?</label>
     </div>
     <button class="btn-submit w2" onclick="submitWeek(2)">주 2 제출 (JSON 다운로드) →</button>
   </div>
@@ -1047,118 +953,108 @@ canvas.mini-chart { width:100%!important;max-height:180px; }
 <div class="panel" id="panel-3">
   <div class="panel-hero">
     <div class="week-label" style="color:var(--week3);">Week 3 · 주 3</div>
-    <h2>팀 토의 &amp; 개인 리플렉션</h2>
-    <p class="desc">주 1·2 결과를 바탕으로 팀 토의(15분 녹음)를 진행하고, 매체 언어가 집단 담화에 어떤 영향을 줬는지 기록합니다.</p>
-    <div class="time-tag">⏱ 총 40분 · 토의 15분 + 메모 10분 + 리플렉션 15분</div>
+    <h2>팀 토의 녹음 · 전사 · 담론 코딩</h2>
+    <p class="desc">팀 토의를 녹음하고 Claude AI로 자동 전사한 후, CCSS·CDA 코딩틀로 담론을 분석합니다.</p>
+    <div class="time-tag">⏱ 총 40분 · 토의 15분 + 전사 5분 + 코딩·리플렉션 20분</div>
   </div>
   <div class="rn" style="background:#eaf4fc;border-color:rgba(36,113,163,.15);">
     <div class="rn-icon">🔬</div>
-    <div class="rn-text"><strong style="color:var(--week3);">연구 목적 (RQ2 마무리)</strong> — 3주간 매체 담론이 집단 토의에 재현·저항되는 과정과 개인 인지 변화 경로를 추적합니다.</div>
+    <div class="rn-text"><strong style="color:var(--week3);">연구 목적 (RQ2 마무리)</strong> — 매체 담론이 집단 토의에 재현·저항되는 과정과 개인 인지 변화 경로를 추적합니다.</div>
   </div>
 
-  <!-- ═══════ STEP 01: 팀원 등록 & 녹음 & Claude API 전사 ═══════ -->
-  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">팀원 등록 &amp; 토의 녹음 · Claude AI 전사</span><span class="stime">⏱ 15분 — 녹음 필수</span></div>
-  <p class="step-desc">
-    <strong>사용 순서:</strong><br>
-    ① 팀원 이름 4명 입력 &nbsp;→&nbsp;
-    ② <strong>녹음 시작</strong> 버튼으로 토의 발화 녹음 &nbsp;→&nbsp;
-    ③ <strong>녹음 중지 &amp; 전사</strong> 버튼을 누르면 Claude AI가 자동으로 한국어 전사 &nbsp;→&nbsp;
-    ④ 각 발화 문장 아래에서 <strong>팀원 이름 버튼을 클릭</strong>해 발화자 배정<br>
-    <em>토의 주제: "주 1 자료의 언어가 내 생각에 얼마나 영향을 줬나? 착취 프레임을 따라갔나, 비판했나?"</em>
-  </p>
+  <!-- ── API 키 & 팀원 설정 ── -->
+  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">사전 설정 — API 키 &amp; 팀원 이름</span><span class="stime">⏱ 1분</span></div>
+  <p class="step-desc">녹음 전사와 자동 코딩에 Claude API 키가 필요합니다. 키는 이 탭을 닫으면 자동 삭제됩니다.</p>
 
+  <!-- API 키 입력 카드 -->
+  <div class="card" style="border-left:3px solid var(--week3);margin-bottom:14px;">
+    <div class="card-head">
+      <div class="ch-dot" style="background:var(--week3)"></div>
+      <span class="ch-label">Claude API 키 입력</span>
+      <span id="api-key-status" style="font-size:11px;color:var(--accent);font-family:'Courier New',Courier,monospace;margin-left:auto;"></span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <input type="password" id="api-key-inp" class="inp" style="flex:1;min-width:260px;"
+        placeholder="sk-ant-api03-..." autocomplete="off">
+      <button onclick="saveApiKey()" style="background:var(--week3);color:#fff;border:none;border-radius:6px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">저장</button>
+    </div>
+    <p style="margin-top:8px;font-size:11px;color:var(--text-muted);">
+      🔒 sessionStorage에만 임시 저장 · 탭 닫으면 삭제 · 깃허브에 업로드되지 않습니다.<br>
+      키 발급: <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--week3);">console.anthropic.com/keys</a>
+    </p>
+  </div>
 
   <!-- 팀원 이름 입력 -->
   <div class="member-setup-card">
     <div class="card-head">
       <div class="ch-dot" style="background:var(--week3)"></div>
-      <span class="ch-label">팀원 이름 입력 (4명) — 전사 후 발화자 배정 버튼에 표시됩니다</span>
+      <span class="ch-label">팀원 이름 4명 — 전사 후 발화자 배정 버튼에 표시됩니다</span>
     </div>
     <div class="member-inputs">
-      <div class="member-input-wrap">
-        <label>팀원 1</label>
-        <input class="member-name-inp" id="mbr-0" placeholder="예: 김민준" oninput="updateSpeakerBtns()">
-      </div>
-      <div class="member-input-wrap">
-        <label>팀원 2</label>
-        <input class="member-name-inp" id="mbr-1" placeholder="예: 이서연" oninput="updateSpeakerBtns()">
-      </div>
-      <div class="member-input-wrap">
-        <label>팀원 3</label>
-        <input class="member-name-inp" id="mbr-3" placeholder="예: 박지호" oninput="updateSpeakerBtns()">
-      </div>
-      <div class="member-input-wrap">
-        <label>팀원 4</label>
-        <input class="member-name-inp" id="mbr-4" placeholder="예: 최수아" oninput="updateSpeakerBtns()">
-      </div>
+      <div class="member-input-wrap"><label>팀원 1</label><input class="member-name-inp" id="mbr-0" placeholder="김민준" oninput="updateSpeakerBtns()"></div>
+      <div class="member-input-wrap"><label>팀원 2</label><input class="member-name-inp" id="mbr-1" placeholder="이서연" oninput="updateSpeakerBtns()"></div>
+      <div class="member-input-wrap"><label>팀원 3</label><input class="member-name-inp" id="mbr-3" placeholder="박지호" oninput="updateSpeakerBtns()"></div>
+      <div class="member-input-wrap"><label>팀원 4</label><input class="member-name-inp" id="mbr-4" placeholder="최수아" oninput="updateSpeakerBtns()"></div>
     </div>
   </div>
 
-  <!-- 마이크 권한 안내 배너 -->
-  <div class="mic-guide" id="mic-guide">
-    <span style="font-size:20px;flex-shrink:0;">🎤</span>
-    <div>
-      <strong>마이크 권한이 차단돼 있습니다.</strong> 아래 방법으로 허용해 주세요:<br>
-      <ul class="mic-steps">
-        <li><strong>Chrome / Edge:</strong> 주소창 왼쪽 🔒 자물쇠(또는 ⚙) 클릭 → <em>사이트 설정</em> → <em>마이크</em> → <strong>허용</strong> → 페이지 새로고침</li>
-        <li><strong>Safari (Mac):</strong> Safari 메뉴 → 환경설정 → 웹사이트 → 마이크 → 이 사이트 <strong>허용</strong></li>
-        <li><strong>Firefox:</strong> 주소창 왼쪽 🔒 → 연결 → 마이크 권한 허용</li>
-        <li>권한 허용 후 <strong>페이지를 새로고침</strong>하면 녹음이 활성화됩니다.</li>
-      </ul>
-    </div>
+  <!-- ── 녹음 ── -->
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">토의 녹음</span><span class="stime">⏱ 15분</span></div>
+  <p class="step-desc">토의 주제: <strong>"주 1 자료의 언어가 내 생각에 얼마나 영향을 줬나? 착취 프레임을 따라갔나, 비판했나?"</strong></p>
+
+  <!-- 마이크 권한 안내 -->
+  <div id="mic-guide" style="display:none;background:#fff3e0;border:1px solid #fb8c00;border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;font-size:12px;color:#5d4037;line-height:1.8;">
+    <strong>🎤 마이크 권한이 차단됐습니다.</strong> 허용 방법:<br>
+    <strong>Chrome/Edge:</strong> 주소창 왼쪽 🔒 → 사이트 설정 → 마이크 → <strong>허용</strong> → 새로고침<br>
+    <strong>Safari:</strong> Safari 메뉴 → 환경설정 → 웹사이트 → 마이크 → 허용<br>
+    <strong>Firefox:</strong> 주소창 왼쪽 🔒 → 연결 → 마이크 권한 허용
   </div>
 
-  <!-- 녹음 컨트롤 -->
   <div class="rec-panel" id="rec-panel">
     <div class="rec-controls">
       <div class="rec-timer" id="rec-timer">00:00</div>
       <button class="btn-rec-start" id="btn-start" onclick="startRecording()">🎙 녹음 시작</button>
-      <button class="btn-rec-stop" id="btn-stop" onclick="stopAndTranscribe()" disabled>⏹ 녹음 중지 &amp; 전사</button>
+      <button class="btn-rec-stop" id="btn-stop" onclick="stopAndTranscribe()" disabled>⏹ 중지 &amp; 전사</button>
       <div class="rec-status">
         <div class="rec-dot" id="rec-dot"></div>
         <span id="rec-status-text">대기 중</span>
       </div>
     </div>
-    <!-- 상태 메시지 박스 -->
     <div class="live-transcript-box" id="live-box">
-      <span id="interim-text" style="color:var(--text-muted);">녹음 시작 버튼을 누르면 마이크가 활성화됩니다. 토의가 끝나면 녹음 중지 &amp; 전사 버튼을 누르세요.</span>
+      <span id="interim-text" style="color:var(--text-muted);">녹음 시작 버튼을 누르세요. 토의가 끝나면 "중지 &amp; 전사" 버튼을 누르면 Claude AI가 자동으로 전사합니다.</span>
     </div>
-    <div class="live-hint">* 모든 브라우저 지원 · 마이크 권한 허용 필요 · 녹음 중지 후 Claude AI가 전체 오디오를 한 번에 전사합니다</div>
+    <div class="live-hint">* 마이크 권한 허용 필요 · 녹음 중지 후 Claude AI가 전체 오디오를 한 번에 한국어 전사합니다</div>
   </div>
 
-  <!-- 전사 세그먼트 목록 -->
-  <div class="card" style="margin-bottom:20px;">
+  <!-- ── 전사 결과 & 발화자 배정 ── -->
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">전사 결과 — 발화자 배정</span><span class="stime">⏱ 5분</span></div>
+  <p class="step-desc">각 발화 문장 아래에서 <strong>팀원 이름 버튼을 클릭</strong>해 발화자를 배정하세요. 수동 추가도 가능합니다.</p>
+
+  <div class="card" style="margin-bottom:14px;">
     <div class="card-head">
       <div class="ch-dot" style="background:var(--week3)"></div>
-      <span class="ch-label">전사 결과 — 각 문장 아래 팀원 이름을 클릭해 발화자를 배정하세요</span>
-      <button class="btn-rec-stop" onclick="clearAllSegments()"
-        style="font-size:11px;padding:4px 10px;margin-left:auto;">전체 삭제</button>
+      <span class="ch-label">전사 세그먼트</span>
+      <button onclick="clearAllSegments()" style="margin-left:auto;background:none;border:1px solid var(--border);border-radius:4px;padding:3px 10px;font-size:11px;color:var(--text-muted);cursor:pointer;">전체 삭제</button>
     </div>
     <div id="transcript-list" class="transcript-list">
-      <div class="empty-transcript">
-        <div class="et-icon">🎙</div>
-        <div>녹음 중지 후 Claude AI가 전사한 결과가 여기에 표시됩니다</div>
-      </div>
+      <div class="empty-transcript"><div class="et-icon">🎙</div><div>녹음 중지 후 전사 결과가 여기에 표시됩니다</div></div>
     </div>
-
-    <!-- 수동 세그먼트 추가 -->
-    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">문장 수동 추가 (전사 보완용)</div>
-      <div style="display:flex;gap:8px;align-items:flex-start;">
-        <textarea id="manual-seg-text" class="inp" style="flex:1;min-height:56px;"
-          placeholder="전사가 누락된 발화를 직접 입력하세요"></textarea>
-        <button class="btn-rec-start" style="padding:10px 16px;font-size:12px;white-space:nowrap;flex-shrink:0;"
-          onclick="addManualSegment()">+ 추가</button>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">발화 수동 추가</div>
+      <div style="display:flex;gap:8px;">
+        <textarea id="manual-seg-text" class="inp" style="flex:1;min-height:50px;" placeholder="누락된 발화를 직접 입력"></textarea>
+        <button onclick="addManualSegment()" class="btn-rec-start" style="padding:9px 14px;font-size:12px;flex-shrink:0;">+ 추가</button>
       </div>
     </div>
   </div>
 
-  <!-- 전사 전체 내보내기 -->
+  <!-- 전사 전체 텍스트 -->
   <div class="transcript-export">
     <div style="flex:1;">
-      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">전체 전사 텍스트 (제출용 · 직접 편집 가능)</div>
-      <textarea class="inp w-full" id="full-transcript" rows="7"
-        placeholder="전사 완료 후 자동으로 생성됩니다. 직접 수정도 가능합니다."></textarea>
+      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">전체 전사 텍스트 (직접 편집 가능)</div>
+      <textarea class="inp w-full" id="full-transcript" rows="6" placeholder="전사 완료 후 자동 생성됩니다."></textarea>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;">
       <button class="btn-copy-transcript" onclick="rebuildTranscript()">🔄 재생성</button>
@@ -1166,76 +1062,108 @@ canvas.mini-chart { width:100%!important;max-height:180px; }
     </div>
   </div>
 
+  <!-- ── 자동 코딩 ── -->
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 04</span><span class="stitle">CCSS·CDA 자동 코딩 &amp; 시각화</span><span class="stime">⏱ 5분</span></div>
+  <p class="step-desc">전사된 발화를 키워드 매칭 + Claude AI 보정으로 자동 코딩합니다. 결과를 CSV·대시보드로 내보낼 수 있습니다.</p>
 
-  <!-- 자동 코딩 패널 -->
-  <div class="coding-panel" id="coding-panel">
-    <div class="coding-header">
-      <div class="ch-dot" style="background:var(--week3)"></div>
-      <span style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;">CCSS·CDA 자동 코딩 — 전사 세그먼트 분석</span>
-      <button class="btn-code-run" id="btn-code" onclick="runAutoCoding()">🔍 자동 코딩 실행</button>
+  <div class="card" style="border-left:3px solid var(--week3);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">코딩 카테고리</div>
+        <div style="font-size:12px;color:var(--text-mid);">
+          매체 소스(YT/Text/None) &middot; 프레임(Negative/Positive/Mixed/Neutral) &middot;
+          리터러시(Emotion/Critique/Change/Reproduce/Resist) &middot; 담론 품질(Exploratory/Cumulative/Disputational)
+        </div>
+      </div>
+      <button class="btn-code-run" id="btn-code" onclick="runAutoCoding()" style="flex-shrink:0;">🔍 자동 코딩 실행</button>
     </div>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;line-height:1.7;">
-      전사된 발화를 <strong>키워드 매칭(semi-auto)</strong>으로 자동 코딩합니다.
-      코딩 카테고리: 매체 소스(YT/Text/None) · 프레임(Negative/Positive/Mixed/Neutral) ·
-      리터러시 영향(Emotion/Critique/Change/Reproduce/Resist) · 담론 품질(Exploratory/Cumulative/Disputational).
-      Claude AI가 코드를 검토·보정합니다.
-    </p>
+
     <div id="coding-result-wrap" style="display:none;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
-        <span id="coding-summary" style="font-size:12px;color:var(--text-mid);"></span>
+        <span id="coding-summary" style="font-size:12px;color:var(--text-mid);font-weight:600;"></span>
         <button class="btn-dl-csv" onclick="downloadCodedCSV()">⬇ CSV 다운로드</button>
         <button class="btn-dl-csv" onclick="downloadDashboard()" style="background:var(--week3);">📊 대시보드 HTML</button>
       </div>
-      <div style="overflow-x:auto;">
-        <table class="coding-table" id="coding-table">
+      <div style="overflow-x:auto;margin-bottom:16px;">
+        <table class="coding-table">
           <thead><tr>
-            <th style="width:60px;">시간</th>
-            <th style="width:80px;">발화자</th>
-            <th>발화</th>
-            <th style="width:80px;">소스</th>
-            <th style="width:90px;">프레임</th>
-            <th style="width:110px;">리터러시</th>
-            <th style="width:110px;">담론 품질</th>
+            <th style="width:55px;">시간</th>
+            <th style="width:75px;">발화자</th>
+            <th>발화 내용</th>
+            <th style="width:70px;">소스</th>
+            <th style="width:85px;">프레임</th>
+            <th style="width:100px;">리터러시</th>
+            <th style="width:105px;">담론 품질</th>
           </tr></thead>
           <tbody id="coding-tbody"></tbody>
         </table>
       </div>
       <div class="coding-chart-wrap">
-        <div class="chart-box">
-          <div class="chart-title">프레임 분포</div>
-          <canvas id="chart-frame" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">매체 소스 분포</div>
-          <canvas id="chart-source" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">리터러시 영향 분포</div>
-          <canvas id="chart-lit" class="mini-chart"></canvas>
-        </div>
-        <div class="chart-box">
-          <div class="chart-title">담론 품질 분포</div>
-          <canvas id="chart-disc" class="mini-chart"></canvas>
-        </div>
+        <div class="chart-box"><div class="chart-title">프레임 분포</div><canvas id="chart-frame" class="mini-chart"></canvas></div>
+        <div class="chart-box"><div class="chart-title">매체 소스</div><canvas id="chart-source" class="mini-chart"></canvas></div>
+        <div class="chart-box"><div class="chart-title">리터러시 영향</div><canvas id="chart-lit" class="mini-chart"></canvas></div>
+        <div class="chart-box"><div class="chart-title">담론 품질</div><canvas id="chart-disc" class="mini-chart"></canvas></div>
       </div>
     </div>
   </div>
 
+  <!-- ── 리플렉션 ── -->
+  <hr class="div">
+  <div class="step-label"><span class="snum">STEP 05</span><span class="stitle">개인 리플렉션 (연구 데이터)</span><span class="stime">⏱ 10분</span></div>
+  <div style="display:grid;gap:12px;">
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:#c0392b"></div><span class="ch-label">Q1 — 재생산: 팀 토의에서 주 1 키워드가 몇 번 재사용됐나? 예시 3개</span></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <input class="inp" type="number" id="repro-pct" placeholder="75" style="width:70px;" min="0" max="100">
+        <span style="font-size:12px;color:var(--text-muted);">% 팀원이 재사용</span>
+      </div>
+      <textarea class="inp w-full" id="w3q1" placeholder="예: '착취' — 3명(자료1 YT) / '불안정' — 2명(자료3) / '기회' — 1명(자료2)"></textarea>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q2 — 저항: 팀 토의에서 주 1 편향을 비판하는 발언이 있었나? 담론이 어떻게 재구성됐나?</span></div>
+      <textarea class="inp w-full" id="w3q2" placeholder="예: 팀원2가 'YouTube 과장됐다, 통계 봐야 한다'고 제기 → 복합 프레임으로 이동."></textarea>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 3주 인지 변화: 주 1 시작 전 → 주 3 토의 후 최종 입장</span></div>
+      <div style="display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center;margin-bottom:10px;">
+        <div class="fl"><label>주 1 시작 전 입장</label>
+          <select class="inp" id="ch-before"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>중립/몰랐음</option></select></div>
+        <div style="text-align:center;font-size:16px;color:var(--text-muted);margin-top:16px;">→</div>
+        <div class="fl"><label>주 3 토의 후 최종 입장</label>
+          <select class="inp" id="ch-after"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>복합 (양면 인식)</option><option>비판적 중립</option></select></div>
+      </div>
+      <textarea class="inp w-full" id="w3q3" placeholder="3주 중 가장 큰 변화를 준 계기는? (특정 자료? 팀원 발언? 의견문 쓰기?)"></textarea>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-dot" style="background:var(--week3)"></div><span class="ch-label">최종 평가 — 3주 프로젝트가 언어·담론 인식에 도움이 됐나? (1~5점)</span></div>
+      <div class="rating-row" id="rating-final" style="margin-bottom:10px;">
+        <button class="rb" onclick="setRating('final',1,this)">1</button>
+        <button class="rb" onclick="setRating('final',2,this)">2</button>
+        <button class="rb" onclick="setRating('final',3,this)">3</button>
+        <button class="rb" onclick="setRating('final',4,this)">4</button>
+        <button class="rb" onclick="setRating('final',5,this)">5</button>
+      </div>
+      <input type="hidden" id="final-rating" value="">
+      <textarea class="inp w-full" id="final-reason" placeholder="이유 (예: YouTube 언어가 무의식적으로 내 생각을 바꾼다는 걸 처음 인식했다.)"></textarea>
+    </div>
+  </div>
 
   <div class="submit-area">
     <div class="checklist">
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>팀원 이름 4명을 모두 입력했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>API 키를 입력하고 팀원 이름 4명을 등록했나?</label>
       <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>토의를 녹음하고 Claude AI 전사를 완료했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 발화 문장에 발화자(팀원)를 배정했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>전체 전사 텍스트를 확인하고 필요시 수정했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 발화에 발화자를 배정했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자동 코딩을 실행하고 CSV/대시보드를 저장했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>리플렉션 Q1~Q3과 최종 평가를 완성했나?</label>
     </div>
-    <button class="btn-submit w3" onclick="submitWeek(3)">주 3 제출 — 전사 완료 (JSON 다운로드) →</button>
+    <button class="btn-submit w3" onclick="submitWeek(3)">주 3 제출 — 연구 완료 (JSON 다운로드) →</button>
   </div>
-</div>
 </div>
 
 <div id="toast"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 // ════════════════════════════════════════
 // WEEK / SOURCE SWITCH
@@ -1282,7 +1210,7 @@ function selFrame(btn,fid,val){
   autoSave();
 }
 function setRating(key,val,btn){
-  const row = document.getElementById('rating-'+key);
+  const row=document.getElementById('rating-'+key);
   if(row) row.querySelectorAll('.rb').forEach((b,i)=>b.classList.toggle('on',i<val));
   const h=document.getElementById(key)||document.getElementById(key+'-rating');
   if(h) h.value=val;
@@ -1291,232 +1219,194 @@ function setRating(key,val,btn){
 function toggleCI(l){l.classList.toggle('done');}
 
 // ════════════════════════════════════════
-// 녹음 & 전사 (MediaRecorder + Claude API)
+// API 키 관리 (sessionStorage)
 // ════════════════════════════════════════
-// ── API 키: 페이지 로드 시 한 번만 입력, sessionStorage에만 임시 저장 ──
-// 깃허브에 키를 절대 하드코딩하지 마세요.
-function getApiKey() {
-  let key = sessionStorage.getItem('_cak') || '';
-  if (!key) {
-    key = prompt('Claude API 키를 입력하세요 (sk-ant-api03-...)\n※ 세션 종료 시 자동 삭제됩니다.') || '';
-    if (key.startsWith('sk-ant-')) {
-      sessionStorage.setItem('_cak', key);
-    } else {
-      toast('⚠️ 올바른 API 키 형식이 아닙니다.');
-      return '';
-    }
+function saveApiKey() {
+  const val = document.getElementById('api-key-inp').value.trim();
+  if(!val.startsWith('sk-ant-')) {
+    toast('⚠️ 올바른 API 키 형식이 아닙니다 (sk-ant-... 로 시작)');
+    return;
   }
+  sessionStorage.setItem('_cak', val);
+  document.getElementById('api-key-inp').value = '';
+  document.getElementById('api-key-status').textContent = '✓ 저장됨';
+  toast('✓ API 키가 세션에 저장됐습니다.');
+}
+function getApiKey() {
+  const key = sessionStorage.getItem('_cak') || '';
+  if(!key) { toast('⚠️ STEP 01에서 API 키를 먼저 입력·저장하세요.'); return ''; }
   return key;
 }
 
-let mediaRecorder = null;
-let audioChunks = [];
-let isRecording = false;
-let recStartTime = null;
-let recTimerInterval = null;
-let segments = [];
-let segIdCounter = 0;
+// ════════════════════════════════════════
+// 녹음 & 전사 (MediaRecorder + Claude API)
+// ════════════════════════════════════════
+let mediaRecorder=null, audioChunks=[], isRecording=false;
+let recStartTime=null, recTimerInterval=null;
+let segments=[], segIdCounter=0;
 
-window.addEventListener('load', () => { restoreData(); updateProgress(); });
+window.addEventListener('load',()=>{ restoreData(); updateProgress(); });
 
-// ── 팀원 이름 ──
-function getMemberNames() {
+function getMemberNames(){
   return ['mbr-0','mbr-1','mbr-3','mbr-4']
-    .map((id,i) => (g(id)||'').trim() || `팀원 ${i+1}`);
+    .map((id,i)=>(g(id)||'').trim()||`팀원 ${i+1}`);
 }
-function updateSpeakerBtns() {
-  const names = getMemberNames();
-  document.querySelectorAll('.speaker-btns').forEach(wrap => {
-    wrap.querySelectorAll('.spk-btn').forEach((btn,i) => {
-      const prev = btn.dataset.speaker;
-      btn.dataset.speaker = names[i];
-      btn.textContent = names[i];
-      if(btn.classList.contains('selected')) {
-        const segId = parseInt(btn.closest('.transcript-seg').id.replace('seg-',''));
-        const seg = segments.find(s=>s.id===segId);
-        if(seg && seg.speaker===prev) seg.speaker = names[i];
+function updateSpeakerBtns(){
+  const names=getMemberNames();
+  document.querySelectorAll('.speaker-btns').forEach(wrap=>{
+    wrap.querySelectorAll('.spk-btn').forEach((btn,i)=>{
+      const prev=btn.dataset.speaker;
+      btn.dataset.speaker=names[i]; btn.textContent=names[i];
+      if(btn.classList.contains('selected')){
+        const sid=parseInt(btn.closest('.transcript-seg').id.replace('seg-',''));
+        const seg=segments.find(s=>s.id===sid);
+        if(seg&&seg.speaker===prev) seg.speaker=names[i];
       }
     });
   });
   autoSave();
 }
 
-// ── 녹음 시작 ──
-async function startRecording() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    audioChunks = [];
-    const mimeType = ['audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus','audio/mp4']
-      .find(t => MediaRecorder.isTypeSupported(t)) || '';
-    mediaRecorder = new MediaRecorder(stream, mimeType ? {mimeType} : {});
-    mediaRecorder.ondataavailable = e => { if(e.data.size>0) audioChunks.push(e.data); };
-    mediaRecorder.onstop = () => stream.getTracks().forEach(t=>t.stop());
+async function startRecording(){
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    document.getElementById('mic-guide').style.display='none';
+    audioChunks=[];
+    const mimeType=['audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus','audio/mp4']
+      .find(t=>MediaRecorder.isTypeSupported(t))||'';
+    mediaRecorder=new MediaRecorder(stream,mimeType?{mimeType}:{});
+    mediaRecorder.ondataavailable=e=>{if(e.data.size>0)audioChunks.push(e.data);};
+    mediaRecorder.onstop=()=>stream.getTracks().forEach(t=>t.stop());
     mediaRecorder.start(1000);
-    isRecording = true;
-    recStartTime = Date.now();
+    isRecording=true; recStartTime=Date.now();
     document.getElementById('rec-panel').classList.add('recording');
     document.getElementById('rec-dot').classList.add('live');
-    document.getElementById('rec-status-text').textContent = '녹음 중...';
-    document.getElementById('btn-start').disabled = true;
-    document.getElementById('btn-stop').disabled = false;
-    document.getElementById('interim-text').textContent = '🔴 녹음 중입니다. 토의가 끝나면 "녹음 중지 & 전사" 버튼을 누르세요.';
+    document.getElementById('rec-status-text').textContent='녹음 중...';
+    document.getElementById('btn-start').disabled=true;
+    document.getElementById('btn-stop').disabled=false;
+    document.getElementById('interim-text').textContent='🔴 녹음 중입니다. 토의가 끝나면 "중지 & 전사" 버튼을 누르세요.';
     startTimer();
-  } catch(err) {
-    if(err.name==='NotAllowedError' || err.name==='PermissionDeniedError') {
-      document.getElementById('mic-guide').classList.add('show');
-      document.getElementById('interim-text').textContent =
-        '⚠️ 마이크 권한이 차단됐습니다. 위 안내를 따라 권한을 허용한 후 페이지를 새로고침하세요.';
+  }catch(err){
+    if(err.name==='NotAllowedError'||err.name==='PermissionDeniedError'){
+      document.getElementById('mic-guide').style.display='block';
+      document.getElementById('interim-text').textContent='⚠️ 마이크 권한이 차단됐습니다. 위 안내를 따라 허용 후 새로고침하세요.';
       toast('⚠️ 마이크 권한 차단 — 위 안내를 확인하세요.');
     } else {
-      toast('⚠️ 마이크 오류: ' + err.message);
+      toast('⚠️ 마이크 오류: '+err.message);
     }
   }
 }
 
-// ── 녹음 중지 & Claude API 전사 ──
-async function stopAndTranscribe() {
-  if(!mediaRecorder || mediaRecorder.state==='inactive') return;
-  isRecording = false;
-  stopTimer();
-  document.getElementById('btn-stop').disabled = true;
-  document.getElementById('btn-start').disabled = true;
+async function stopAndTranscribe(){
+  const apiKey=getApiKey(); if(!apiKey) return;
+  if(!mediaRecorder||mediaRecorder.state==='inactive') return;
+  isRecording=false; stopTimer();
+  document.getElementById('btn-stop').disabled=true;
+  document.getElementById('btn-start').disabled=true;
   document.getElementById('rec-panel').classList.remove('recording');
   document.getElementById('rec-dot').classList.remove('live');
-  document.getElementById('rec-status-text').textContent = 'Claude AI 전사 중...';
-  document.getElementById('interim-text').textContent = '⏳ Claude AI가 오디오를 분석하고 있습니다. 잠시 기다려 주세요...';
+  document.getElementById('rec-status-text').textContent='Claude AI 전사 중...';
+  document.getElementById('interim-text').textContent='⏳ Claude AI가 오디오를 분석하고 있습니다. 잠시 기다려 주세요...';
 
   mediaRecorder.stop();
-  await new Promise(res => mediaRecorder.addEventListener('stop', res, {once:true}));
+  await new Promise(res=>mediaRecorder.addEventListener('stop',res,{once:true}));
 
-  const mimeType = mediaRecorder.mimeType || 'audio/webm';
-  const audioBlob = new Blob(audioChunks, {type: mimeType});
-  const base64Audio = await new Promise((res,rej) => {
-    const reader = new FileReader();
-    reader.onload = () => res(reader.result.split(',')[1]);
-    reader.onerror = rej;
+  const mimeType=mediaRecorder.mimeType||'audio/webm';
+  const audioBlob=new Blob(audioChunks,{type:mimeType});
+  const base64Audio=await new Promise((res,rej)=>{
+    const reader=new FileReader();
+    reader.onload=()=>res(reader.result.split(',')[1]);
+    reader.onerror=rej;
     reader.readAsDataURL(audioBlob);
   });
-  const apiMediaType = mimeType.split(';')[0] || 'audio/webm';
-  const totalSec = Math.floor((Date.now() - recStartTime) / 1000);
+  const apiMediaType=mimeType.split(';')[0]||'audio/webm';
+  const totalSec=Math.floor((Date.now()-recStartTime)/1000);
 
-  try {
-    document.getElementById('interim-text').textContent = '🤖 Claude API에 오디오 전송 중...';
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': CLAUDE_API_KEY,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4096,
-        messages: [{
-          role: 'user',
-          content: [
-            {
-              type: 'document',
-              source: { type: 'base64', media_type: apiMediaType, data: base64Audio }
-            },
-            {
-              type: 'text',
-              text: `이 오디오는 한국어 대학 수업 팀 토의 녹음입니다. 내용을 정확히 한국어로 전사해 주세요.
-
-규칙:
-- 의미 단위(문장/발화 턴)마다 한 줄씩 출력
-- 발화자가 구분되면 "화자1:", "화자2:" 등으로 표시
-- 불명확한 부분은 [불명확] 표시
-- 전사 텍스트만 출력 (설명·주석 없이)`
-            }
-          ]
-        }]
+  try{
+    document.getElementById('interim-text').textContent='🤖 Claude API에 오디오 전송 중...';
+    const response=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:4096,
+        messages:[{role:'user',content:[
+          {type:'document',source:{type:'base64',media_type:apiMediaType,data:base64Audio}},
+          {type:'text',text:`이 오디오는 한국어 대학 수업 팀 토의 녹음입니다. 정확히 한국어로 전사해 주세요.
+규칙: 의미 단위(문장/발화 턴)마다 한 줄씩 출력 / 발화자 구분 시 "화자1:", "화자2:" 표시 / 불명확 부분은 [불명확] / 전사 텍스트만 출력`}
+        ]}]
       })
     });
+    if(!response.ok){const err=await response.json().catch(()=>({}));throw new Error(err?.error?.message||response.statusText);}
+    const data=await response.json();
+    const rawText=(data.content?.find(b=>b.type==='text')?.text||'').trim();
+    if(!rawText) throw new Error('전사 결과가 비어 있습니다.');
 
-    if(!response.ok) {
-      const err = await response.json().catch(()=>({}));
-      throw new Error(err?.error?.message || response.statusText);
-    }
-
-    const data = await response.json();
-    const rawText = (data.content?.find(b=>b.type==='text')?.text || '').trim();
-    if(!rawText) throw new Error('전사 결과가 비어 있습니다. 오디오가 너무 짧거나 음성이 없을 수 있습니다.');
-
-    const lines = rawText.split('\n').map(l=>l.trim()).filter(Boolean);
-    const perLine = lines.length > 0 ? Math.floor(totalSec / lines.length) : 0;
-    lines.forEach((line, i) => {
-      const sec = Math.min(i * perLine, totalSec);
-      const m = String(Math.floor(sec/60)).padStart(2,'0');
-      const s = String(sec%60).padStart(2,'0');
-      segments.push({id: ++segIdCounter, text: line, speaker: '', time: `${m}:${s}`});
+    const lines=rawText.split('\n').map(l=>l.trim()).filter(Boolean);
+    const perLine=lines.length>0?Math.floor(totalSec/lines.length):0;
+    lines.forEach((line,i)=>{
+      const sec=Math.min(i*perLine,totalSec);
+      const m=String(Math.floor(sec/60)).padStart(2,'0');
+      const s=String(sec%60).padStart(2,'0');
+      segments.push({id:++segIdCounter,text:line,speaker:'',time:`${m}:${s}`});
     });
-
-    renderSegments();
-    rebuildTranscript();
-    autoSave();
-    document.getElementById('interim-text').textContent =
-      `✅ 전사 완료 — ${lines.length}개 문장. 각 문장 아래에서 팀원 이름을 클릭해 발화자를 배정하세요.`;
-    document.getElementById('rec-status-text').textContent = '전사 완료';
-    document.getElementById('btn-start').disabled = false;
+    renderSegments(); rebuildTranscript(); autoSave();
+    document.getElementById('interim-text').textContent=`✅ 전사 완료 — ${lines.length}개 문장. 각 문장 아래에서 팀원 이름을 클릭해 발화자를 배정하세요.`;
+    document.getElementById('rec-status-text').textContent='전사 완료';
+    document.getElementById('btn-start').disabled=false;
     toast(`✓ Claude AI 전사 완료 — ${lines.length}개 문장`);
-  } catch(err) {
-    document.getElementById('interim-text').textContent = '❌ 전사 실패: ' + err.message;
-    document.getElementById('rec-status-text').textContent = '오류';
-    document.getElementById('btn-start').disabled = false;
-    toast('⚠️ 전사 오류: ' + err.message);
+  }catch(err){
+    document.getElementById('interim-text').textContent='❌ 전사 실패: '+err.message;
+    document.getElementById('rec-status-text').textContent='오류';
+    document.getElementById('btn-start').disabled=false;
+    toast('⚠️ 전사 오류: '+err.message);
   }
 }
 
-// ── 타이머 ──
-function startTimer() {
-  recTimerInterval = setInterval(() => {
-    const elapsed = Math.floor((Date.now()-recStartTime)/1000);
-    document.getElementById('rec-timer').textContent =
-      String(Math.floor(elapsed/60)).padStart(2,'0') + ':' + String(elapsed%60).padStart(2,'0');
-  }, 1000);
+function startTimer(){
+  recTimerInterval=setInterval(()=>{
+    const e=Math.floor((Date.now()-recStartTime)/1000);
+    document.getElementById('rec-timer').textContent=
+      String(Math.floor(e/60)).padStart(2,'0')+':'+String(e%60).padStart(2,'0');
+  },1000);
 }
-function stopTimer() { clearInterval(recTimerInterval); recTimerInterval = null; }
+function stopTimer(){clearInterval(recTimerInterval);recTimerInterval=null;}
 
-// ── 세그먼트 관리 ──
-function addManualSegment() {
-  const ta = document.getElementById('manual-seg-text');
-  const text = ta.value.trim();
-  if(!text) { toast('발화 내용을 입력해 주세요.'); return; }
-  const elapsed = recStartTime ? Math.floor((Date.now()-recStartTime)/1000) : 0;
-  const m = String(Math.floor(elapsed/60)).padStart(2,'0');
-  const s = String(elapsed%60).padStart(2,'0');
-  segments.push({id: ++segIdCounter, text, speaker:'', time:`${m}:${s}`});
-  renderSegments(); rebuildTranscript(); autoSave();
-  ta.value = '';
-  toast('✓ 문장이 추가됐습니다.');
+function addManualSegment(){
+  const ta=document.getElementById('manual-seg-text');
+  const text=ta.value.trim();
+  if(!text){toast('발화 내용을 입력해 주세요.');return;}
+  const e=recStartTime?Math.floor((Date.now()-recStartTime)/1000):0;
+  const m=String(Math.floor(e/60)).padStart(2,'0'), s=String(e%60).padStart(2,'0');
+  segments.push({id:++segIdCounter,text,speaker:'',time:`${m}:${s}`});
+  renderSegments();rebuildTranscript();autoSave();ta.value='';
+  toast('✓ 문장 추가됨');
 }
-function setSpeaker(segId, speaker, btn) {
-  const seg = segments.find(s=>s.id===segId);
-  if(!seg) return;
-  seg.speaker = speaker;
+function setSpeaker(segId,speaker,btn){
+  const seg=segments.find(s=>s.id===segId);if(!seg)return;
+  seg.speaker=speaker;
   btn.closest('.speaker-btns').querySelectorAll('.spk-btn')
-    .forEach(b => b.classList.toggle('selected', b.dataset.speaker===speaker));
-  rebuildTranscript(); autoSave();
+    .forEach(b=>b.classList.toggle('selected',b.dataset.speaker===speaker));
+  rebuildTranscript();autoSave();
 }
-function deleteSegment(segId) {
-  segments = segments.filter(s=>s.id!==segId);
-  renderSegments(); rebuildTranscript(); autoSave();
+function deleteSegment(segId){
+  segments=segments.filter(s=>s.id!==segId);
+  renderSegments();rebuildTranscript();autoSave();
 }
-function clearAllSegments() {
-  if(!segments.length) return;
-  if(!confirm('전사 세그먼트를 모두 삭제할까요?')) return;
-  segments = [];
-  renderSegments(); rebuildTranscript(); autoSave();
+function clearAllSegments(){
+  if(!segments.length)return;
+  if(!confirm('전사 세그먼트를 모두 삭제할까요?'))return;
+  segments=[];renderSegments();rebuildTranscript();autoSave();
 }
-function renderSegments() {
-  const list = document.getElementById('transcript-list');
-  const names = getMemberNames();
-  if(!segments.length) {
-    list.innerHTML = `<div class="empty-transcript"><div class="et-icon">🎙</div><div>녹음 중지 후 Claude AI가 전사한 결과가 여기에 표시됩니다</div></div>`;
+function renderSegments(){
+  const list=document.getElementById('transcript-list');
+  const names=getMemberNames();
+  if(!segments.length){
+    list.innerHTML=`<div class="empty-transcript"><div class="et-icon">🎙</div><div>녹음 중지 후 전사 결과가 여기에 표시됩니다</div></div>`;
     return;
   }
-  list.innerHTML = segments.map(seg => {
-    const btns = names.map(name =>
+  list.innerHTML=segments.map(seg=>{
+    const btns=names.map(name=>
       `<button class="spk-btn${seg.speaker===name?' selected':''}" data-speaker="${escAttr(name)}"
         onclick="setSpeaker(${seg.id},'${escAttr(name)}',this)">${escHtml(name)}</button>`
     ).join('');
@@ -1531,23 +1421,161 @@ function renderSegments() {
     </div>`;
   }).join('');
 }
-function rebuildTranscript() {
-  document.getElementById('full-transcript').value =
+function rebuildTranscript(){
+  document.getElementById('full-transcript').value=
     segments.map(s=>`[${s.time}] ${s.speaker||'(미배정)'}: ${s.text}`).join('\n');
   autoSave();
 }
-function copyTranscript() {
-  const ta = document.getElementById('full-transcript');
-  ta.select();
+function copyTranscript(){
+  const ta=document.getElementById('full-transcript');ta.select();
   navigator.clipboard.writeText(ta.value)
-    .then(()=>toast('✓ 전사 텍스트가 복사됐습니다.'))
-    .catch(()=>{ document.execCommand('copy'); toast('✓ 복사됐습니다.'); });
+    .then(()=>toast('✓ 전사 텍스트 복사됨'))
+    .catch(()=>{document.execCommand('copy');toast('✓ 복사됨');});
 }
-function escHtml(str){ return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function escAttr(str){ return String(str).replace(/'/g,"\\'"); }
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escAttr(s){return String(s).replace(/'/g,"\\'");}
 
 // ════════════════════════════════════════
-// AUTO SAVE
+// 자동 코딩 (CCSS·CDA)
+// ════════════════════════════════════════
+const CODING_KEYWORDS={
+  source:{YT:['YT1','YT2','유튜브','youtube','영상','동영상'],Text:['기사','뉴스','블로그','신문','텍스트'],None:[]},
+  frame:{Negative:['착취','피해','불공정','힘들','고통','억압','부당'],Positive:['기회','자유','유연','편리','장점','긍정'],Mixed:['양면','하지만','그러나','반면','동시에'],Neutral:['통계','데이터','수치','퍼센트','보고서']},
+  literacy:{Emotion:['화나','불쌍','슬프','감동','공감','동정','안타깝'],Critique:['편향','공평','신뢰','비판','의심','문제'],Change:['바뀌','달라','변화','처음엔','이제는','깨달'],Reproduce:['그대로','재사용','따라','동일','반복'],Resist:['비판','수정','제안','저항','반박','새로운']},
+  discourse:{Exploratory:['왜','어떻게','생각해','의견','동의','증거','근거'],Cumulative:['맞아','그래','맞지','동의','그렇지'],Disputational:['틀려','아니야','반대','아닌데','잘못']}
+};
+const BADGE_COLORS={YT:'#c0392b',Text:'#2471a3',None:'#9a9490',Negative:'#c0392b',Positive:'#1e6f4e',Mixed:'#b85c2a',Neutral:'#6b6460',Emotion:'#b7950b',Critique:'#2471a3',Change:'#7d3c98',Reproduce:'#a93226',Resist:'#1a5631',Exploratory:'#1a5276',Cumulative:'#616a6b',Disputational:'#a04000'};
+let codedData=[],chartInstances={};
+
+function keywordMatch(text,kwMap){
+  const t=text.toLowerCase();
+  for(const [label,kws] of Object.entries(kwMap)){
+    if(kws.some(kw=>t.includes(kw.toLowerCase()))) return label;
+  }
+  return Object.keys(kwMap).slice(-1)[0];
+}
+function assignCodes(text){
+  return {source:keywordMatch(text,CODING_KEYWORDS.source),frame:keywordMatch(text,CODING_KEYWORDS.frame),literacy:keywordMatch(text,CODING_KEYWORDS.literacy),discourse:keywordMatch(text,CODING_KEYWORDS.discourse)};
+}
+
+async function runAutoCoding(){
+  if(!segments.length){toast('⚠️ 전사된 발화가 없습니다.');return;}
+  const apiKey=getApiKey();if(!apiKey)return;
+  const btn=document.getElementById('btn-code');
+  btn.disabled=true;btn.textContent='⏳ Claude AI 코딩 중...';
+
+  codedData=segments.map(seg=>({...seg,...assignCodes(seg.text)}));
+
+  const transcriptForAPI=segments.map((s,i)=>`${i+1}. [${s.speaker||'미배정'}] ${s.text}`).join('\n');
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:2048,
+        messages:[{role:'user',content:`다음은 한국어 팀 토의 전사입니다. 각 발화에 코드를 배정하세요.
+
+코딩틀:
+- source: YT(YouTube 언급) / Text(뉴스·기사 언급) / None(미언급)
+- frame: Negative(착취·피해) / Positive(기회·자유) / Mixed(양면) / Neutral(사실 나열)
+- literacy: Emotion(감정 재현) / Critique(비판 평가) / Change(생각 변화) / Reproduce(재생산) / Resist(저항·변형)
+- discourse: Exploratory(공동 탐구·질문) / Cumulative(반복 동의) / Disputational(논쟁·반박)
+
+전사:
+${transcriptForAPI}
+
+JSON 배열만 출력 (설명 없이):
+[{"idx":1,"source":"None","frame":"Negative","literacy":"Emotion","discourse":"Cumulative"}, ...]`}]
+      })
+    });
+    if(resp.ok){
+      const data=await resp.json();
+      const raw=(data.content?.find(b=>b.type==='text')?.text||'').trim();
+      const m=raw.match(/\[.*\]/s);
+      if(m){
+        JSON.parse(m[0]).forEach(c=>{
+          const seg=codedData[c.idx-1];
+          if(seg){if(c.source)seg.source=c.source;if(c.frame)seg.frame=c.frame;if(c.literacy)seg.literacy=c.literacy;if(c.discourse)seg.discourse=c.discourse;}
+        });
+      }
+    }
+  }catch(e){console.warn('Claude 코딩 보정 실패, 키워드 코딩 사용');}
+
+  renderCodingTable();renderCodingCharts();
+  document.getElementById('coding-result-wrap').style.display='block';
+  document.getElementById('coding-summary').textContent=`총 ${codedData.length}개 발화 코딩 완료`;
+  btn.disabled=false;btn.textContent='🔄 다시 코딩';
+  toast(`✓ 자동 코딩 완료 — ${codedData.length}개 발화`);
+}
+
+function badge(code){
+  const c=BADGE_COLORS[code]||'#666';
+  return `<span class="code-badge badge-${code}" style="border:1px solid ${c}33">${code}</span>`;
+}
+function renderCodingTable(){
+  document.getElementById('coding-tbody').innerHTML=codedData.map(row=>`
+    <tr>
+      <td style="font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);">${row.time}</td>
+      <td style="font-size:12px;font-weight:600;">${escHtml(row.speaker||'미배정')}</td>
+      <td style="font-size:12px;line-height:1.6;">${escHtml(row.text)}</td>
+      <td>${badge(row.source)}</td><td>${badge(row.frame)}</td><td>${badge(row.literacy)}</td><td>${badge(row.discourse)}</td>
+    </tr>`).join('');
+}
+function countBy(arr,key){return arr.reduce((acc,r)=>{acc[r[key]]=(acc[r[key]]||0)+1;return acc;},{});}
+function renderCodingCharts(){
+  [['chart-frame','frame'],['chart-source','source'],['chart-lit','literacy'],['chart-disc','discourse']].forEach(([id,key])=>{
+    const counts=countBy(codedData,key);
+    const labels=Object.keys(counts),values=Object.values(counts);
+    const colors=labels.map(l=>BADGE_COLORS[l]||'#aaa');
+    if(chartInstances[id])chartInstances[id].destroy();
+    chartInstances[id]=new Chart(document.getElementById(id).getContext('2d'),{
+      type:'pie',
+      data:{labels,datasets:[{data:values,backgroundColor:colors.map(c=>c+'bb'),borderColor:colors,borderWidth:1}]},
+      options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12}}}}
+    });
+  });
+}
+function downloadCodedCSV(){
+  if(!codedData.length)return;
+  const header='timestamp,speaker,utterance,source,frame,literacy,discourse';
+  const rows=codedData.map(r=>[r.time,r.speaker||'미배정','"'+r.text.replace(/"/g,'""')+'"',r.source,r.frame,r.literacy,r.discourse].join(','));
+  const blob=new Blob(['\uFEFF'+[header,...rows].join('\n')],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='coded_transcript.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  toast('✓ coded_transcript.csv 다운로드');
+}
+function downloadDashboard(){
+  if(!codedData.length)return;
+  const frameCount=countBy(codedData,'frame'),sourceCount=countBy(codedData,'source');
+  const litCount=countBy(codedData,'literacy'),discCount=countBy(codedData,'discourse');
+  const tableRows=codedData.map(r=>`<tr><td>${r.time}</td><td>${r.speaker||'미배정'}</td><td>${r.text.replace(/</g,'&lt;')}</td><td><span class="badge badge-${r.source}">${r.source}</span></td><td><span class="badge badge-${r.frame}">${r.frame}</span></td><td><span class="badge badge-${r.literacy}">${r.literacy}</span></td><td><span class="badge badge-${r.discourse}">${r.discourse}</span></td></tr>`).join('');
+  function pd(obj){return JSON.stringify({labels:Object.keys(obj),data:Object.values(obj)});}
+  const colors={Negative:'#c0392b',Positive:'#1e6f4e',Mixed:'#b85c2a',Neutral:'#9a9490',YT:'#c0392b',Text:'#2471a3',None:'#ddd',Emotion:'#b7950b',Critique:'#2471a3',Change:'#7d3c98',Reproduce:'#a93226',Resist:'#1a5631',Exploratory:'#1a5276',Cumulative:'#aaa',Disputational:'#a04000'};
+  const html=`<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>토의 담론 코딩 대시보드</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"><\/script>
+<style>body{font-family:-apple-system,'Apple SD Gothic Neo',sans-serif;background:#f5f3ef;color:#1a1816;margin:0;padding:24px;}h1{font-size:20px;margin-bottom:4px;}.sub{font-size:12px;color:#9a9490;margin-bottom:20px;}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}.cc{background:#fff;border:1px solid #ddd9d2;border-radius:8px;padding:16px;}.cc h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9a9490;margin-bottom:10px;}table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:12px;}th{background:#f0ede8;padding:8px 10px;text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#9a9490;border-bottom:1px solid #ddd9d2;}td{padding:8px 10px;border-bottom:1px solid #f0ede8;vertical-align:top;}.badge{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}.badge-YT{background:#fde8e8;color:#c0392b;}.badge-Text{background:#eaf4fc;color:#2471a3;}.badge-None{background:#f0ede8;color:#9a9490;}.badge-Negative{background:#fde8e8;color:#c0392b;}.badge-Positive{background:#e6f2ec;color:#1e6f4e;}.badge-Mixed{background:#fdf0e8;color:#b85c2a;}.badge-Neutral{background:#f0ede8;color:#6b6460;}.badge-Emotion{background:#fef9e7;color:#b7950b;}.badge-Critique{background:#eaf4fc;color:#2471a3;}.badge-Change{background:#f4ecf7;color:#7d3c98;}.badge-Reproduce{background:#fde8e8;color:#a93226;}.badge-Resist{background:#e6f2ec;color:#1a5631;}.badge-Exploratory{background:#eaf4fc;color:#1a5276;}.badge-Cumulative{background:#f8f9f9;color:#616a6b;}.badge-Disputational{background:#fef5e7;color:#a04000;}@media(max-width:700px){.grid{grid-template-columns:1fr 1fr;}}</style></head><body>
+<h1>📊 토의 담론 코딩 대시보드</h1>
+<p class="sub">CCSS · 멀티모달 리터러시 · CDA 코딩틀 / 총 ${codedData.length}개 발화</p>
+<div class="grid">
+  <div class="cc"><h3>프레임 분포</h3><canvas id="c1"></canvas></div>
+  <div class="cc"><h3>매체 소스</h3><canvas id="c2"></canvas></div>
+  <div class="cc"><h3>리터러시 영향</h3><canvas id="c3"></canvas></div>
+  <div class="cc"><h3>담론 품질</h3><canvas id="c4"></canvas></div>
+</div>
+<table><thead><tr><th>시간</th><th>발화자</th><th>발화</th><th>소스</th><th>프레임</th><th>리터러시</th><th>담론</th></tr></thead><tbody>${tableRows}</tbody></table>
+<script>
+const C=${JSON.stringify(colors)};
+function pie(id,d){const p=JSON.parse(d);new Chart(document.getElementById(id),{type:'pie',data:{labels:p.labels,datasets:[{data:p.data,backgroundColor:p.labels.map(l=>(C[l]||'#aaa')+'99'),borderColor:p.labels.map(l=>C[l]||'#aaa'),borderWidth:1}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12}}}}});}
+pie('c1','${pd(frameCount).replace(/'/g,"\\'")}');pie('c2','${pd(sourceCount).replace(/'/g,"\\'")}');pie('c3','${pd(litCount).replace(/'/g,"\\'")}');pie('c4','${pd(discCount).replace(/'/g,"\\'")}');
+<\/script></body></html>`;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='discourse_dashboard.html';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  toast('✓ discourse_dashboard.html 다운로드');
+}
+
+// ════════════════════════════════════════
+// AUTO SAVE / PROGRESS
 // ════════════════════════════════════════
 let saveT;
 function autoSave(){
@@ -1556,20 +1584,17 @@ function autoSave(){
     const d=collect();
     try{localStorage.setItem('lc_p2',JSON.stringify(d));}catch(e){}
     const pill=document.getElementById('saved-pill');
-    pill.classList.add('show');
-    setTimeout(()=>pill.classList.remove('show'),2000);
+    pill.classList.add('show');setTimeout(()=>pill.classList.remove('show'),2000);
     updateProgress(d);
   },600);
 }
 document.querySelectorAll('input,textarea,select').forEach(el=>{
-  el.addEventListener('input',autoSave);
-  el.addEventListener('change',autoSave);
+  el.addEventListener('input',autoSave);el.addEventListener('change',autoSave);
 });
 function updateProgress(d){
   if(!d) d=collect();
   const vals=flatten(d);
-  const total=vals.length;
-  const filled=vals.filter(v=>v&&String(v).trim()!=='').length;
+  const total=vals.length,filled=vals.filter(v=>v&&String(v).trim()!=='').length;
   const pct=total>0?Math.round(filled/total*100):0;
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('prog-label').textContent=filled+' / '+total;
@@ -1586,7 +1611,7 @@ function flatten(obj){
 }
 
 // ════════════════════════════════════════
-// COLLECT
+// COLLECT & SUBMIT
 // ════════════════════════════════════════
 function collect(){
   return{
@@ -1600,48 +1625,34 @@ function collect(){
         pre_thought:g('pre'+i),post_thought:g('post'+i),
         fairness_score:g('fair'+i),fairness_reason:g('fair'+i+'-reason')
       })),
-      comparison:{
-        trusted_src:g('q1-num'),trust_reason:g('q1-ans'),
-        common:g('q2-common'),yt_vs_text_diff:g('q2-diff'),
-        stance_before:g('overall-before'),stance_after:g('overall-after'),
-        overall_change:g('q3-overall'),conclusion:g('w1-conclusion')
-      }
+      comparison:{trusted_src:g('q1-num'),trust_reason:g('q1-ans'),common:g('q2-common'),yt_vs_text_diff:g('q2-diff'),stance_before:g('overall-before'),stance_after:g('overall-after'),overall_change:g('q3-overall'),conclusion:g('w1-conclusion')}
     },
     week2:{
       kw_reuse:[1,2,3,4].map(i=>({src:i,kw:g('rk'+i),decision:g('rd'+i),frame_stance:g('rf'+i)})),
-      plan:{frame_from_w1:g('w1-frame-carry'),stance:g('w2-stance')},
-      essay:{link:g('docs-link'),intro:g('essay-intro'),body:g('essay-body'),conclusion:g('essay-conc'),chars:g('essay-len'),kw_citations:g('kw-count')},
-      reflection:{q1_repro:g('rq1'),q2_resist:g('rq2'),q3_media:g('rq3'),q4_score:g('w2q4'),q4_improve:g('rq4')}
+      essay:{stance:g('essay-stance'),body:g('essay-body'),reproduced_kws:g('rq1'),frame_attitude:g('w2-stance'),media_influence:g('rq3')},
+      reflection:{resist:g('rq2'),self_score:g('w2q4'),improve:g('rq4')}
     },
     week3:{
-      members: getMemberNames(),
-      transcript:{
-        segments: segments.map(s=>({time:s.time, speaker:s.speaker, text:s.text})),
-        full_text: g('full-transcript')
-      }
+      members:getMemberNames(),
+      transcript:{segments:segments.map(s=>({time:s.time,speaker:s.speaker,text:s.text})),full_text:g('full-transcript')},
+      coding:codedData.map(s=>({time:s.time,speaker:s.speaker,text:s.text,source:s.source,frame:s.frame,literacy:s.literacy,discourse:s.discourse})),
+      reflection:{repro_pct:g('repro-pct'),q1_ex:g('w3q1'),q2_resist:g('w3q2'),stance_before:g('ch-before'),stance_after:g('ch-after'),narrative:g('w3q3'),final_score:g('final-rating'),final_reason:g('final-reason')}
     }
   };
 }
 function g(id){const e=document.getElementById(id);return e?e.value:'';}
 
-// ════════════════════════════════════════
-// SUBMIT
-// ════════════════════════════════════════
 function submitWeek(w){
   const d=collect();
-  const json=JSON.stringify(d,null,2);
-  const blob=new Blob([json],{type:'application/json'});
+  const blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
+  const a=document.createElement('a');a.href=url;
   a.download=(d._meta.student.id||'student')+'_week'+w+'_platform.json';
-  document.body.appendChild(a);a.click();
-  document.body.removeChild(a);URL.revokeObjectURL(url);
-  toast('✓ 주 '+w+' JSON 저장됨 — Google Classroom에 파일 업로드하세요');
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  toast('✓ 주 '+w+' JSON 저장됨 — Google Classroom에 업로드하세요');
 }
 function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),4000);
 }
 
@@ -1650,8 +1661,7 @@ function toast(msg){
 // ════════════════════════════════════════
 function restoreData(){
   try{
-    const s=localStorage.getItem('lc_p2');
-    if(!s) return;
+    const s=localStorage.getItem('lc_p2');if(!s)return;
     const d=JSON.parse(s);
     if(d._meta?.student){sv('si-name',d._meta.student.name);sv('si-id',d._meta.student.id);sv('si-major',d._meta.student.major);sv('si-team',d._meta.student.team);}
     if(d.week1?.sources) d.week1.sources.forEach((src,i)=>{
@@ -1662,315 +1672,25 @@ function restoreData(){
       sv('fair'+n+'-reason',src.fairness_reason);
     });
     if(d.week1?.comparison){const c=d.week1.comparison;sv('q1-num',c.trusted_src);sv('q1-ans',c.trust_reason);sv('q2-common',c.common);sv('q2-diff',c.yt_vs_text_diff);sv('q3-overall',c.overall_change);sv('w1-conclusion',c.conclusion);}
-    // 주 3 팀원 복원
-    if(d.week3?.members){
-      const mids=['mbr-0','mbr-1','mbr-3','mbr-4'];
-      d.week3.members.forEach((name, i)=>{ if(mids[i]) sv(mids[i], name); });
-    }
-    // 주 3 전사 복원
+    if(d.week2?.kw_reuse) d.week2.kw_reuse.forEach((r,i)=>{const n=i+1;sv('rk'+n,r.kw);sv('rd'+n,r.decision);sv('rf'+n,r.frame_stance);});
+    if(d.week2?.essay){sv('essay-stance',d.week2.essay.stance);sv('essay-body',d.week2.essay.body);sv('rq1',d.week2.essay.reproduced_kws);sv('w2-stance',d.week2.essay.frame_attitude);sv('rq3',d.week2.essay.media_influence);}
+    if(d.week2?.reflection){sv('rq2',d.week2.reflection.resist);sv('rq4',d.week2.reflection.improve);}
+    if(d.week3?.members){['mbr-0','mbr-1','mbr-3','mbr-4'].forEach((id,i)=>sv(id,d.week3.members[i]));}
     if(d.week3?.transcript?.segments){
-      segments = d.week3.transcript.segments.map((s,i)=>({
-        id: ++segIdCounter, text: s.text, speaker: s.speaker||'', time: s.time||'00:00'
-      }));
-      renderSegments();
-      if(d.week3.transcript.full_text) sv('full-transcript', d.week3.transcript.full_text);
+      segments=d.week3.transcript.segments.map(s=>({id:++segIdCounter,text:s.text,speaker:s.speaker||'',time:s.time||'00:00'}));
+      renderSegments();if(d.week3.transcript.full_text)sv('full-transcript',d.week3.transcript.full_text);
     }
-    updateSpeakerBtns();
+    if(d.week3?.reflection){
+      sv('repro-pct',d.week3.reflection.repro_pct);sv('w3q1',d.week3.reflection.q1_ex);
+      sv('w3q2',d.week3.reflection.q2_resist);sv('ch-before',d.week3.reflection.stance_before);
+      sv('ch-after',d.week3.reflection.stance_after);sv('w3q3',d.week3.reflection.narrative);
+      sv('final-reason',d.week3.reflection.final_reason);
+    }
     updateProgress(d);
     toast('이전 작성 내용을 불러왔습니다');
   }catch(e){}
 }
-function sv(id,val){const e=document.getElementById(id);if(e&&val) e.value=val;}
-// ════════════════════════════════════════
-// 자동 코딩 (CCSS·CDA 코딩틀)
-// ════════════════════════════════════════
-const CODING_KEYWORDS = {
-  source: {
-    YT:   ['YT1','YT2','유튜브','youtube','영상','동영상'],
-    Text: ['기사','뉴스','블로그','신문','텍스트','자료','article'],
-    None: []
-  },
-  frame: {
-    Negative: ['착취','피해','불공정','힘들','고통','억압','부당','위험','착취적'],
-    Positive: ['기회','자유','유연','좋아','편리','장점','긍정','자율'],
-    Mixed:    ['양면','하지만','그러나','반면','동시에','복잡','애매'],
-    Neutral:  ['통계','데이터','수치','퍼센트','숫자','보고서','조사']
-  },
-  literacy: {
-    Emotion:    ['화나','불쌍','슬프','감동','공감','동정','안타깝','무서','놀라'],
-    Critique:   ['편향','공평','신뢰','비판','의심','검토','문제','불균형'],
-    Change:     ['바뀌','달라','변화','전후','처음엔','이제는','인식','깨달'],
-    Reproduce:  ['그대로','재사용','따라','동일','복사','반복','같은 표현'],
-    Resist:     ['비판','수정','제안','저항','다른','새로운','반박','극복']
-  },
-  discourse: {
-    Exploratory:    ['왜','어떻게','생각해','의견','동의','증거','근거','어떤'],
-    Cumulative:     ['맞아','그래','맞지','동의','그렇지','맞습니다'],
-    Disputational:  ['틀려','아니야','반대','아닌데','잘못','다르게']
-  }
-};
-
-const BADGE_COLORS = {
-  YT:'#c0392b', Text:'#2471a3', None:'#9a9490',
-  Negative:'#c0392b', Positive:'#1e6f4e', Mixed:'#b85c2a', Neutral:'#6b6460',
-  Emotion:'#b7950b', Critique:'#2471a3', Change:'#7d3c98', Reproduce:'#a93226', Resist:'#1a5631',
-  Exploratory:'#1a5276', Cumulative:'#616a6b', Disputational:'#a04000'
-};
-
-let codedData = []; // [{time, speaker, text, source, frame, literacy, discourse}]
-let chartInstances = {};
-
-function keywordMatch(text, kwMap) {
-  const t = text.toLowerCase();
-  for(const [label, kws] of Object.entries(kwMap)) {
-    if(kws.some(kw => t.includes(kw.toLowerCase()))) return label;
-  }
-  return Object.keys(kwMap)[Object.keys(kwMap).length - 1]; // default = last key
-}
-
-function assignCodes(text) {
-  return {
-    source:    keywordMatch(text, CODING_KEYWORDS.source),
-    frame:     keywordMatch(text, CODING_KEYWORDS.frame),
-    literacy:  keywordMatch(text, CODING_KEYWORDS.literacy),
-    discourse: keywordMatch(text, CODING_KEYWORDS.discourse)
-  };
-}
-
-async function runAutoCoding() {
-  if(!segments.length) { toast('⚠️ 전사된 발화가 없습니다. 먼저 녹음·전사를 완료하세요.'); return; }
-
-  const btn = document.getElementById('btn-code');
-  btn.disabled = true;
-  btn.textContent = '⏳ Claude AI 코딩 중...';
-
-  // 1차: 키워드 semi-auto 코딩
-  codedData = segments.map(seg => ({
-    ...seg,
-    ...assignCodes(seg.text)
-  }));
-
-  // 2차: Claude API로 보정 요청
-  const transcriptForAPI = segments.map((s,i) =>
-    `${i+1}. [${s.speaker||'미배정'}] ${s.text}`
-  ).join('\n');
-
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type':'application/json',
-        'x-api-key': getApiKey(),
-        'anthropic-version':'2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 2048,
-        messages:[{
-          role:'user',
-          content: `다음은 한국어 팀 토의 전사입니다. 각 발화에 아래 코딩틀로 코드를 배정하세요.
-
-코딩틀:
-- source: YT(YouTube 자료 언급) / Text(뉴스·기사 언급) / None(소스 미언급)
-- frame: Negative(착취·피해) / Positive(기회·자유) / Mixed(양면) / Neutral(사실 나열)
-- literacy: Emotion(감정 재현) / Critique(비판 평가) / Change(생각 변화) / Reproduce(재생산) / Resist(저항·변형)
-- discourse: Exploratory(공동 탐구·질문) / Cumulative(반복 동의) / Disputational(논쟁·반박)
-
-전사:
-${transcriptForAPI}
-
-출력 형식 (JSON 배열만, 설명 없이):
-[{"idx":1,"source":"None","frame":"Negative","literacy":"Emotion","discourse":"Cumulative"}, ...]`
-        }]
-      })
-    });
-
-    if(resp.ok) {
-      const data = await resp.json();
-      const raw = (data.content?.find(b=>b.type==='text')?.text||'').trim();
-      // JSON 파싱 시도
-      const jsonMatch = raw.match(/\[.*\]/s);
-      if(jsonMatch) {
-        const corrections = JSON.parse(jsonMatch[0]);
-        corrections.forEach(c => {
-          const seg = codedData[c.idx - 1];
-          if(seg) {
-            if(c.source)    seg.source    = c.source;
-            if(c.frame)     seg.frame     = c.frame;
-            if(c.literacy)  seg.literacy  = c.literacy;
-            if(c.discourse) seg.discourse = c.discourse;
-          }
-        });
-      }
-    }
-  } catch(e) {
-    // API 실패해도 키워드 코딩 결과 사용
-    console.warn('Claude 코딩 보정 실패, 키워드 코딩만 사용:', e);
-  }
-
-  renderCodingTable();
-  renderCodingCharts();
-  document.getElementById('coding-result-wrap').style.display = 'block';
-  document.getElementById('coding-summary').textContent =
-    `총 ${codedData.length}개 발화 코딩 완료`;
-  btn.disabled = false;
-  btn.textContent = '🔄 다시 코딩';
-  toast(`✓ 자동 코딩 완료 — ${codedData.length}개 발화`);
-}
-
-function badge(code) {
-  const cls = 'badge-' + code;
-  const color = BADGE_COLORS[code] || '#666';
-  return `<span class="code-badge ${cls}" style="border:1px solid ${color}33">${code}</span>`;
-}
-
-function renderCodingTable() {
-  const tbody = document.getElementById('coding-tbody');
-  tbody.innerHTML = codedData.map((row, i) => `
-    <tr>
-      <td style="font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);">${row.time}</td>
-      <td style="font-size:12px;font-weight:600;">${escHtml(row.speaker||'미배정')}</td>
-      <td style="font-size:12px;line-height:1.6;">${escHtml(row.text)}</td>
-      <td>${badge(row.source)}</td>
-      <td>${badge(row.frame)}</td>
-      <td>${badge(row.literacy)}</td>
-      <td>${badge(row.discourse)}</td>
-    </tr>
-  `).join('');
-}
-
-function countBy(arr, key) {
-  return arr.reduce((acc, row) => {
-    acc[row[key]] = (acc[row[key]]||0) + 1; return acc;
-  }, {});
-}
-
-function renderCodingCharts() {
-  const chartCfg = [
-    {id:'chart-frame',  key:'frame',     title:'프레임'},
-    {id:'chart-source', key:'source',    title:'매체 소스'},
-    {id:'chart-lit',    key:'literacy',  title:'리터러시'},
-    {id:'chart-disc',   key:'discourse', title:'담론 품질'}
-  ];
-  chartCfg.forEach(({id, key}) => {
-    const counts = countBy(codedData, key);
-    const labels = Object.keys(counts);
-    const values = Object.values(counts);
-    const colors = labels.map(l => BADGE_COLORS[l] || '#aaa');
-    if(chartInstances[id]) chartInstances[id].destroy();
-    const ctx = document.getElementById(id).getContext('2d');
-    chartInstances[id] = new Chart(ctx, {
-      type: 'pie',
-      data: { labels, datasets:[{ data:values, backgroundColor:colors.map(c=>c+'bb'), borderColor:colors, borderWidth:1 }] },
-      options: { responsive:true, plugins:{ legend:{ position:'bottom', labels:{ font:{size:10}, boxWidth:12 } } } }
-    });
-  });
-}
-
-function downloadCodedCSV() {
-  if(!codedData.length) return;
-  const header = 'timestamp,speaker,utterance,source,frame,literacy,discourse';
-  const rows = codedData.map(r =>
-    [r.time, r.speaker||'미배정', '"'+r.text.replace(/"/g,'""')+'"', r.source, r.frame, r.literacy, r.discourse].join(',')
-  );
-  const csv = [header, ...rows].join('\n');
-  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = 'coded_transcript.csv'; document.body.appendChild(a); a.click();
-  document.body.removeChild(a);
-  toast('✓ coded_transcript.csv 다운로드');
-}
-
-function downloadDashboard() {
-  if(!codedData.length) return;
-
-  // 차트 데이터
-  const frameCount   = countBy(codedData,'frame');
-  const sourceCount  = countBy(codedData,'source');
-  const litCount     = countBy(codedData,'literacy');
-  const discCount    = countBy(codedData,'discourse');
-
-  const tableRows = codedData.map(r=>`
-    <tr>
-      <td>${r.time}</td><td>${r.speaker||'미배정'}</td>
-      <td>${r.text.replace(/</g,'&lt;')}</td>
-      <td><span class="badge badge-${r.source}">${r.source}</span></td>
-      <td><span class="badge badge-${r.frame}">${r.frame}</span></td>
-      <td><span class="badge badge-${r.literacy}">${r.literacy}</span></td>
-      <td><span class="badge badge-${r.discourse}">${r.discourse}</span></td>
-    </tr>`).join('');
-
-  function pieData(obj) { return JSON.stringify({ labels:Object.keys(obj), data:Object.values(obj) }); }
-
-  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
-<title>토의 전사 코딩 대시보드</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"><\/script>
-<style>
-body{font-family:-apple-system,'Apple SD Gothic Neo',sans-serif;background:#f5f3ef;color:#1a1816;margin:0;padding:24px;}
-h1{font-size:20px;margin-bottom:4px;}
-.sub{font-size:12px;color:#9a9490;margin-bottom:24px;}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
-.chart-card{background:#fff;border:1px solid #ddd9d2;border-radius:8px;padding:16px;}
-.chart-card h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9a9490;margin-bottom:10px;}
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:12px;}
-th{background:#f0ede8;padding:8px 10px;text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9a9490;border-bottom:1px solid #ddd9d2;}
-td{padding:8px 10px;border-bottom:1px solid #f0ede8;vertical-align:top;}
-.badge{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}
-.badge-YT{background:#fde8e8;color:#c0392b;}
-.badge-Text{background:#eaf4fc;color:#2471a3;}
-.badge-None{background:#f0ede8;color:#9a9490;}
-.badge-Negative{background:#fde8e8;color:#c0392b;}
-.badge-Positive{background:#e6f2ec;color:#1e6f4e;}
-.badge-Mixed{background:#fdf0e8;color:#b85c2a;}
-.badge-Neutral{background:#f0ede8;color:#6b6460;}
-.badge-Emotion{background:#fef9e7;color:#b7950b;}
-.badge-Critique{background:#eaf4fc;color:#2471a3;}
-.badge-Change{background:#f4ecf7;color:#7d3c98;}
-.badge-Reproduce{background:#fde8e8;color:#a93226;}
-.badge-Resist{background:#e6f2ec;color:#1a5631;}
-.badge-Exploratory{background:#eaf4fc;color:#1a5276;}
-.badge-Cumulative{background:#fdfefe;color:#616a6b;}
-.badge-Disputational{background:#fef5e7;color:#a04000;}
-@media(max-width:700px){.grid{grid-template-columns:1fr 1fr;}}
-</style></head><body>
-<h1>📊 토의 전사 코딩 대시보드</h1>
-<p class="sub">CCSS · 멀티모달 리터러시 · CDA 코딩틀 / 총 ${codedData.length}개 발화</p>
-<div class="grid">
-  <div class="chart-card"><h3>프레임 분포</h3><canvas id="c1"></canvas></div>
-  <div class="chart-card"><h3>매체 소스</h3><canvas id="c2"></canvas></div>
-  <div class="chart-card"><h3>리터러시 영향</h3><canvas id="c3"></canvas></div>
-  <div class="chart-card"><h3>담론 품질</h3><canvas id="c4"></canvas></div>
-</div>
-<table>
-<thead><tr><th>시간</th><th>발화자</th><th>발화</th><th>소스</th><th>프레임</th><th>리터러시</th><th>담론</th></tr></thead>
-<tbody>${tableRows}</tbody>
-</table>
-<script>
-const colors={'Negative':'#c0392b','Positive':'#1e6f4e','Mixed':'#b85c2a','Neutral':'#9a9490',
-  'YT':'#c0392b','Text':'#2471a3','None':'#ddd',
-  'Emotion':'#b7950b','Critique':'#2471a3','Change':'#7d3c98','Reproduce':'#a93226','Resist':'#1a5631',
-  'Exploratory':'#1a5276','Cumulative':'#aaa','Disputational':'#a04000'};
-function pie(id, d){
-  const p=JSON.parse(d);
-  new Chart(document.getElementById(id),{type:'pie',
-    data:{labels:p.labels,datasets:[{data:p.data,
-      backgroundColor:p.labels.map(l=>(colors[l]||'#aaa')+'99'),
-      borderColor:p.labels.map(l=>colors[l]||'#aaa'),borderWidth:1}]},
-    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12}}}}});
-}
-pie('c1','${pieData(frameCount).replace(/'/g,"\'")}');
-pie('c2','${pieData(sourceCount).replace(/'/g,"\'")}');
-pie('c3','${pieData(litCount).replace(/'/g,"\'")}');
-pie('c4','${pieData(discCount).replace(/'/g,"\'")}');
-<\/script></body></html>`;
-
-  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = 'discourse_dashboard.html'; document.body.appendChild(a); a.click();
-  document.body.removeChild(a);
-  toast('✓ discourse_dashboard.html 다운로드');
-}
-
+function sv(id,val){const e=document.getElementById(id);if(e&&val)e.value=val;}
 </script>
 </body>
 </html>
