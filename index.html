@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>언어와 문화 — 프로젝트 2: 플랫폼 노동 담론 탐구</title>
 <style>
-
-
 :root {
   --bg: #f5f3ef;
   --surface: #ffffff;
@@ -28,10 +26,10 @@
   --week2: #b85c2a;
   --week3: #2471a3;
   --radius: 8px;
+  --rec-red: #e53935;
+  --rec-red-light: #fff5f5;
 }
-
 *{box-sizing:border-box;margin:0;padding:0;}
-
 body{
   background:var(--bg);
   color:var(--text);
@@ -39,7 +37,6 @@ body{
   font-size:14px;
   line-height:1.7;
 }
-
 .top-bar{
   background:var(--text);
   color:#fff;
@@ -52,12 +49,10 @@ body{
 }
 .top-bar .logo{font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:.15em;opacity:.7;}
 .top-bar .logo span{opacity:1;color:#7ecfa5;}
-
 .progress-wrap{display:flex;align-items:center;gap:10px;}
 .prog-bar{width:140px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;}
 .prog-fill{height:100%;background:#7ecfa5;border-radius:2px;transition:width .4s ease;width:0%;}
 .prog-label{font-family:'Courier New',Courier,monospace;font-size:10px;color:rgba(255,255,255,.5);white-space:nowrap;}
-
 .week-nav{
   background:var(--surface);
   border-bottom:1px solid var(--border);
@@ -75,27 +70,22 @@ body{
 .w-tab.active.w1{color:var(--week1);border-bottom-color:var(--week1);}
 .w-tab.active.w2{color:var(--week2);border-bottom-color:var(--week2);}
 .w-tab.active.w3{color:var(--week3);border-bottom-color:var(--week3);}
-
 .panel{display:none;max-width:820px;margin:0 auto;padding:40px 32px 80px;}
 .panel.active{display:block;animation:up .25s ease;}
 @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
 .panel-hero{margin-bottom:32px;}
 .panel-hero .week-label{font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
 .panel-hero h2{font-size:26px;font-weight:700;line-height:1.3;margin-bottom:8px;}
 .panel-hero .desc{font-size:13px;color:var(--text-muted);max-width:540px;line-height:1.8;}
 .time-tag{display:inline-flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 12px;font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);margin-top:10px;}
-
 .stu-card{display:grid;grid-template-columns:1fr 1fr 1fr 120px;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;}
 .fg label{display:block;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
 .fg input,.fg select{width:100%;border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;}
 .fg input:focus,.fg select:focus{border-color:var(--border-focus);}
-
 .rn{display:flex;gap:12px;background:var(--accent-light);border:1px solid rgba(30,111,78,.15);border-radius:var(--radius);padding:14px 16px;margin-bottom:28px;}
 .rn .rn-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
 .rn .rn-text{font-size:12px;color:var(--text-mid);line-height:1.7;}
 .rn .rn-text strong{color:var(--accent);font-weight:600;}
-
 /* SOURCE STEPPER */
 .src-stepper{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
 .src-step-btn{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:12px;color:var(--text-muted);transition:all .2s;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;}
@@ -104,36 +94,29 @@ body{
 .src-step-btn.active .sn{background:#fff;color:var(--text);}
 .src-step-btn.done .sn{background:var(--accent);color:#fff;}
 .src-step-btn.done{border-color:var(--accent);color:var(--accent);}
-
 .src-panel{display:none;}
 .src-panel.active{display:block;animation:up .2s ease;}
-
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
 .card-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
 .card-head .ch-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .card-head .ch-label{font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;}
 .card-head .ch-tag{font-family:'Courier New',Courier,monospace;font-size:9px;border-radius:3px;padding:2px 8px;border:1px solid;}
-
 .yt-card{border-left:3px solid var(--yt-color);}
 .yt-dot{background:var(--yt-color);}
 .yt-tag{color:var(--yt-color);border-color:var(--yt-color);background:var(--yt-light);}
 .art-card{border-left:3px solid var(--art-color);}
 .art-dot{background:var(--art-color);}
 .art-tag{color:var(--art-color);border-color:var(--art-color);background:var(--art-light);}
-
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .fl{display:flex;flex-direction:column;gap:5px;}
 .fl label{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);}
-
 .inp{border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;resize:vertical;}
 .inp:focus{border-color:var(--border-focus);}
 textarea.inp{min-height:80px;line-height:1.7;}
 .w-full{width:100%;}
-
 .kw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
 .kw-inp{border:1px solid var(--border);border-radius:5px;padding:7px 8px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;text-align:center;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s;width:100%;}
 .kw-inp:focus{border-color:var(--border-focus);}
-
 .frame-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
 .fb{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-size:12px;cursor:pointer;transition:all .15s;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;}
 .fb:hover{border-color:var(--text-mid);color:var(--text);}
@@ -141,33 +124,26 @@ textarea.inp{min-height:80px;line-height:1.7;}
 .fb.sel-pos{background:var(--accent);color:#fff;border-color:var(--accent);}
 .fb.sel-mix{background:var(--accent2);color:#fff;border-color:var(--accent2);}
 .fb.sel-neu{background:#555;color:#fff;border-color:#555;}
-
 .rating-row{display:flex;gap:5px;align-items:center;}
 .rb{width:34px;height:34px;border:1px solid var(--border);border-radius:5px;background:var(--bg);color:var(--text-muted);font-family:'Courier New',Courier,monospace;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
 .rb:hover{border-color:var(--text-mid);}
 .rb.on{background:var(--text);color:#fff;border-color:var(--text);}
-
 hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
-
 .step-label{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .step-label .snum{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.12em;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:3px 9px;color:var(--text-muted);white-space:nowrap;}
 .step-label .stitle{font-size:15px;font-weight:600;}
 .step-label .stime{font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);margin-left:auto;}
 .step-desc{font-size:13px;color:var(--text-mid);margin-bottom:18px;padding:10px 14px;border-left:2px solid var(--border);line-height:1.8;}
-
 .compare-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;}
-
 .sum-table{width:100%;border-collapse:collapse;font-size:12px;}
 .sum-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
 .sum-table td{border:1px solid var(--border);padding:7px 10px;vertical-align:top;color:var(--text-mid);}
 .sum-table tr:nth-child(even) td{background:var(--surface2);}
-
 .reuse-table,.team-table{width:100%;border-collapse:collapse;}
 .reuse-table th,.team-table th{background:var(--surface2);border:1px solid var(--border);padding:7px 10px;font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:left;}
 .reuse-table td,.team-table td{border:1px solid var(--border);padding:6px 8px;}
 .reuse-table td input,.reuse-table td select,.team-table td input,.team-table td select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:12px;background:var(--bg);color:var(--text);outline:none;}
 .reuse-table td input:focus,.reuse-table td select:focus,.team-table td input:focus,.team-table td select:focus{border-color:var(--border-focus);}
-
 .nav-row{display:flex;gap:10px;margin-top:20px;}
 .btn-prev,.btn-next,.btn-submit{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:6px;padding:11px 22px;font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;}
 .btn-prev{background:var(--surface2);border:1px solid var(--border);color:var(--text-mid);}
@@ -180,7 +156,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
 .btn-submit.w2:hover{background:#9e4e22;}
 .btn-submit.w3{background:var(--week3);}
 .btn-submit.w3:hover{background:#1c5f8e;}
-
 .submit-area{margin-top:40px;padding-top:28px;border-top:1px solid var(--border);}
 .checklist{margin-bottom:22px;}
 .ci{display:flex;align-items:flex-start;gap:9px;padding:6px 0;font-size:13px;color:var(--text-mid);cursor:pointer;user-select:none;}
@@ -188,16 +163,301 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
 .ci.done .cbox{background:var(--accent);border-color:var(--accent);}
 .ci.done .cbox::after{content:'✓';font-size:10px;color:#fff;}
 .ci.done{color:var(--text);}
-
 .sec-div{display:flex;align-items:center;gap:10px;margin:24px 0 16px;}
 .sec-div span{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
 .sec-div::before,.sec-div::after{content:'';flex:1;height:1px;background:var(--border);}
-
 #toast{position:fixed;bottom:30px;right:30px;background:var(--text);color:#fff;border-radius:7px;padding:12px 18px;font-size:13px;z-index:999;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;max-width:320px;line-height:1.5;}
 #toast.show{opacity:1;transform:translateY(0);}
-
 #saved-pill{font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.4);transition:opacity .3s;opacity:0;}
 #saved-pill.show{opacity:1;}
+
+/* ═══════════════════════════════════════
+   WEEK 3 — 녹음/전사 UI
+═══════════════════════════════════════ */
+
+/* 팀원 이름 입력 카드 */
+.member-setup-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+.member-setup-card .card-head { margin-bottom: 16px; }
+.member-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.member-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.member-input-wrap label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 9px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.member-name-inp {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-family: -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+.member-name-inp:focus { border-color: var(--border-focus); }
+
+/* 녹음 컨트롤 패널 */
+.rec-panel {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: border-color .3s, background .3s;
+}
+.rec-panel.recording {
+  border-color: var(--rec-red);
+  background: var(--rec-red-light);
+}
+.rec-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.btn-rec-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rec-red);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-family: -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size:13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-rec-start:hover { background: #c62828; }
+.btn-rec-start:disabled { background: #ccc; cursor: not-allowed; }
+.btn-rec-stop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
+  color: var(--text-mid);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-family: -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-rec-stop:hover { background: var(--border); }
+.btn-rec-stop:disabled { opacity: .4; cursor: not-allowed; }
+.rec-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'Courier New', Courier, monospace;
+}
+.rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background .3s;
+}
+.rec-dot.live {
+  background: var(--rec-red);
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .2; }
+}
+.rec-timer {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: .1em;
+  transition: color .3s;
+}
+.rec-panel.recording .rec-timer { color: var(--rec-red); }
+
+/* 실시간 전사 텍스트 표시 */
+.live-transcript-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 12px 14px;
+  min-height: 60px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 4px;
+  transition: border-color .3s;
+}
+.rec-panel.recording .live-transcript-box {
+  border-color: rgba(229,57,53,.3);
+}
+.live-transcript-box .interim {
+  color: var(--text-muted);
+}
+.live-hint {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 전사 세그먼트 목록 */
+.transcript-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.transcript-seg {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: up .2s ease;
+}
+.seg-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.75;
+}
+.seg-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.seg-time {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.seg-speaker-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.speaker-btns {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.spk-btn {
+  padding: 3px 11px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+.spk-btn:hover { border-color: var(--week3); color: var(--week3); }
+.spk-btn.selected {
+  background: var(--week3);
+  border-color: var(--week3);
+  color: #fff;
+  font-weight: 600;
+}
+.seg-delete {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color .15s;
+  flex-shrink: 0;
+}
+.seg-delete:hover { color: var(--rec-red); }
+
+/* 전사 없음 안내 */
+.empty-transcript {
+  text-align: center;
+  padding: 28px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+}
+.empty-transcript .et-icon { font-size: 28px; margin-bottom: 6px; }
+
+/* 전사 전체 내보내기 */
+.transcript-export {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.transcript-export textarea {
+  flex: 1;
+  min-width: 200px;
+  min-height: 100px;
+}
+.btn-copy-transcript {
+  background: var(--week3);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 12px;
+  font-family: -apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.btn-copy-transcript:hover { background: #1c5f8e; }
+
+/* 브라우저 지원 경고 */
+.stt-warning {
+  background: #fff8e1;
+  border: 1px solid #f9a825;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #5d4037;
+  display: none;
+  margin-bottom: 14px;
+}
+.stt-warning.show { display: flex; gap: 10px; align-items: flex-start; }
 
 @media(max-width:640px){
   .panel{padding:24px 16px 60px;}
@@ -207,11 +467,108 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
   .kw-grid{grid-template-columns:repeat(3,1fr);}
   .top-bar{padding:0 16px;}
   .prog-bar{width:80px;}
+  .member-inputs{grid-template-columns:1fr 1fr;}
+  .rec-controls{gap:8px;}
+}
+
+/* ── 마이크 권한 안내 배너 ── */
+.mic-guide {
+  display:none;
+  background:#fff3e0;
+  border:1px solid #fb8c00;
+  border-radius:var(--radius);
+  padding:14px 16px;
+  margin-bottom:14px;
+  gap:12px;
+  align-items:flex-start;
+  font-size:12px;
+  color:#5d4037;
+  line-height:1.8;
+}
+.mic-guide.show { display:flex; }
+.mic-guide .mic-steps { margin-top:4px; }
+.mic-guide .mic-steps li { margin-left:16px; list-style:decimal; }
+
+/* ── 자동 코딩 패널 ── */
+.coding-panel {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--week3);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  margin-top:20px;
+}
+.coding-panel .coding-header {
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.coding-table {
+  width:100%;border-collapse:collapse;font-size:12px;
+}
+.coding-table th {
+  background:var(--surface2);border:1px solid var(--border);
+  padding:6px 10px;font-family:'Courier New',Courier,monospace;
+  font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-muted);text-align:left;
+}
+.coding-table td {
+  border:1px solid var(--border);padding:7px 10px;
+  vertical-align:top;
+}
+.coding-table tr:nth-child(even) td { background:var(--surface2); }
+.code-badge {
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:10px;font-weight:600;margin:2px 2px 2px 0;
+  font-family:'Courier New',Courier,monospace;
+}
+.badge-YT     { background:#fde8e8;color:#c0392b; }
+.badge-Text   { background:#eaf4fc;color:#2471a3; }
+.badge-None   { background:#f0ede8;color:#9a9490; }
+.badge-Negative  { background:#fde8e8;color:#c0392b; }
+.badge-Positive  { background:#e6f2ec;color:#1e6f4e; }
+.badge-Mixed     { background:#fdf0e8;color:#b85c2a; }
+.badge-Neutral   { background:#f0ede8;color:#6b6460; }
+.badge-Emotion   { background:#fef9e7;color:#b7950b; }
+.badge-Critique  { background:#eaf4fc;color:#2471a3; }
+.badge-Change    { background:#f4ecf7;color:#7d3c98; }
+.badge-Reproduce { background:#fde8e8;color:#a93226; }
+.badge-Resist    { background:#e6f2ec;color:#1a5631; }
+.badge-Exploratory { background:#eaf4fc;color:#1a5276; }
+.badge-Cumulative  { background:#fdfefe;color:#616a6b; }
+.badge-Disputational { background:#fef5e7;color:#a04000; }
+.btn-code-run {
+  background:var(--week3);color:#fff;border:none;border-radius:6px;
+  padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;
+  font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  transition:background .2s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn-code-run:hover { background:#1c5f8e; }
+.btn-code-run:disabled { background:#ccc;cursor:not-allowed; }
+.btn-dl-csv {
+  background:var(--accent);color:#fff;border:none;border-radius:6px;
+  padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;
+  font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  transition:background .2s;
+}
+.btn-dl-csv:hover { background:#186040; }
+.coding-chart-wrap {
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;
+}
+.chart-box {
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:6px;padding:14px;
+}
+.chart-box .chart-title {
+  font-family:'Courier New',Courier,monospace;font-size:9px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;
+}
+canvas.mini-chart { width:100%!important;max-height:180px; }
+@media(max-width:640px){
+  .coding-chart-wrap { grid-template-columns:1fr; }
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
 <body>
-
 <div class="top-bar">
   <div class="logo">언어와 문화 <span>/ Project 2</span></div>
   <div class="progress-wrap">
@@ -220,7 +577,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <span class="prog-label" id="prog-label">—</span>
   </div>
 </div>
-
 <nav class="week-nav">
   <button class="w-tab active w1" data-w="1" onclick="switchWeek(1)">주 1 — 자료 분석</button>
   <button class="w-tab w2" data-w="2" onclick="switchWeek(2)">주 2 — 의견문</button>
@@ -235,7 +591,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <p class="desc">YouTube 2개, 뉴스·블로그 2개를 직접 찾고, <strong>자료 하나씩 차례대로</strong> 분석합니다. 각 자료를 보기 전후의 생각 변화를 그때그때 기록하세요.</p>
     <div class="time-tag">⏱ 총 40분 · 자료 탐색 10분 + 분석 15분 + 비교 15분</div>
   </div>
-
   <div class="stu-card">
     <div class="fg"><label>이름</label><input type="text" id="si-name" placeholder="홍길동"></div>
     <div class="fg"><label>학번</label><input type="text" id="si-id" placeholder="2024XXXXX"></div>
@@ -248,12 +603,10 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="fg"><label>팀</label><input type="text" id="si-team" placeholder="A팀"></div>
   </div>
-
   <div class="rn">
     <div class="rn-icon">🔬</div>
     <div class="rn-text"><strong>연구 목적 (RQ1)</strong> — YouTube와 텍스트가 플랫폼 노동을 어떻게 다르게 묘사하는지 비교합니다. 여러분이 고른 키워드·프레임·생각 변화가 CDA 핵심 데이터입니다.</div>
   </div>
-
   <!-- STEPPER -->
   <div class="src-stepper" id="stepper1">
     <button class="src-step-btn active" data-src="1" onclick="switchSrc(1)"><span class="sn">1</span>YouTube 1</button>
@@ -262,7 +615,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <button class="src-step-btn" data-src="4" onclick="switchSrc(4)"><span class="sn">4</span>뉴스/기사 2</button>
     <button class="src-step-btn" data-src="compare" onclick="switchSrc('compare')"><span class="sn">✦</span>전체 비교</button>
   </div>
-
   <!-- ── SOURCE 1 ── -->
   <div class="src-panel active" id="sp-1">
     <div class="card yt-card">
@@ -323,7 +675,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="nav-row"><button class="btn-next" onclick="switchSrc(2)">자료 2로 이동 →</button></div>
   </div>
-
   <!-- ── SOURCE 2 ── -->
   <div class="src-panel" id="sp-2">
     <div class="card yt-card">
@@ -384,7 +735,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="nav-row"><button class="btn-prev" onclick="switchSrc(1)">← 자료 1</button><button class="btn-next" onclick="switchSrc(3)">자료 3으로 →</button></div>
   </div>
-
   <!-- ── SOURCE 3 ── -->
   <div class="src-panel" id="sp-3">
     <div class="card art-card">
@@ -445,7 +795,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="nav-row"><button class="btn-prev" onclick="switchSrc(2)">← 자료 2</button><button class="btn-next" onclick="switchSrc(4)">자료 4로 →</button></div>
   </div>
-
   <!-- ── SOURCE 4 ── -->
   <div class="src-panel" id="sp-4">
     <div class="card art-card">
@@ -506,16 +855,13 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="nav-row"><button class="btn-prev" onclick="switchSrc(3)">← 자료 3</button><button class="btn-next" onclick="switchSrc('compare')">4개 전체 비교 →</button></div>
   </div>
-
   <!-- ── COMPARE ── -->
   <div class="src-panel" id="sp-compare">
     <div class="sec-div"><span>Step 3 — 4개 자료 전체 비교 분석</span></div>
-
     <div class="card" style="background:var(--surface2);margin-bottom:14px;">
       <div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">내가 입력한 자료 요약 (자동 생성)</span></div>
       <table class="sum-table" id="sum-table"></table>
     </div>
-
     <div class="compare-card">
       <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q1 — 4개 중 가장 신뢰할 수 있는 자료는?</span></div>
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
@@ -524,7 +870,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
       </div>
       <textarea class="inp w-full" id="q1-ans" placeholder="왜 이 자료가 가장 믿음직한가요? 증거·출처·공평성 관점에서 2~3문장으로."></textarea>
     </div>
-
     <div class="compare-card">
       <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q2 — YouTube vs 텍스트 자료의 공통점과 차이점</span></div>
       <div class="row2">
@@ -532,7 +877,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
         <div class="fl"><label>차이점 (YouTube와 텍스트가 다른 점)</label><textarea class="inp w-full" id="q2-diff" placeholder="예: YouTube는 감정·음악 사용, 기사는 통계·전문가 인용"></textarea></div>
       </div>
     </div>
-
     <div class="compare-card">
       <div class="card-head" style="margin-bottom:10px;"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 4개 자료를 모두 읽은 뒤 종합적 생각 변화</span></div>
       <p style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">각 자료별 변화는 위에서 이미 기록했습니다. 여기서는 4개 전체를 다 읽은 뒤 종합해서 내 생각이 어떻게 달라졌는지 써주세요.</p>
@@ -547,10 +891,8 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
       </div>
       <textarea class="inp w-full" id="q3-overall" placeholder="4개 중 내 생각을 가장 많이 바꾼 자료는 몇 번이었나요? 그 자료의 어떤 점이 영향을 가장 크게 미쳤나요?"></textarea>
     </div>
-
     <div class="fl" style="margin-top:10px;"><label>다음 수업 준비 — 플랫폼 노동에 대한 내 결론 한 문장</label>
     <input class="inp w-full" type="text" id="w1-conclusion" placeholder="예: 플랫폼 노동은 겉보기에는 자유로워 보이지만 실제로는 구조적 착취를 내포하고 있다."></div>
-
     <div class="submit-area">
       <div class="checklist">
         <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>자료 4개 URL을 모두 입력했나?</label>
@@ -576,10 +918,8 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <div class="rn-icon">🔬</div>
     <div class="rn-text"><strong style="color:var(--week2);">연구 목적 (RQ2)</strong> — 주 1 자료 언어가 쓰기에 재현(재생산)되는지, 비판적으로 변형(저항)되는지 추적합니다.</div>
   </div>
-
   <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">주 1 연계 — 자료별 키워드 재사용 계획</span><span class="stime">⏱ 10분</span></div>
   <p class="step-desc">주 1에서 각 자료(1~4)의 대표 키워드를 이 의견문에 어떻게 사용할지 결정하세요.</p>
-
   <div class="card">
     <div class="card-head"><div class="ch-dot" style="background:var(--week2)"></div><span class="ch-label">자료별 대표 키워드 재사용 여부</span></div>
     <table class="reuse-table">
@@ -606,7 +946,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
       </div>
     </div>
   </div>
-
   <hr class="div">
   <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">800자 의견문 작성</span><span class="stime">⏱ 15분</span></div>
   <p class="step-desc">Google Docs에서 작성 후 링크를 붙여넣으세요. 주 1 URL 2개 이상 인용 필수.</p>
@@ -621,7 +960,6 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
       <div class="fl"><label>주 1 키워드 인용 개수</label><input class="inp" type="number" id="kw-count" placeholder="3" style="width:70px;"></div>
     </div>
   </div>
-
   <hr class="div">
   <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">연구 반성 질문 (RQ2 핵심 데이터)</span><span class="stime">⏱ 15분</span></div>
   <p class="step-desc">솔직하게 답할수록 연구 가치가 높아집니다.</p>
@@ -639,6 +977,60 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
       <textarea class="inp w-full" id="rq4" placeholder="예: 3점. YouTube만 인용해 편향 위험. 다음엔 텍스트 통계도 포함하겠다."></textarea>
     </div>
   </div>
+  <!-- 자동 코딩 패널 -->
+  <div class="coding-panel" id="coding-panel">
+    <div class="coding-header">
+      <div class="ch-dot" style="background:var(--week3)"></div>
+      <span style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;">CCSS·CDA 자동 코딩 — 전사 세그먼트 분석</span>
+      <button class="btn-code-run" id="btn-code" onclick="runAutoCoding()">🔍 자동 코딩 실행</button>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;line-height:1.7;">
+      전사된 발화를 <strong>키워드 매칭(semi-auto)</strong>으로 자동 코딩합니다.
+      코딩 카테고리: 매체 소스(YT/Text/None) · 프레임(Negative/Positive/Mixed/Neutral) ·
+      리터러시 영향(Emotion/Critique/Change/Reproduce/Resist) · 담론 품질(Exploratory/Cumulative/Disputational).
+      Claude AI가 코드를 검토·보정합니다.
+    </p>
+    <div id="coding-result-wrap" style="display:none;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+        <span id="coding-summary" style="font-size:12px;color:var(--text-mid);"></span>
+        <button class="btn-dl-csv" onclick="downloadCodedCSV()">⬇ CSV 다운로드</button>
+        <button class="btn-dl-csv" onclick="downloadDashboard()" style="background:var(--week3);">📊 대시보드 HTML</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="coding-table" id="coding-table">
+          <thead><tr>
+            <th style="width:60px;">시간</th>
+            <th style="width:80px;">발화자</th>
+            <th>발화</th>
+            <th style="width:80px;">소스</th>
+            <th style="width:90px;">프레임</th>
+            <th style="width:110px;">리터러시</th>
+            <th style="width:110px;">담론 품질</th>
+          </tr></thead>
+          <tbody id="coding-tbody"></tbody>
+        </table>
+      </div>
+      <div class="coding-chart-wrap">
+        <div class="chart-box">
+          <div class="chart-title">프레임 분포</div>
+          <canvas id="chart-frame" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">매체 소스 분포</div>
+          <canvas id="chart-source" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">리터러시 영향 분포</div>
+          <canvas id="chart-lit" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">담론 품질 분포</div>
+          <canvas id="chart-disc" class="mini-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="submit-area">
     <div class="checklist">
@@ -664,91 +1056,196 @@ hr.div{border:none;border-top:1px solid var(--border);margin:24px 0;}
     <div class="rn-text"><strong style="color:var(--week3);">연구 목적 (RQ2 마무리)</strong> — 3주간 매체 담론이 집단 토의에 재현·저항되는 과정과 개인 인지 변화 경로를 추적합니다.</div>
   </div>
 
-  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">팀 토의 녹음</span><span class="stime">⏱ 15분 — 녹음 필수</span></div>
-  <p class="step-desc">팀원 모두 주 1 대표 키워드·결론 한 문장씩 공유 → 토의: <strong>"주 1 자료의 언어가 내 생각에 얼마나 영향을 줬나? 착취 프레임을 따라갔나, 비판했나?"</strong><br>파일명: [팀번호]_주3토의.mp3</p>
-  <div class="card">
-    <div class="card-head"><div class="ch-dot" style="background:var(--week3)"></div><span class="ch-label">토의 파일 업로드 URL</span></div>
-    <input class="inp w-full" type="url" id="disc-file" placeholder="Google Drive / Classroom 공유 링크" style="margin-bottom:10px;">
-    <div style="display:flex;gap:16px;">
-      <div class="fl"><label>녹음 시간 (분)</label><input class="inp" type="number" id="disc-len" placeholder="15" style="width:80px;"></div>
-      <div class="fl"><label>팀원 수</label><input class="inp" type="number" id="disc-members" placeholder="4" style="width:70px;"></div>
+  <!-- ═══════ STEP 01: 팀원 등록 & 녹음 & Claude API 전사 ═══════ -->
+  <div class="step-label"><span class="snum">STEP 01</span><span class="stitle">팀원 등록 &amp; 토의 녹음 · Claude AI 전사</span><span class="stime">⏱ 15분 — 녹음 필수</span></div>
+  <p class="step-desc">
+    <strong>사용 순서:</strong><br>
+    ① 팀원 이름 4명 입력 &nbsp;→&nbsp;
+    ② <strong>녹음 시작</strong> 버튼으로 토의 발화 녹음 &nbsp;→&nbsp;
+    ③ <strong>녹음 중지 &amp; 전사</strong> 버튼을 누르면 Claude AI가 자동으로 한국어 전사 &nbsp;→&nbsp;
+    ④ 각 발화 문장 아래에서 <strong>팀원 이름 버튼을 클릭</strong>해 발화자 배정<br>
+    <em>토의 주제: "주 1 자료의 언어가 내 생각에 얼마나 영향을 줬나? 착취 프레임을 따라갔나, 비판했나?"</em>
+  </p>
+
+
+  <!-- 팀원 이름 입력 -->
+  <div class="member-setup-card">
+    <div class="card-head">
+      <div class="ch-dot" style="background:var(--week3)"></div>
+      <span class="ch-label">팀원 이름 입력 (4명) — 전사 후 발화자 배정 버튼에 표시됩니다</span>
+    </div>
+    <div class="member-inputs">
+      <div class="member-input-wrap">
+        <label>팀원 1</label>
+        <input class="member-name-inp" id="mbr-0" placeholder="예: 김민준" oninput="updateSpeakerBtns()">
+      </div>
+      <div class="member-input-wrap">
+        <label>팀원 2</label>
+        <input class="member-name-inp" id="mbr-1" placeholder="예: 이서연" oninput="updateSpeakerBtns()">
+      </div>
+      <div class="member-input-wrap">
+        <label>팀원 3</label>
+        <input class="member-name-inp" id="mbr-3" placeholder="예: 박지호" oninput="updateSpeakerBtns()">
+      </div>
+      <div class="member-input-wrap">
+        <label>팀원 4</label>
+        <input class="member-name-inp" id="mbr-4" placeholder="예: 최수아" oninput="updateSpeakerBtns()">
+      </div>
     </div>
   </div>
 
-  <hr class="div">
-  <div class="step-label"><span class="snum">STEP 02</span><span class="stitle">토의 메모 표 (팀원별 발언 기록)</span><span class="stime">⏱ 10분</span></div>
-  <p class="step-desc">토의 중 실시간으로 기록하거나, 직후 기억을 바탕으로 작성하세요.</p>
-  <div class="card" style="overflow-x:auto;">
-    <table class="team-table">
-      <thead><tr><th>팀원</th><th>주요 발언 키워드 (주 1 단어 재현?)</th><th>프레임</th><th>협상 방식</th></tr></thead>
-      <tbody>
-        <tr><td><input type="text" id="tm-n0" value="나 (본인)" style="color:var(--text-muted);background:transparent;border-color:transparent;" readonly></td><td><input type="text" id="tm-k0" placeholder="예: 착취, 불안정 (자료 1에서)"></td><td><select id="tm-f0"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g0"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
-        <tr><td><input type="text" id="tm-n1" placeholder="팀원 1 이름"></td><td><input type="text" id="tm-k1" placeholder="키워드"></td><td><select id="tm-f1"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g1"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
-        <tr><td><input type="text" id="tm-n2" placeholder="팀원 2 이름"></td><td><input type="text" id="tm-k2" placeholder="키워드"></td><td><select id="tm-f2"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g2"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
-        <tr><td><input type="text" id="tm-n3" placeholder="팀원 3 이름"></td><td><input type="text" id="tm-k3" placeholder="키워드"></td><td><select id="tm-f3"><option value="">선택</option><option>부정(피해자)</option><option>긍정(기회)</option><option>복합</option><option>저항(비판)</option></select></td><td><select id="tm-g3"><option value="">선택</option><option>동의</option><option>반대 + 증거 제시</option><option>부분 동의</option><option>질문 제기</option></select></td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:12px;padding:10px 12px;background:var(--bg);border-radius:5px;border:1px solid var(--border);">
-      <div class="fl"><label>팀 전체 — 주 1 키워드 재현 횟수 합산</label>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><input class="inp" type="number" id="kw-repro-total" placeholder="0" style="width:70px;" min="0"><span style="font-size:12px;color:var(--text-muted);">회 (예: "착취" 3회 + "기회" 1회 = 4회)</span></div></div>
+  <!-- 마이크 권한 안내 배너 -->
+  <div class="mic-guide" id="mic-guide">
+    <span style="font-size:20px;flex-shrink:0;">🎤</span>
+    <div>
+      <strong>마이크 권한이 차단돼 있습니다.</strong> 아래 방법으로 허용해 주세요:<br>
+      <ul class="mic-steps">
+        <li><strong>Chrome / Edge:</strong> 주소창 왼쪽 🔒 자물쇠(또는 ⚙) 클릭 → <em>사이트 설정</em> → <em>마이크</em> → <strong>허용</strong> → 페이지 새로고침</li>
+        <li><strong>Safari (Mac):</strong> Safari 메뉴 → 환경설정 → 웹사이트 → 마이크 → 이 사이트 <strong>허용</strong></li>
+        <li><strong>Firefox:</strong> 주소창 왼쪽 🔒 → 연결 → 마이크 권한 허용</li>
+        <li>권한 허용 후 <strong>페이지를 새로고침</strong>하면 녹음이 활성화됩니다.</li>
+      </ul>
     </div>
   </div>
 
-  <hr class="div">
-  <div class="step-label"><span class="snum">STEP 03</span><span class="stitle">개인 리플렉션 (RQ2 마무리 데이터)</span><span class="stime">⏱ 15분</span></div>
-  <div style="display:grid;gap:12px;">
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#c0392b"></div><span class="ch-label">Q1 — 재생산 정량: 팀원 몇 %가 주 1 키워드를 재사용했나? 구체적 예시 3개</span></div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;"><input class="inp" type="number" id="repro-pct" placeholder="75" style="width:80px;" min="0" max="100"><span style="font-size:12px;color:var(--text-muted);">% 팀원이 재사용</span></div>
-      <textarea class="inp w-full" id="w3q1" placeholder="예: '착취' — 팀원 3명 모두(자료 1 YouTube) / '불안정' — 2명(자료 3) / '기회' — 1명(자료 2 긍정 프레임)"></textarea>
-    </div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent)"></div><span class="ch-label">Q2 — 저항 패턴: 팀에서 주 1 편향을 비판하는 발언이 나왔나? 담론이 어떻게 재구성됐나?</span></div>
-      <textarea class="inp w-full" id="w3q2" placeholder="예: 팀원 2가 'YouTube가 과장됐다, 통계를 봐야 한다'고 제기 → 팀 논의가 복합 프레임으로 이동."></textarea>
-    </div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--accent2)"></div><span class="ch-label">Q3 — 3주 인지 변화: 주 1 시작 전 → 주 3 토의 후 최종 입장</span></div>
-      <div style="display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center;margin-bottom:10px;">
-        <div class="fl"><label>주 1 시작 전 입장</label><select class="inp" id="ch-before"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>중립/몰랐음</option></select></div>
-        <div style="text-align:center;font-size:16px;color:var(--text-muted);margin-top:16px;">→</div>
-        <div class="fl"><label>주 3 토의 후 최종 입장</label><select class="inp" id="ch-after"><option value="">선택</option><option>긍정 (기회·자유)</option><option>부정 (착취·힘듦)</option><option>복합 (양면 인식)</option><option>비판적 중립</option></select></div>
+  <!-- 녹음 컨트롤 -->
+  <div class="rec-panel" id="rec-panel">
+    <div class="rec-controls">
+      <div class="rec-timer" id="rec-timer">00:00</div>
+      <button class="btn-rec-start" id="btn-start" onclick="startRecording()">🎙 녹음 시작</button>
+      <button class="btn-rec-stop" id="btn-stop" onclick="stopAndTranscribe()" disabled>⏹ 녹음 중지 &amp; 전사</button>
+      <div class="rec-status">
+        <div class="rec-dot" id="rec-dot"></div>
+        <span id="rec-status-text">대기 중</span>
       </div>
-      <textarea class="inp w-full" id="w3q3" placeholder="3주 중 내 생각을 가장 많이 바꾼 계기는? (특정 자료? 팀원 발언? 주 2 의견문 쓰기?)"></textarea>
     </div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:#555"></div><span class="ch-label">Q4 — 협상 메커니즘: 의견 충돌 시 어떻게 해결했나? 증거 제시가 효과적이었나?</span></div>
-      <textarea class="inp w-full" id="w3q4" placeholder="예: 주 1 URL을 다시 공유해 충돌 해결. 통계 자료 제시가 감정 호소보다 설득력 높았다."></textarea>
+    <!-- 상태 메시지 박스 -->
+    <div class="live-transcript-box" id="live-box">
+      <span id="interim-text" style="color:var(--text-muted);">녹음 시작 버튼을 누르면 마이크가 활성화됩니다. 토의가 끝나면 녹음 중지 &amp; 전사 버튼을 누르세요.</span>
     </div>
-    <div class="card"><div class="card-head"><div class="ch-dot" style="background:var(--week3)"></div><span class="ch-label">최종 평가 — 3주 프로젝트가 언어·담론 인식에 도움이 됐나? (1~5점)</span></div>
-      <div class="rating-row" id="rating-final" style="margin-bottom:10px;">
-        <button class="rb" onclick="setRating('final',1,this)">1</button><button class="rb" onclick="setRating('final',2,this)">2</button>
-        <button class="rb" onclick="setRating('final',3,this)">3</button><button class="rb" onclick="setRating('final',4,this)">4</button>
-        <button class="rb" onclick="setRating('final',5,this)">5</button>
+    <div class="live-hint">* 모든 브라우저 지원 · 마이크 권한 허용 필요 · 녹음 중지 후 Claude AI가 전체 오디오를 한 번에 전사합니다</div>
+  </div>
+
+  <!-- 전사 세그먼트 목록 -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-head">
+      <div class="ch-dot" style="background:var(--week3)"></div>
+      <span class="ch-label">전사 결과 — 각 문장 아래 팀원 이름을 클릭해 발화자를 배정하세요</span>
+      <button class="btn-rec-stop" onclick="clearAllSegments()"
+        style="font-size:11px;padding:4px 10px;margin-left:auto;">전체 삭제</button>
+    </div>
+    <div id="transcript-list" class="transcript-list">
+      <div class="empty-transcript">
+        <div class="et-icon">🎙</div>
+        <div>녹음 중지 후 Claude AI가 전사한 결과가 여기에 표시됩니다</div>
       </div>
-      <input type="hidden" id="final-rating" value="">
-      <textarea class="inp w-full" id="final-reason" placeholder="이유 (예: YouTube 언어가 무의식적으로 내 생각을 바꾼다는 걸 처음 인식했다.)"></textarea>
+    </div>
+
+    <!-- 수동 세그먼트 추가 -->
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">문장 수동 추가 (전사 보완용)</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;">
+        <textarea id="manual-seg-text" class="inp" style="flex:1;min-height:56px;"
+          placeholder="전사가 누락된 발화를 직접 입력하세요"></textarea>
+        <button class="btn-rec-start" style="padding:10px 16px;font-size:12px;white-space:nowrap;flex-shrink:0;"
+          onclick="addManualSegment()">+ 추가</button>
+      </div>
     </div>
   </div>
+
+  <!-- 전사 전체 내보내기 -->
+  <div class="transcript-export">
+    <div style="flex:1;">
+      <div style="font-family:'Courier New',Courier,monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">전체 전사 텍스트 (제출용 · 직접 편집 가능)</div>
+      <textarea class="inp w-full" id="full-transcript" rows="7"
+        placeholder="전사 완료 후 자동으로 생성됩니다. 직접 수정도 가능합니다."></textarea>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button class="btn-copy-transcript" onclick="rebuildTranscript()">🔄 재생성</button>
+      <button class="btn-copy-transcript" onclick="copyTranscript()" style="background:var(--accent);">📋 복사</button>
+    </div>
+  </div>
+
+
+  <!-- 자동 코딩 패널 -->
+  <div class="coding-panel" id="coding-panel">
+    <div class="coding-header">
+      <div class="ch-dot" style="background:var(--week3)"></div>
+      <span style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);flex:1;">CCSS·CDA 자동 코딩 — 전사 세그먼트 분석</span>
+      <button class="btn-code-run" id="btn-code" onclick="runAutoCoding()">🔍 자동 코딩 실행</button>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:14px;line-height:1.7;">
+      전사된 발화를 <strong>키워드 매칭(semi-auto)</strong>으로 자동 코딩합니다.
+      코딩 카테고리: 매체 소스(YT/Text/None) · 프레임(Negative/Positive/Mixed/Neutral) ·
+      리터러시 영향(Emotion/Critique/Change/Reproduce/Resist) · 담론 품질(Exploratory/Cumulative/Disputational).
+      Claude AI가 코드를 검토·보정합니다.
+    </p>
+    <div id="coding-result-wrap" style="display:none;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+        <span id="coding-summary" style="font-size:12px;color:var(--text-mid);"></span>
+        <button class="btn-dl-csv" onclick="downloadCodedCSV()">⬇ CSV 다운로드</button>
+        <button class="btn-dl-csv" onclick="downloadDashboard()" style="background:var(--week3);">📊 대시보드 HTML</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="coding-table" id="coding-table">
+          <thead><tr>
+            <th style="width:60px;">시간</th>
+            <th style="width:80px;">발화자</th>
+            <th>발화</th>
+            <th style="width:80px;">소스</th>
+            <th style="width:90px;">프레임</th>
+            <th style="width:110px;">리터러시</th>
+            <th style="width:110px;">담론 품질</th>
+          </tr></thead>
+          <tbody id="coding-tbody"></tbody>
+        </table>
+      </div>
+      <div class="coding-chart-wrap">
+        <div class="chart-box">
+          <div class="chart-title">프레임 분포</div>
+          <canvas id="chart-frame" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">매체 소스 분포</div>
+          <canvas id="chart-source" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">리터러시 영향 분포</div>
+          <canvas id="chart-lit" class="mini-chart"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">담론 품질 분포</div>
+          <canvas id="chart-disc" class="mini-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="submit-area">
     <div class="checklist">
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>토의 파일 URL 입력했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>팀원별 발언 메모 표 작성했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>Q1~Q4 리플렉션 모두 완성했나?</label>
-      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>최종 평가 점수와 이유 작성했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>팀원 이름 4명을 모두 입력했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>토의를 녹음하고 Claude AI 전사를 완료했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>각 발화 문장에 발화자(팀원)를 배정했나?</label>
+      <label class="ci" onclick="toggleCI(this)"><input type="checkbox"><span class="cbox"></span>전체 전사 텍스트를 확인하고 필요시 수정했나?</label>
     </div>
-    <button class="btn-submit w3" onclick="submitWeek(3)">주 3 제출 — 연구 완료 (JSON 다운로드) →</button>
+    <button class="btn-submit w3" onclick="submitWeek(3)">주 3 제출 — 전사 완료 (JSON 다운로드) →</button>
   </div>
+</div>
 </div>
 
 <div id="toast"></div>
 
 <script>
-// ── WEEK SWITCH ──
+// ════════════════════════════════════════
+// WEEK / SOURCE SWITCH
+// ════════════════════════════════════════
 function switchWeek(n){
   document.querySelectorAll('.w-tab').forEach(t=>t.classList.remove('active','w1','w2','w3'));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelector('.w-tab[data-w="'+n+'"]').classList.add('active','w'+n);
   document.getElementById('panel-'+n).classList.add('active');
 }
-
-// ── SOURCE SWITCH ──
 function switchSrc(src){
   document.querySelectorAll('#stepper1 .src-step-btn').forEach(b=>{
     b.classList.toggle('active', b.dataset.src == src);
@@ -758,7 +1255,6 @@ function switchSrc(src){
   if(src==='compare') buildSummary();
   window.scrollTo({top:document.querySelector('.week-nav').offsetTop-10, behavior:'smooth'});
 }
-
 function buildSummary(){
   const rows=[1,2,3,4].map(i=>{
     const title=g('s'+i+'-title')||'(미입력)';
@@ -773,7 +1269,9 @@ function buildSummary(){
     `<thead><tr><th>번호</th><th>제목</th><th>키워드</th><th>프레임</th><th>공평성</th></tr></thead><tbody>${rows}</tbody>`;
 }
 
-// ── FRAME ──
+// ════════════════════════════════════════
+// FRAME / RATING / CI
+// ════════════════════════════════════════
 function selFrame(btn,fid,val){
   btn.closest('.frame-wrap').querySelectorAll('.fb').forEach(b=>b.classList.remove('sel-neg','sel-pos','sel-mix','sel-neu'));
   if(val.includes('부정')) btn.classList.add('sel-neg');
@@ -783,18 +1281,274 @@ function selFrame(btn,fid,val){
   document.getElementById(fid).value=val;
   autoSave();
 }
-
-// ── RATING ──
 function setRating(key,val,btn){
-  document.getElementById('rating-'+key).querySelectorAll('.rb').forEach((b,i)=>b.classList.toggle('on',i<val));
+  const row = document.getElementById('rating-'+key);
+  if(row) row.querySelectorAll('.rb').forEach((b,i)=>b.classList.toggle('on',i<val));
   const h=document.getElementById(key)||document.getElementById(key+'-rating');
   if(h) h.value=val;
   autoSave();
 }
-
 function toggleCI(l){l.classList.toggle('done');}
 
-// ── AUTO SAVE ──
+// ════════════════════════════════════════
+// 녹음 & 전사 (MediaRecorder + Claude API)
+// ════════════════════════════════════════
+// ── API 키: 페이지 로드 시 한 번만 입력, sessionStorage에만 임시 저장 ──
+// 깃허브에 키를 절대 하드코딩하지 마세요.
+function getApiKey() {
+  let key = sessionStorage.getItem('_cak') || '';
+  if (!key) {
+    key = prompt('Claude API 키를 입력하세요 (sk-ant-api03-...)\n※ 세션 종료 시 자동 삭제됩니다.') || '';
+    if (key.startsWith('sk-ant-')) {
+      sessionStorage.setItem('_cak', key);
+    } else {
+      toast('⚠️ 올바른 API 키 형식이 아닙니다.');
+      return '';
+    }
+  }
+  return key;
+}
+
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let recStartTime = null;
+let recTimerInterval = null;
+let segments = [];
+let segIdCounter = 0;
+
+window.addEventListener('load', () => { restoreData(); updateProgress(); });
+
+// ── 팀원 이름 ──
+function getMemberNames() {
+  return ['mbr-0','mbr-1','mbr-3','mbr-4']
+    .map((id,i) => (g(id)||'').trim() || `팀원 ${i+1}`);
+}
+function updateSpeakerBtns() {
+  const names = getMemberNames();
+  document.querySelectorAll('.speaker-btns').forEach(wrap => {
+    wrap.querySelectorAll('.spk-btn').forEach((btn,i) => {
+      const prev = btn.dataset.speaker;
+      btn.dataset.speaker = names[i];
+      btn.textContent = names[i];
+      if(btn.classList.contains('selected')) {
+        const segId = parseInt(btn.closest('.transcript-seg').id.replace('seg-',''));
+        const seg = segments.find(s=>s.id===segId);
+        if(seg && seg.speaker===prev) seg.speaker = names[i];
+      }
+    });
+  });
+  autoSave();
+}
+
+// ── 녹음 시작 ──
+async function startRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    audioChunks = [];
+    const mimeType = ['audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus','audio/mp4']
+      .find(t => MediaRecorder.isTypeSupported(t)) || '';
+    mediaRecorder = new MediaRecorder(stream, mimeType ? {mimeType} : {});
+    mediaRecorder.ondataavailable = e => { if(e.data.size>0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = () => stream.getTracks().forEach(t=>t.stop());
+    mediaRecorder.start(1000);
+    isRecording = true;
+    recStartTime = Date.now();
+    document.getElementById('rec-panel').classList.add('recording');
+    document.getElementById('rec-dot').classList.add('live');
+    document.getElementById('rec-status-text').textContent = '녹음 중...';
+    document.getElementById('btn-start').disabled = true;
+    document.getElementById('btn-stop').disabled = false;
+    document.getElementById('interim-text').textContent = '🔴 녹음 중입니다. 토의가 끝나면 "녹음 중지 & 전사" 버튼을 누르세요.';
+    startTimer();
+  } catch(err) {
+    if(err.name==='NotAllowedError' || err.name==='PermissionDeniedError') {
+      document.getElementById('mic-guide').classList.add('show');
+      document.getElementById('interim-text').textContent =
+        '⚠️ 마이크 권한이 차단됐습니다. 위 안내를 따라 권한을 허용한 후 페이지를 새로고침하세요.';
+      toast('⚠️ 마이크 권한 차단 — 위 안내를 확인하세요.');
+    } else {
+      toast('⚠️ 마이크 오류: ' + err.message);
+    }
+  }
+}
+
+// ── 녹음 중지 & Claude API 전사 ──
+async function stopAndTranscribe() {
+  if(!mediaRecorder || mediaRecorder.state==='inactive') return;
+  isRecording = false;
+  stopTimer();
+  document.getElementById('btn-stop').disabled = true;
+  document.getElementById('btn-start').disabled = true;
+  document.getElementById('rec-panel').classList.remove('recording');
+  document.getElementById('rec-dot').classList.remove('live');
+  document.getElementById('rec-status-text').textContent = 'Claude AI 전사 중...';
+  document.getElementById('interim-text').textContent = '⏳ Claude AI가 오디오를 분석하고 있습니다. 잠시 기다려 주세요...';
+
+  mediaRecorder.stop();
+  await new Promise(res => mediaRecorder.addEventListener('stop', res, {once:true}));
+
+  const mimeType = mediaRecorder.mimeType || 'audio/webm';
+  const audioBlob = new Blob(audioChunks, {type: mimeType});
+  const base64Audio = await new Promise((res,rej) => {
+    const reader = new FileReader();
+    reader.onload = () => res(reader.result.split(',')[1]);
+    reader.onerror = rej;
+    reader.readAsDataURL(audioBlob);
+  });
+  const apiMediaType = mimeType.split(';')[0] || 'audio/webm';
+  const totalSec = Math.floor((Date.now() - recStartTime) / 1000);
+
+  try {
+    document.getElementById('interim-text').textContent = '🤖 Claude API에 오디오 전송 중...';
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': CLAUDE_API_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4096,
+        messages: [{
+          role: 'user',
+          content: [
+            {
+              type: 'document',
+              source: { type: 'base64', media_type: apiMediaType, data: base64Audio }
+            },
+            {
+              type: 'text',
+              text: `이 오디오는 한국어 대학 수업 팀 토의 녹음입니다. 내용을 정확히 한국어로 전사해 주세요.
+
+규칙:
+- 의미 단위(문장/발화 턴)마다 한 줄씩 출력
+- 발화자가 구분되면 "화자1:", "화자2:" 등으로 표시
+- 불명확한 부분은 [불명확] 표시
+- 전사 텍스트만 출력 (설명·주석 없이)`
+            }
+          ]
+        }]
+      })
+    });
+
+    if(!response.ok) {
+      const err = await response.json().catch(()=>({}));
+      throw new Error(err?.error?.message || response.statusText);
+    }
+
+    const data = await response.json();
+    const rawText = (data.content?.find(b=>b.type==='text')?.text || '').trim();
+    if(!rawText) throw new Error('전사 결과가 비어 있습니다. 오디오가 너무 짧거나 음성이 없을 수 있습니다.');
+
+    const lines = rawText.split('\n').map(l=>l.trim()).filter(Boolean);
+    const perLine = lines.length > 0 ? Math.floor(totalSec / lines.length) : 0;
+    lines.forEach((line, i) => {
+      const sec = Math.min(i * perLine, totalSec);
+      const m = String(Math.floor(sec/60)).padStart(2,'0');
+      const s = String(sec%60).padStart(2,'0');
+      segments.push({id: ++segIdCounter, text: line, speaker: '', time: `${m}:${s}`});
+    });
+
+    renderSegments();
+    rebuildTranscript();
+    autoSave();
+    document.getElementById('interim-text').textContent =
+      `✅ 전사 완료 — ${lines.length}개 문장. 각 문장 아래에서 팀원 이름을 클릭해 발화자를 배정하세요.`;
+    document.getElementById('rec-status-text').textContent = '전사 완료';
+    document.getElementById('btn-start').disabled = false;
+    toast(`✓ Claude AI 전사 완료 — ${lines.length}개 문장`);
+  } catch(err) {
+    document.getElementById('interim-text').textContent = '❌ 전사 실패: ' + err.message;
+    document.getElementById('rec-status-text').textContent = '오류';
+    document.getElementById('btn-start').disabled = false;
+    toast('⚠️ 전사 오류: ' + err.message);
+  }
+}
+
+// ── 타이머 ──
+function startTimer() {
+  recTimerInterval = setInterval(() => {
+    const elapsed = Math.floor((Date.now()-recStartTime)/1000);
+    document.getElementById('rec-timer').textContent =
+      String(Math.floor(elapsed/60)).padStart(2,'0') + ':' + String(elapsed%60).padStart(2,'0');
+  }, 1000);
+}
+function stopTimer() { clearInterval(recTimerInterval); recTimerInterval = null; }
+
+// ── 세그먼트 관리 ──
+function addManualSegment() {
+  const ta = document.getElementById('manual-seg-text');
+  const text = ta.value.trim();
+  if(!text) { toast('발화 내용을 입력해 주세요.'); return; }
+  const elapsed = recStartTime ? Math.floor((Date.now()-recStartTime)/1000) : 0;
+  const m = String(Math.floor(elapsed/60)).padStart(2,'0');
+  const s = String(elapsed%60).padStart(2,'0');
+  segments.push({id: ++segIdCounter, text, speaker:'', time:`${m}:${s}`});
+  renderSegments(); rebuildTranscript(); autoSave();
+  ta.value = '';
+  toast('✓ 문장이 추가됐습니다.');
+}
+function setSpeaker(segId, speaker, btn) {
+  const seg = segments.find(s=>s.id===segId);
+  if(!seg) return;
+  seg.speaker = speaker;
+  btn.closest('.speaker-btns').querySelectorAll('.spk-btn')
+    .forEach(b => b.classList.toggle('selected', b.dataset.speaker===speaker));
+  rebuildTranscript(); autoSave();
+}
+function deleteSegment(segId) {
+  segments = segments.filter(s=>s.id!==segId);
+  renderSegments(); rebuildTranscript(); autoSave();
+}
+function clearAllSegments() {
+  if(!segments.length) return;
+  if(!confirm('전사 세그먼트를 모두 삭제할까요?')) return;
+  segments = [];
+  renderSegments(); rebuildTranscript(); autoSave();
+}
+function renderSegments() {
+  const list = document.getElementById('transcript-list');
+  const names = getMemberNames();
+  if(!segments.length) {
+    list.innerHTML = `<div class="empty-transcript"><div class="et-icon">🎙</div><div>녹음 중지 후 Claude AI가 전사한 결과가 여기에 표시됩니다</div></div>`;
+    return;
+  }
+  list.innerHTML = segments.map(seg => {
+    const btns = names.map(name =>
+      `<button class="spk-btn${seg.speaker===name?' selected':''}" data-speaker="${escAttr(name)}"
+        onclick="setSpeaker(${seg.id},'${escAttr(name)}',this)">${escHtml(name)}</button>`
+    ).join('');
+    return `<div class="transcript-seg" id="seg-${seg.id}">
+      <div class="seg-text">${escHtml(seg.text)}</div>
+      <div class="seg-meta">
+        <span class="seg-time">⏱ ${seg.time}</span>
+        <span class="seg-speaker-label">발화자:</span>
+        <div class="speaker-btns">${btns}</div>
+        <button class="seg-delete" onclick="deleteSegment(${seg.id})" title="삭제">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function rebuildTranscript() {
+  document.getElementById('full-transcript').value =
+    segments.map(s=>`[${s.time}] ${s.speaker||'(미배정)'}: ${s.text}`).join('\n');
+  autoSave();
+}
+function copyTranscript() {
+  const ta = document.getElementById('full-transcript');
+  ta.select();
+  navigator.clipboard.writeText(ta.value)
+    .then(()=>toast('✓ 전사 텍스트가 복사됐습니다.'))
+    .catch(()=>{ document.execCommand('copy'); toast('✓ 복사됐습니다.'); });
+}
+function escHtml(str){ return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escAttr(str){ return String(str).replace(/'/g,"\\'"); }
+
+// ════════════════════════════════════════
+// AUTO SAVE
+// ════════════════════════════════════════
 let saveT;
 function autoSave(){
   clearTimeout(saveT);
@@ -811,7 +1565,6 @@ document.querySelectorAll('input,textarea,select').forEach(el=>{
   el.addEventListener('input',autoSave);
   el.addEventListener('change',autoSave);
 });
-
 function updateProgress(d){
   if(!d) d=collect();
   const vals=flatten(d);
@@ -832,7 +1585,9 @@ function flatten(obj){
   return v;
 }
 
-// ── COLLECT ──
+// ════════════════════════════════════════
+// COLLECT
+// ════════════════════════════════════════
 function collect(){
   return{
     _meta:{timestamp:new Date().toISOString(),student:{name:g('si-name'),id:g('si-id'),major:g('si-major'),team:g('si-team')}},
@@ -859,15 +1614,19 @@ function collect(){
       reflection:{q1_repro:g('rq1'),q2_resist:g('rq2'),q3_media:g('rq3'),q4_score:g('w2q4'),q4_improve:g('rq4')}
     },
     week3:{
-      disc:{url:g('disc-file'),min:g('disc-len'),members:g('disc-members'),kw_total:g('kw-repro-total')},
-      team:[0,1,2,3].map(i=>({name:g('tm-n'+i),kw:g('tm-k'+i),frame:g('tm-f'+i),neg:g('tm-g'+i)})),
-      reflection:{q1_pct:g('repro-pct'),q1_ex:g('w3q1'),q2_resist:g('w3q2'),q3_before:g('ch-before'),q3_after:g('ch-after'),q3_narrative:g('w3q3'),q4_neg:g('w3q4'),final_score:g('final-rating'),final_reason:g('final-reason')}
+      members: getMemberNames(),
+      transcript:{
+        segments: segments.map(s=>({time:s.time, speaker:s.speaker, text:s.text})),
+        full_text: g('full-transcript')
+      }
     }
   };
 }
 function g(id){const e=document.getElementById(id);return e?e.value:'';}
 
-// ── SUBMIT ──
+// ════════════════════════════════════════
+// SUBMIT
+// ════════════════════════════════════════
 function submitWeek(w){
   const d=collect();
   const json=JSON.stringify(d,null,2);
@@ -880,34 +1639,338 @@ function submitWeek(w){
   document.body.removeChild(a);URL.revokeObjectURL(url);
   toast('✓ 주 '+w+' JSON 저장됨 — Google Classroom에 파일 업로드하세요');
 }
-
 function toast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),4000);
 }
 
-// ── RESTORE ──
-window.addEventListener('load',()=>{
+// ════════════════════════════════════════
+// RESTORE
+// ════════════════════════════════════════
+function restoreData(){
   try{
     const s=localStorage.getItem('lc_p2');
     if(!s) return;
     const d=JSON.parse(s);
     if(d._meta?.student){sv('si-name',d._meta.student.name);sv('si-id',d._meta.student.id);sv('si-major',d._meta.student.major);sv('si-team',d._meta.student.team);}
-    if(d.week1?.sources) d.week1.sources.forEach((s,i)=>{
+    if(d.week1?.sources) d.week1.sources.forEach((src,i)=>{
       const n=i+1;
-      sv('s'+n+'-title',s.title);sv('s'+n+'-url',s.url);sv('s'+n+'-len',s.length);sv('s'+n+'-why',s.why);
-      if(s.keywords) s.keywords.forEach((k,j)=>sv('kw'+n+'-'+(j+1),k));
-      sv('feel'+n,s.message);sv('pre'+n,s.pre_thought);sv('post'+n,s.post_thought);
-      sv('fair'+n+'-reason',s.fairness_reason);
+      sv('s'+n+'-title',src.title);sv('s'+n+'-url',src.url);sv('s'+n+'-len',src.length);sv('s'+n+'-why',src.why);
+      if(src.keywords) src.keywords.forEach((k,j)=>sv('kw'+n+'-'+(j+1),k));
+      sv('feel'+n,src.message);sv('pre'+n,src.pre_thought);sv('post'+n,src.post_thought);
+      sv('fair'+n+'-reason',src.fairness_reason);
     });
     if(d.week1?.comparison){const c=d.week1.comparison;sv('q1-num',c.trusted_src);sv('q1-ans',c.trust_reason);sv('q2-common',c.common);sv('q2-diff',c.yt_vs_text_diff);sv('q3-overall',c.overall_change);sv('w1-conclusion',c.conclusion);}
+    // 주 3 팀원 복원
+    if(d.week3?.members){
+      const mids=['mbr-0','mbr-1','mbr-3','mbr-4'];
+      d.week3.members.forEach((name, i)=>{ if(mids[i]) sv(mids[i], name); });
+    }
+    // 주 3 전사 복원
+    if(d.week3?.transcript?.segments){
+      segments = d.week3.transcript.segments.map((s,i)=>({
+        id: ++segIdCounter, text: s.text, speaker: s.speaker||'', time: s.time||'00:00'
+      }));
+      renderSegments();
+      if(d.week3.transcript.full_text) sv('full-transcript', d.week3.transcript.full_text);
+    }
+    updateSpeakerBtns();
     updateProgress(d);
     toast('이전 작성 내용을 불러왔습니다');
   }catch(e){}
-  updateProgress();
-});
+}
 function sv(id,val){const e=document.getElementById(id);if(e&&val) e.value=val;}
+// ════════════════════════════════════════
+// 자동 코딩 (CCSS·CDA 코딩틀)
+// ════════════════════════════════════════
+const CODING_KEYWORDS = {
+  source: {
+    YT:   ['YT1','YT2','유튜브','youtube','영상','동영상'],
+    Text: ['기사','뉴스','블로그','신문','텍스트','자료','article'],
+    None: []
+  },
+  frame: {
+    Negative: ['착취','피해','불공정','힘들','고통','억압','부당','위험','착취적'],
+    Positive: ['기회','자유','유연','좋아','편리','장점','긍정','자율'],
+    Mixed:    ['양면','하지만','그러나','반면','동시에','복잡','애매'],
+    Neutral:  ['통계','데이터','수치','퍼센트','숫자','보고서','조사']
+  },
+  literacy: {
+    Emotion:    ['화나','불쌍','슬프','감동','공감','동정','안타깝','무서','놀라'],
+    Critique:   ['편향','공평','신뢰','비판','의심','검토','문제','불균형'],
+    Change:     ['바뀌','달라','변화','전후','처음엔','이제는','인식','깨달'],
+    Reproduce:  ['그대로','재사용','따라','동일','복사','반복','같은 표현'],
+    Resist:     ['비판','수정','제안','저항','다른','새로운','반박','극복']
+  },
+  discourse: {
+    Exploratory:    ['왜','어떻게','생각해','의견','동의','증거','근거','어떤'],
+    Cumulative:     ['맞아','그래','맞지','동의','그렇지','맞습니다'],
+    Disputational:  ['틀려','아니야','반대','아닌데','잘못','다르게']
+  }
+};
+
+const BADGE_COLORS = {
+  YT:'#c0392b', Text:'#2471a3', None:'#9a9490',
+  Negative:'#c0392b', Positive:'#1e6f4e', Mixed:'#b85c2a', Neutral:'#6b6460',
+  Emotion:'#b7950b', Critique:'#2471a3', Change:'#7d3c98', Reproduce:'#a93226', Resist:'#1a5631',
+  Exploratory:'#1a5276', Cumulative:'#616a6b', Disputational:'#a04000'
+};
+
+let codedData = []; // [{time, speaker, text, source, frame, literacy, discourse}]
+let chartInstances = {};
+
+function keywordMatch(text, kwMap) {
+  const t = text.toLowerCase();
+  for(const [label, kws] of Object.entries(kwMap)) {
+    if(kws.some(kw => t.includes(kw.toLowerCase()))) return label;
+  }
+  return Object.keys(kwMap)[Object.keys(kwMap).length - 1]; // default = last key
+}
+
+function assignCodes(text) {
+  return {
+    source:    keywordMatch(text, CODING_KEYWORDS.source),
+    frame:     keywordMatch(text, CODING_KEYWORDS.frame),
+    literacy:  keywordMatch(text, CODING_KEYWORDS.literacy),
+    discourse: keywordMatch(text, CODING_KEYWORDS.discourse)
+  };
+}
+
+async function runAutoCoding() {
+  if(!segments.length) { toast('⚠️ 전사된 발화가 없습니다. 먼저 녹음·전사를 완료하세요.'); return; }
+
+  const btn = document.getElementById('btn-code');
+  btn.disabled = true;
+  btn.textContent = '⏳ Claude AI 코딩 중...';
+
+  // 1차: 키워드 semi-auto 코딩
+  codedData = segments.map(seg => ({
+    ...seg,
+    ...assignCodes(seg.text)
+  }));
+
+  // 2차: Claude API로 보정 요청
+  const transcriptForAPI = segments.map((s,i) =>
+    `${i+1}. [${s.speaker||'미배정'}] ${s.text}`
+  ).join('\n');
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',
+        'x-api-key': getApiKey(),
+        'anthropic-version':'2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2048,
+        messages:[{
+          role:'user',
+          content: `다음은 한국어 팀 토의 전사입니다. 각 발화에 아래 코딩틀로 코드를 배정하세요.
+
+코딩틀:
+- source: YT(YouTube 자료 언급) / Text(뉴스·기사 언급) / None(소스 미언급)
+- frame: Negative(착취·피해) / Positive(기회·자유) / Mixed(양면) / Neutral(사실 나열)
+- literacy: Emotion(감정 재현) / Critique(비판 평가) / Change(생각 변화) / Reproduce(재생산) / Resist(저항·변형)
+- discourse: Exploratory(공동 탐구·질문) / Cumulative(반복 동의) / Disputational(논쟁·반박)
+
+전사:
+${transcriptForAPI}
+
+출력 형식 (JSON 배열만, 설명 없이):
+[{"idx":1,"source":"None","frame":"Negative","literacy":"Emotion","discourse":"Cumulative"}, ...]`
+        }]
+      })
+    });
+
+    if(resp.ok) {
+      const data = await resp.json();
+      const raw = (data.content?.find(b=>b.type==='text')?.text||'').trim();
+      // JSON 파싱 시도
+      const jsonMatch = raw.match(/\[.*\]/s);
+      if(jsonMatch) {
+        const corrections = JSON.parse(jsonMatch[0]);
+        corrections.forEach(c => {
+          const seg = codedData[c.idx - 1];
+          if(seg) {
+            if(c.source)    seg.source    = c.source;
+            if(c.frame)     seg.frame     = c.frame;
+            if(c.literacy)  seg.literacy  = c.literacy;
+            if(c.discourse) seg.discourse = c.discourse;
+          }
+        });
+      }
+    }
+  } catch(e) {
+    // API 실패해도 키워드 코딩 결과 사용
+    console.warn('Claude 코딩 보정 실패, 키워드 코딩만 사용:', e);
+  }
+
+  renderCodingTable();
+  renderCodingCharts();
+  document.getElementById('coding-result-wrap').style.display = 'block';
+  document.getElementById('coding-summary').textContent =
+    `총 ${codedData.length}개 발화 코딩 완료`;
+  btn.disabled = false;
+  btn.textContent = '🔄 다시 코딩';
+  toast(`✓ 자동 코딩 완료 — ${codedData.length}개 발화`);
+}
+
+function badge(code) {
+  const cls = 'badge-' + code;
+  const color = BADGE_COLORS[code] || '#666';
+  return `<span class="code-badge ${cls}" style="border:1px solid ${color}33">${code}</span>`;
+}
+
+function renderCodingTable() {
+  const tbody = document.getElementById('coding-tbody');
+  tbody.innerHTML = codedData.map((row, i) => `
+    <tr>
+      <td style="font-family:'Courier New',Courier,monospace;font-size:10px;color:var(--text-muted);">${row.time}</td>
+      <td style="font-size:12px;font-weight:600;">${escHtml(row.speaker||'미배정')}</td>
+      <td style="font-size:12px;line-height:1.6;">${escHtml(row.text)}</td>
+      <td>${badge(row.source)}</td>
+      <td>${badge(row.frame)}</td>
+      <td>${badge(row.literacy)}</td>
+      <td>${badge(row.discourse)}</td>
+    </tr>
+  `).join('');
+}
+
+function countBy(arr, key) {
+  return arr.reduce((acc, row) => {
+    acc[row[key]] = (acc[row[key]]||0) + 1; return acc;
+  }, {});
+}
+
+function renderCodingCharts() {
+  const chartCfg = [
+    {id:'chart-frame',  key:'frame',     title:'프레임'},
+    {id:'chart-source', key:'source',    title:'매체 소스'},
+    {id:'chart-lit',    key:'literacy',  title:'리터러시'},
+    {id:'chart-disc',   key:'discourse', title:'담론 품질'}
+  ];
+  chartCfg.forEach(({id, key}) => {
+    const counts = countBy(codedData, key);
+    const labels = Object.keys(counts);
+    const values = Object.values(counts);
+    const colors = labels.map(l => BADGE_COLORS[l] || '#aaa');
+    if(chartInstances[id]) chartInstances[id].destroy();
+    const ctx = document.getElementById(id).getContext('2d');
+    chartInstances[id] = new Chart(ctx, {
+      type: 'pie',
+      data: { labels, datasets:[{ data:values, backgroundColor:colors.map(c=>c+'bb'), borderColor:colors, borderWidth:1 }] },
+      options: { responsive:true, plugins:{ legend:{ position:'bottom', labels:{ font:{size:10}, boxWidth:12 } } } }
+    });
+  });
+}
+
+function downloadCodedCSV() {
+  if(!codedData.length) return;
+  const header = 'timestamp,speaker,utterance,source,frame,literacy,discourse';
+  const rows = codedData.map(r =>
+    [r.time, r.speaker||'미배정', '"'+r.text.replace(/"/g,'""')+'"', r.source, r.frame, r.literacy, r.discourse].join(',')
+  );
+  const csv = [header, ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'coded_transcript.csv'; document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  toast('✓ coded_transcript.csv 다운로드');
+}
+
+function downloadDashboard() {
+  if(!codedData.length) return;
+
+  // 차트 데이터
+  const frameCount   = countBy(codedData,'frame');
+  const sourceCount  = countBy(codedData,'source');
+  const litCount     = countBy(codedData,'literacy');
+  const discCount    = countBy(codedData,'discourse');
+
+  const tableRows = codedData.map(r=>`
+    <tr>
+      <td>${r.time}</td><td>${r.speaker||'미배정'}</td>
+      <td>${r.text.replace(/</g,'&lt;')}</td>
+      <td><span class="badge badge-${r.source}">${r.source}</span></td>
+      <td><span class="badge badge-${r.frame}">${r.frame}</span></td>
+      <td><span class="badge badge-${r.literacy}">${r.literacy}</span></td>
+      <td><span class="badge badge-${r.discourse}">${r.discourse}</span></td>
+    </tr>`).join('');
+
+  function pieData(obj) { return JSON.stringify({ labels:Object.keys(obj), data:Object.values(obj) }); }
+
+  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<title>토의 전사 코딩 대시보드</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"><\/script>
+<style>
+body{font-family:-apple-system,'Apple SD Gothic Neo',sans-serif;background:#f5f3ef;color:#1a1816;margin:0;padding:24px;}
+h1{font-size:20px;margin-bottom:4px;}
+.sub{font-size:12px;color:#9a9490;margin-bottom:24px;}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
+.chart-card{background:#fff;border:1px solid #ddd9d2;border-radius:8px;padding:16px;}
+.chart-card h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9a9490;margin-bottom:10px;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:12px;}
+th{background:#f0ede8;padding:8px 10px;text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9a9490;border-bottom:1px solid #ddd9d2;}
+td{padding:8px 10px;border-bottom:1px solid #f0ede8;vertical-align:top;}
+.badge{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;}
+.badge-YT{background:#fde8e8;color:#c0392b;}
+.badge-Text{background:#eaf4fc;color:#2471a3;}
+.badge-None{background:#f0ede8;color:#9a9490;}
+.badge-Negative{background:#fde8e8;color:#c0392b;}
+.badge-Positive{background:#e6f2ec;color:#1e6f4e;}
+.badge-Mixed{background:#fdf0e8;color:#b85c2a;}
+.badge-Neutral{background:#f0ede8;color:#6b6460;}
+.badge-Emotion{background:#fef9e7;color:#b7950b;}
+.badge-Critique{background:#eaf4fc;color:#2471a3;}
+.badge-Change{background:#f4ecf7;color:#7d3c98;}
+.badge-Reproduce{background:#fde8e8;color:#a93226;}
+.badge-Resist{background:#e6f2ec;color:#1a5631;}
+.badge-Exploratory{background:#eaf4fc;color:#1a5276;}
+.badge-Cumulative{background:#fdfefe;color:#616a6b;}
+.badge-Disputational{background:#fef5e7;color:#a04000;}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr;}}
+</style></head><body>
+<h1>📊 토의 전사 코딩 대시보드</h1>
+<p class="sub">CCSS · 멀티모달 리터러시 · CDA 코딩틀 / 총 ${codedData.length}개 발화</p>
+<div class="grid">
+  <div class="chart-card"><h3>프레임 분포</h3><canvas id="c1"></canvas></div>
+  <div class="chart-card"><h3>매체 소스</h3><canvas id="c2"></canvas></div>
+  <div class="chart-card"><h3>리터러시 영향</h3><canvas id="c3"></canvas></div>
+  <div class="chart-card"><h3>담론 품질</h3><canvas id="c4"></canvas></div>
+</div>
+<table>
+<thead><tr><th>시간</th><th>발화자</th><th>발화</th><th>소스</th><th>프레임</th><th>리터러시</th><th>담론</th></tr></thead>
+<tbody>${tableRows}</tbody>
+</table>
+<script>
+const colors={'Negative':'#c0392b','Positive':'#1e6f4e','Mixed':'#b85c2a','Neutral':'#9a9490',
+  'YT':'#c0392b','Text':'#2471a3','None':'#ddd',
+  'Emotion':'#b7950b','Critique':'#2471a3','Change':'#7d3c98','Reproduce':'#a93226','Resist':'#1a5631',
+  'Exploratory':'#1a5276','Cumulative':'#aaa','Disputational':'#a04000'};
+function pie(id, d){
+  const p=JSON.parse(d);
+  new Chart(document.getElementById(id),{type:'pie',
+    data:{labels:p.labels,datasets:[{data:p.data,
+      backgroundColor:p.labels.map(l=>(colors[l]||'#aaa')+'99'),
+      borderColor:p.labels.map(l=>colors[l]||'#aaa'),borderWidth:1}]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:12}}}}});
+}
+pie('c1','${pieData(frameCount).replace(/'/g,"\'")}');
+pie('c2','${pieData(sourceCount).replace(/'/g,"\'")}');
+pie('c3','${pieData(litCount).replace(/'/g,"\'")}');
+pie('c4','${pieData(discCount).replace(/'/g,"\'")}');
+<\/script></body></html>`;
+
+  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'discourse_dashboard.html'; document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  toast('✓ discourse_dashboard.html 다운로드');
+}
+
 </script>
 </body>
 </html>
